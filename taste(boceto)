@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Taste</title>
+	<link rel="stylesheet" href="estilos.css">
+  <!----------- Importar libreria jquery y masonry ----------->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+    
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Taste</h1>
+			</div>
+                <nav class="menu">
+                    <a href="#">Inicio</a>
+                    <a href="#">Nosotros</a>
+                    <a href="#">Términos y condiciones</a>
+                </nav>
+		    </div>
+
+<!--------- Imagenes con descripción ----------->
+            <br><br><br><br><br><br>
+
+            <div class="contenedor2">
+                <div class="imagenes">
+                    <div class="elemento">
+                        <img src=" Imágenes\empanadas-colombianas1.jpg" width="300" height="220">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\LC25eDtCT_1200x630__1.jpg" width="300" height="220">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\los_mejores_10_restaurantes_con_estrellas_michelin_del_mundo.jpg" width="300" height="220">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\mejor_plato_del_mundo_4808.jpg" width="180" height="300">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\uno-de-los-grandes-placeres-culinarios-de-tailandia-viene-con-su-abundancia-de-mariscos-desde-restaurantes-de-5-estrellas-hasta-puestos-callejeros-la-variedad-de-platos-y-estilos-de-cocina-son-inmensos-2b0395m.jpg" width="300" height="220">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\changua.jpg" width="180" height="300">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\pasta.jpg" width="180" height="300">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                    <div class="elemento">
+                        <img src="Imágenes\rollitos.jpg" width="180" height="300">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Maiores sequi quo maxime beatae impedit. Quas similique</p>
+                    </div>
+                </div>
+	</header>
+	<div class="capa"></div>
+<!--------- Menú desplegable ----------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="#">Categorías</a>
+			<a href="#">Búsqueda</a>
+			<a href="#">Perfil</a>
+			<a href="#">Mensajes</a>
+			<a href="#">Historias conmovedoras</a>
+			<a href="#">Soporte técnico</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+
+<!--------------- Activador de libreria Masonry-------------->
+<script>
+    var container = document.querySelector('.contenedor2');
+        var msnry = new Masonry(container,{
+            itemSelector: '.elemento',
+        });
+</script>
+
+</body>
+</html>
