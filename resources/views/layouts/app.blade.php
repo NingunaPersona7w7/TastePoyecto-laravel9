@@ -21,9 +21,14 @@
     <title>{{ config('app.name', 'TASTE') }}</title>
 
     <!-- Fonts -->
+<<<<<<< HEAD
     <link rel="stylesheet" src="..\..\css\app.css" type="text/scss">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+=======
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+>>>>>>> 5d38480a2c9966cafbb22b6f40a20002b9b37929
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
