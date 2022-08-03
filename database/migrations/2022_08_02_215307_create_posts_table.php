@@ -16,9 +16,19 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->bigIncrements("user_id")->unsigned()->nullable();
+
             $table->string('title');
+            $table->string('slug')->unique();
+
+            $table->string('image')->nullable();
+
+            $table->text('body');
+            $table->string('iframe')->nullable();
 
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
