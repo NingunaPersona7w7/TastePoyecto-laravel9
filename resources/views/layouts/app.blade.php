@@ -21,18 +21,13 @@
     <title>{{ config('app.name', 'TASTE') }}</title>
 
     <!-- Fonts -->
-<<<<<<< HEAD
     <link rel="stylesheet" src="..\..\css\app.css" type="text/scss">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-=======
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
->>>>>>> 5d38480a2c9966cafbb22b6f40a20002b9b37929
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
+
 </head>
 <body>
     <div id="app">
@@ -47,7 +42,7 @@
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ms-auto">
         <!-- Right Side Of Navbar -->
-    
+
             <!-- Authentication Links -->
             @guest
                 @if (Route::has('login'))
@@ -63,7 +58,7 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
-                    
+
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
