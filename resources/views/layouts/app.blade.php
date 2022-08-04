@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'TASTE') }}</title>
 
@@ -74,7 +74,18 @@
 
         <main class="py-4">
             @yield('content')
-        </main>
-    </div>
-</body>
+        </div>
+
+        @guest()
+            @include('layouts.footers.guest')
+        @endguest
+
+        <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        
+        @stack('js')
+        
+        <!-- Argon JS -->
+        <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+    </body>
 </html>
