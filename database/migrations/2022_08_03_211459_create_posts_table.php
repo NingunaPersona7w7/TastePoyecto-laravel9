@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-<<<<<<< HEAD:database/migrations/2022_08_02_215307_create_posts_table.php
             $table->bigIncrements('id');
 
             $table->bigIncrements("user_id")->unsigned()->nullable();
@@ -27,9 +26,7 @@ return new class extends Migration
             $table->text('body');
             $table->string('iframe')->nullable();
 
-=======
             $table->id();
->>>>>>> b3676b9a82fd4bd82cc48730e28c404b08bc31b8:database/migrations/2022_08_03_211459_create_posts_table.php
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
