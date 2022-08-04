@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rol', function (Blueprint $table) {
-            $table->id('id_user');
-            $table->boolean('false');
+        Schema::create('rate', function (Blueprint $table) {
+            $table->increments('id_user');
+            $table->text('comment');
+            $table->decimal('reviews',5,2);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rol');
+        Schema::dropIfExists('rate');
     }
 };
