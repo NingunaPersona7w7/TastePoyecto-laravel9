@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $user = Auth::user();
+        if($user->role == 'seller') {
+            $role = 'Vendedor';
+            return view('seller/dashboard', compact('user', 'role'));
+        } else {
+            $role = 'Comprador';
+            return view('buyer/dashboard', compact('user', 'role'));
+        }
     }
 }

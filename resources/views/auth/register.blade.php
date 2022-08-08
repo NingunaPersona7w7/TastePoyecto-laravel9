@@ -16,6 +16,9 @@
                     </select>
                     <input type="password" name="password" placeholder="Contraseña"/>
                     <input type="password" name="password_confirmation" placeholder="Confirmar contraseña"/> 
+                    <label class="t18">
+                        <span onclick="viewConditions()"><u>Ver terminos y condiciones</u></span>
+                    </label>
                     <div class="content-login-checkbox">
                         <input class="custom-control-input" id="customCheckRegister" type="checkbox" >
                         <label class="custom-control-label" for="customCheckLogin">
