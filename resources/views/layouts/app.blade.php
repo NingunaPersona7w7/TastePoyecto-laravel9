@@ -23,11 +23,10 @@
              @endauth
            </div>
         </header>
-    
+
         <main class="main-content">
-           
-          
             @yield('content')
+
         </main>
     </div>
     <div id="modal-app" class="modal-app">
@@ -36,8 +35,7 @@
         </div>
     </div>
     <script src="{{URL::asset('assets/js/modal.js')}}"></script>
-    
+
 </body>
 </html>
-        
-        
+

@@ -63,7 +63,7 @@
                                 </label>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary mt-4">{{ __('Create account') }}</button>
+                                <button type="submit" class="button-login">{{ __('Crear Cuenta') }}</button>
                             </div>
                         </form>
 @endsection
