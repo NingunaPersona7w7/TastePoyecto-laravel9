@@ -3,9 +3,9 @@
     <div class="content-image-profile" onclick="viewProfile()">
         <img src="{{URL::asset('assets/img/profile/profile.jpg')}}" alt="">
     </div>
-    <div class="content-info-profile">
+    <div class="content-info-profile"{{$user = Auth::user()}}>
 
-        <h4>{{$role}} {{$user->name}}</h4>
+        <h4>{{$user->name}}</h4>
     </div>
  </div>
 
