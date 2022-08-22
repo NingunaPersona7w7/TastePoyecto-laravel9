@@ -34,7 +34,7 @@
 
         </div>
     </div>
-    <script src="{{URL::asset('assets/js/modal.js')}}"></script>
+    <script src="{{URL::asset('assets/js/funtions.js')}}"></script>
 
 </body>
 </html>

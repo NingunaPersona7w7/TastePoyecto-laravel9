@@ -198,6 +198,140 @@ input, select {
     cursor: pointer;
 }
 
+.f1 {
+    flex: 1;
+}
+
+.content-profile-seller {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.content-info-profile-seller {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    height: 280px;
+    background-color: rgb(141, 182, 147);
+    border-radius: 30px;
+}
+
+.content-description-profile-seller {
+    height: 400px;
+    flex: 4;
+    margin: 50;
+    background-color: rgb(141, 182, 147);
+    border-radius: 30px;
+}
+
+.content-profile-avatar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    top: -70px;
+}
+
+.photo-profile img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.profile-info h4{
+    margin: 0px;
+    font-weight: 100;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -70px;
+}
+
+.star-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.content-profile-qualification {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    top: -70px;
+}
+
+.content-description-profile-seller {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-info-profile {
+    display: flex;
+}
+
+.button-profile {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    border: 2px solid rgb(19, 31, 31);
+    background-color: DarkSlateGray;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(195, 230, 230);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgb(195, 230, 230);
+    color: DarkSlateGray;
+}
+
+.reviews-info-profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.content-reviews-profile {
+    overflow: auto;
+}
+
+.content-card-qualification {
+    border: 1px solid;
+    background-color: rgba(240, 255, 255, 0.507);
+    border-radius: 10px;
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    padding: 15px;
+}
+
+.star-icon-reviews {
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.content-star {
+    margin-right: 20px;
+}
+
 @keyframes logo-animate {
     from {
         width: 50px;
