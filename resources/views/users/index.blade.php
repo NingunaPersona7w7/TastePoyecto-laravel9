@@ -10,7 +10,7 @@
                 <div class="card-body">
 
                     <a class="btn btn-warning" href="{{ route('users.create') }}">Create User</a>
-                    <table>
+                    <table class="table table-striped mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > nombre</th>

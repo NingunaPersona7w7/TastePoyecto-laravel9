@@ -39,14 +39,13 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('rol', 'Rol') !!}
-                            {!! Form::select('rol', $roles, null, ['class' => 'form-control']) !!}
+                            {!! Form::select('roles[]', $roles, [], ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
                         </div>
                     {!! Form::close() !!}
 
-                    {!! Form::close()!!}
 
                 </div>
             </div>
