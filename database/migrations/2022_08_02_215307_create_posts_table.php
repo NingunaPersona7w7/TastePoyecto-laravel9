@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigIncrements("user_id")->unsigned()->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
 
             $table->string('title');
             $table->string('slug')->unique();

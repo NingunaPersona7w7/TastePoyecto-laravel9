@@ -14,8 +14,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // Reset cached roles and permissions
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         DB::table('users')->insert([
-            'name' => 'Admin Admin',
+            'name' => 'Admin',
             'email' => 'admin@argon.com',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),

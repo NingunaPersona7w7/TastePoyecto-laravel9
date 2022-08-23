@@ -7,18 +7,28 @@
 
         <h4>{{$user->name}}</h4>
     </div>
- </div>
+</div>
 
 
 
- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
 <div id="profile-box" class="profile-box">
     <div class="content-profile">
+        <a href="{{ url('/user') }}">
+            <div class="option-profile">home</div>
+        </a>
         <a href="{{ url('/profile') }}">
             <div class="option-profile">Mi perfil</div>
         </a>
+        <a href="{{ url('/roles') }}">
+            <div class="option-profile">roles</div>
+        </a>
+        <a href="{{ url('/posts') }}">
+            <div class="option-profile">post</div>
+        </a>
+
         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
             <div class="option-profile">Cerrar sesion</div>
