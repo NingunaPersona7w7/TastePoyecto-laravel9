@@ -25,9 +25,9 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    @if(!empty($user->getRolName))
-                                        @foreach($user->getRolName as $role)
-                                            {{ $roleName->name }}
+                                    @if(!empty($user->getRoleNames()))
+                                        @foreach($user->getRoleNames() as $roleName)
+                                            <h5><span class="">{{ $roleName }}</span></h5>
                                         @endforeach
                                     @endif
                                 </td>

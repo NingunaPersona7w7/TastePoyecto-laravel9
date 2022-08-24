@@ -15,9 +15,7 @@
                     <table class="table table-striped mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>
-                            <th style="color: rgb(0, 0, 0)" > nombre</th>
-                            <th style="color: rgb(0, 0, 0)" > Email</th>
-                            <th style="color: rgb(0, 0, 0)" > rol</th>
+                            <th style="color: rgb(0, 0, 0)" > Rol</th>
                             <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
                         <tbody>

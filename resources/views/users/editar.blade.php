@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('rol', 'Rol') !!}
-                            {!! Form::select('roles[]', $roles, $user->roles->pluck('id')->toArray(), ['class' => 'form-control']) !!}
+                            {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control')) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
