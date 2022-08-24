@@ -21,8 +21,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        Post::paginate(5);
-        return view('posts.index', compact('posts'));
+        $posts = Post::paginate(5);
+        return view('post.index', compact('posts'));
     }
 
     /**
@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.crear');
+        return view('post.crear');
     }
 
     /**
@@ -70,7 +70,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.editar', compact('post'));
+        return view('post.editar', compact('post'));
     }
 
     /**
@@ -87,7 +87,7 @@ class PostController extends Controller
             'body' => 'required',
         ]);
         $post->update($request->all());
-        return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
+        return redirect()->route('post.index')->with('success','Post actualizado correctamente');
     }
 
     /**
