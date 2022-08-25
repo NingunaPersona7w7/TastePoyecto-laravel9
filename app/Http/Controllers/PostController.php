@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permissions:ver-post | crear-post | editar-post | eliminar-post',['only'=>['index']]);
+        $this->middleware('permissions:ver-post|crear-post|editar-post|eliminar-post',['only'=>['index']]);
         $this->middleware('permissions:crear-post' ,['only'=>['create', 'store']]);
         $this->middleware('permissions:editar-post' ,['only'=>['edit', 'update']]);
         $this->middleware('permissions:eliminar-post' ,['only'=>['destroy']]);

@@ -8,11 +8,15 @@
                 <div class="photo-profile">
                     <img src="{{URL::asset('assets/img/profile/profile.jpg')}}">
                 </div>
-                <button onclick="window.location.href='{{ url('/profile/edit') }}'" class="button-login">Editar perfil</button>
+                <a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
             </div>
             <div class="profile-info">
                 <h4>{{$user->name}}</h4>
-                <h4>{{$role}}</h4>
+                @if(!empty($user->getRoleNames()))
+                @foreach($user->getRoleNames() as $roleName)
+                    <h4><span class="">{{ $roleName }}</span></h4>
+                @endforeach
+            @endif
                 <h4>{{$user->email}}</h4>
             </div>
             <div class="content-profile-qualification">
@@ -35,7 +39,7 @@
                 </div>
             </div>
             <div id="review-content" class="content-reviews-profile" style="display: block;">
-                
+
                 <div class="content-buttons-info-profile">
                     <div class="reviews-info-profile">
                         @foreach ($qualifications as $item)

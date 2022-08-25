@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         if($user->role != 'buyer') {
             $role = 'Vendedor';
-            $qualification = 3;
+            $qualification = 2;
             $qualifications = array(
                 [
                     "reviews" => 3,
