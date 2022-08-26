@@ -4,11 +4,11 @@
     <div class="content-profile-seller">
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
-                <button class="button-login">Mensajes</button>
                 <div class="photo-profile">
                     <img src="{{URL::asset('assets/img/profile/profile.jpg')}}">
                 </div>
-                <a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
+                <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
+                <button class="button-login">Mensajes</button>
             </div>
             <div class="profile-info">
                 <h4>{{$user->name}}</h4>
@@ -26,8 +26,8 @@
             </div>
         </div>
         <div class="f1"></div>
-        <div class="content-description-profile-seller">
-            <div class="buttons-info-profile">
+        <div class="content-buttonsProfile-inf">
+        <div class="buttons-info-profile">
                 <div id="review" class="button-profile selected" onclick="showOptionSelected('review')">
                     Reseñas
                 </div>
@@ -38,6 +38,8 @@
                     Historia
                 </div>
             </div>
+        <div class="content-description-profile-seller">
+            
             <div id="review-content" class="content-reviews-profile" style="display: block;">
 
                 <div class="content-buttons-info-profile">
@@ -55,6 +57,7 @@
                             </div>
                         @endforeach
                     </div>
+                </div>
                 </div>
             </div>
             <div id="product-content" style="display: none;"></div>

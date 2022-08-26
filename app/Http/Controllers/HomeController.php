@@ -23,13 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        if($user->role == 'seller') {
-            $role = 'Vendedor';
-            return view('seller/dashboard', compact('user', 'role'));
-        } else {
-            $role = 'Comprador';
-            return view('buyer/dashboard', compact('user', 'role'));
-        }
+        return view('home');
     }
 }
