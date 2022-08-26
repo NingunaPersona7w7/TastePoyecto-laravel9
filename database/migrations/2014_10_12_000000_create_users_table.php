@@ -33,4 +33,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 };

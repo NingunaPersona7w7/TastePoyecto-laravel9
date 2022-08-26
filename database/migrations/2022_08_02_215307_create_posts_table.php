@@ -41,4 +41,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('posts');
     }
+
+    public function users()
+    {
+        return $this->belongsTo(users::class);
+    }
 };
