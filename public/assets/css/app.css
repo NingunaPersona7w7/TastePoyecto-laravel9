@@ -114,8 +114,7 @@ input, select {
 
 .box-login {
     background-color: rgb(35, 59, 39);
-    padding: 50px;
-    border-radius: 100px 0 100px 0px;
+    padding: 80px;
 }
 
 .button-login {
