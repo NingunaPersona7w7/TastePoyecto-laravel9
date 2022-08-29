@@ -20,4 +20,8 @@ class CommentsFactory extends Factory
             //
         ];
     }
+
+    public function user(){
+        return $this->belong(User::class);
+    }
 }
