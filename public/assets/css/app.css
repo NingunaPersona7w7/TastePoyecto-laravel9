@@ -40,7 +40,11 @@ body {
     background-color: DarkSlateGray;
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
      box-shadow: 1px 1px 1px 1px rgba(194, 186, 186, 0.75);
+=======
+    box-shadow: 1px 1px 1px 1px rgba(194, 186, 186, 0.75);
+>>>>>>> 7a68c8d4c0f1101df0bff5bf79c751d824ef890d
 }
 
 .content-header-logo {
@@ -193,6 +197,146 @@ input, select {
     font-size: 18px;
     cursor: pointer;
 }
+
+.f1 {
+    flex: 1;
+}
+
+.content-profile-seller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content-info-profile-seller {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgb(240, 255, 242);
+    height: 650px;
+    padding: 2%;
+}
+
+.content-description-profile-seller {
+    height: 750px;
+    background-color: rgb(184, 214, 189);
+}
+
+.content-profile-avatar {
+    padding: 20px;
+    display: flex;
+    position: relative;
+    top: -70px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-profile img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.profile-info h4{
+    margin: 0px;
+    font-weight: 100;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -70px;
+}
+
+.star-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.content-profile-qualification {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    top: -70px;
+}
+
+.content-description-profile-seller {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-info-profile {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.button-profile {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    /* border: 2px solid rgb(19, 31, 31); */
+    background-color: DarkSlateGray;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(195, 230, 230);
+    font-weight: 800;
+    cursor: pointer;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.selected {
+    background-color: rgb(195, 230, 230);
+    color: DarkSlateGray;
+}
+
+.content-buttonsProfile-inf {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2%;
+}
+
+.reviews-info-profile {
+    display: flex;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-reviews-profile {
+    overflow: auto;
+}
+
+.content-card-qualification {
+    background-color: rgba(240, 255, 255, 0.507);
+    border-radius: 10px;
+    display: flex;
+    margin: 10px;
+    padding: 15px;
+    flex-direction: column-reverse;
+}
+
+.star-icon-reviews {
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.content-star {
+    margin-right: 20px;
+}
+
 
 @keyframes logo-animate {
     from {

@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([UsersTableSeeder::class]);
+        // Reset cached roles and permissions
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+       // $this->call([UsersTableSeeder::class]);
+        \App\Models\User::create([
+            'name' => 'Admin',
+            'email' => 'jeisson@admin.com',
+            'password' => bcrypt('987654321'),],
+        );
     }
 }
