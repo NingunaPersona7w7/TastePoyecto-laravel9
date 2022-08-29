@@ -40,9 +40,6 @@ body {
     background-color: DarkSlateGray;
     display: flex;
     justify-content: space-between;
-    -moz-border-radius:  0 0 100px 100px;
-    -webkit-border-radius:  0 0 100px 100px;
-     border-radius:  0 0 200px 200px;
      box-shadow: 1px 1px 1px 1px rgba(194, 186, 186, 0.75);
 }
 
