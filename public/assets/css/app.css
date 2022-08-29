@@ -39,7 +39,6 @@ body {
     flex: 2;
     background-color: DarkSlateGray;
     display: flex;
-    justify-content: space-between;
     box-shadow: 1px 1px 1px 1px rgba(194, 186, 186, 0.75);
 }
 
@@ -150,16 +149,15 @@ input, select {
 }
 
 .content-image-profile {
-    height: 70px;
-    width: 70px;
-    margin-right: 20px;
-    
+    height: 75px;
+    width: 75px;
 }
 
 .content-image-profile img{
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     border-radius: 50px;
+    margin-top: 10px;
 }
 
 .profile-box {
@@ -202,6 +200,7 @@ input, select {
 .content-profile-seller {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100%;
     padding: 10px;
@@ -212,20 +211,17 @@ input, select {
     display: flex;
     flex-direction: column;
     background-color:  rgb(240, 255, 242);
-    height: 650px;
+    height: -800px;
     padding: 2%;
 }
 
 .content-description-profile-seller {
-    height: 750px;
     background-color: rgb(184, 214, 189);
 }
 
 .content-profile-avatar {
-    padding: 20px;
     display: flex;
     position: relative;
-    top: -70px;
     flex-direction: column;
     align-items: center;
 }
@@ -242,6 +238,7 @@ input, select {
     margin: 0px;
     font-weight: 100;
     font-family: 'Ubuntu', sans-serif;
+    top: 20px;
 }
 
 .profile-info {
@@ -249,7 +246,7 @@ input, select {
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: -70px;
+    bottom: -20px;
 }
 
 .star-icon {
@@ -263,9 +260,9 @@ input, select {
 .content-profile-qualification {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 10px;
     position: relative;
-    top: -70px;
+    top: 30px;
 }
 
 .content-description-profile-seller {
@@ -300,7 +297,6 @@ input, select {
 .content-buttonsProfile-inf {
     display: flex;
     flex-direction: column;
-    padding-right: 2%;
 }
 
 .reviews-info-profile {
