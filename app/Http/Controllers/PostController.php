@@ -87,7 +87,7 @@ class PostController extends Controller
             'body' => 'required',
         ]);
         $post->update($request->all());
-        return redirect()->route('post.index')->with('success','Post actualizado correctamente');
+        return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
     }
 
     /**
