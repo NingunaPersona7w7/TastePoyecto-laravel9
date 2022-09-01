@@ -132,6 +132,14 @@ input, select {
     cursor: pointer;
 }
 
+.button-menu {
+    background-color:DarkSlateGray;
+    border: 0ch;
+    color: rgb(195, 230, 230);
+    cursor: pointer;
+    width: 50px;
+}
+
 .content-login-checkbox {
     display: flex;
     align-items: center;
@@ -288,6 +296,16 @@ input, select {
     border-top-right-radius: 50px;
 }
 
+.card-header-user {
+    color: DarkSlateGray;
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .selected {
     background-color: rgb(195, 230, 230);
     color: DarkSlateGray;
@@ -339,4 +357,48 @@ input, select {
         width: 150px;
         margin-top: 0px;
     }
+}
+
+.content-products {
+    background-color: beige;
+    padding: 5%;
+    display: flex;
+    border-radius: 10px;
+    width: 50%;
+    height: 80%;
+}
+
+.counter-products {
+    width: 40%;
+    height: 20%;
+}
+
+.img-product img{
+    width: 300px;
+    height: 300px;
+    left: 20px;
+}
+
+.content-perfil-sellerProduct {
+    background-color: bisque;
+    padding: 5%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-perfil-sellerProduct img{
+    width: 22%;
+    height: 22%;
+    border-radius: 100%;
+}
+
+.button-login[name='buy'] {
+    width: 50%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+
+body {
+  font-family: "Tajawal", Arial;
 }

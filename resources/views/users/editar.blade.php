@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="card text-bg-dark mb-1" style="max-width: 18rem, background-color : transparent;">
+            <div>
                 <div class="card-header">{{ __('Crear usuario') }}</div>
 
-                <div class="card-body">
+                <div class="card-body text-ligth">
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -42,8 +42,8 @@
                             {!! Form::label('rol', 'Rol') !!}
                             {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control')) !!}
                         </div>
-                        <div class="form-group">
-                            {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
+                        <div class="form-group">    
+                            {!! Form::submit('Crear', ['class' => 'btn btn-light']) !!}
                         </div>
                     {!! Form::close() !!}
                 </div>
