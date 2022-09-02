@@ -32,6 +32,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
 }
 
 .content-header {
@@ -306,6 +307,10 @@ div{
     font-family: 'Ubuntu', sans-serif;
 }
 
+u{
+    text-decoration: none;
+}
+
 .selected {
     background-color: rgb(195, 230, 230);
     color: DarkSlateGray;
@@ -371,6 +376,7 @@ div{
 .counter-products {
     width: 40%;
     height: 20%;
+    font-weight: 800;
 }
 
 .img-product img{
@@ -384,7 +390,7 @@ div{
     padding: 5%;
     border-radius: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .content-perfil-sellerProduct img{

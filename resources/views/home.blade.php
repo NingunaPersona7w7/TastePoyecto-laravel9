@@ -11,8 +11,8 @@
                     </div>
                     <br><h2>Hamburguesa</h2>
                     <h6>Rica, lechuga, zanahoria y menudencias de loquito</h6>
-                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+">
-                    <button class="button-login" name="buy">Comprar</button>
+                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood">
+                    <button class="button-login" name="buy" onclick="confirmSale()"><u>Comprar</u></button>
                 </div>
                     <div class="img-product">
                         <img src="{{URL::asset('assets/img/icons/food.png')}}" alt="">
