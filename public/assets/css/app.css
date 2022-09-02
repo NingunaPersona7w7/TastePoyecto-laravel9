@@ -35,6 +35,14 @@ body {
     border-radius: 20px;
 }
 
+.closeModal {
+    background-color: rgb(195, 230, 230);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    border: none;
+    padding-left: 240px;
+}
+
 .content-header {
     width: 100%;
     flex: 2;
