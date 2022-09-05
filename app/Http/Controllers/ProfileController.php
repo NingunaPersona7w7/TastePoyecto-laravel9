@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -85,11 +87,21 @@ class ProfileController extends Controller
                 ]
 
             );
-            return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
+            $products = Post::where('user_id', $user->id)->get();
+            $history = "soy pobre.";
+            return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications', 'products'));
         } else {
             $role = 'Comprador';
-            return view('buyer/profile/profile', compact('user', 'role'));
+    
+            return view('buyer/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
         }
+    }
+
+    public function profileById($id) {
+        $user = User::find($id);
+        $qualification= 3;
+        $qualifications= [];
+        return view('profile/profileById', compact('user', 'qualification', 'qualifications'));
     }
     /**
      * Update the profile

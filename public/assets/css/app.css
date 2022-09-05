@@ -55,7 +55,8 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-
+    flex: 1;
+    justify-content: center;
 }
 
 .content-header-logo img {
@@ -99,6 +100,12 @@ body {
     justify-content: center;
     align-items: center;
     margin: 50px;
+}
+
+.content-profile-app {
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .box-login form{
@@ -162,6 +169,8 @@ input, select {
     height: 100%;
     align-items: center;
     margin-right: 50px;
+    justify-content: flex-end;
+    flex: 1;
 }
 
 .content-image-profile {
@@ -233,6 +242,14 @@ input, select {
 
 .content-description-profile-seller {
     background-color: rgb(184, 214, 189);
+}
+
+.carousel-products {
+    width: 500px;
+}
+
+.buttons-history-seller {
+    width: 50px;
 }
 
 .content-profile-avatar {
@@ -409,6 +426,41 @@ u{
 
 .button-login[name='buy'] {
     width: 50%;
+}
+
+.content-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.product-content {
+    display: flex;
+    padding: 5%;
+    
+}
+
+.content-create-newProduct {
+    margin: 5%;
+}
+
+.carousel-products {
+    margin: 5%;
+}
+
+.button-login[name=create-newProduct] {
+    border-radius: 100%;
+    width: 50px;
+}
+
+
+.content-create-newProfile {
+    display: flex;
+}
+
+.card-carousel-inf {
+    background-color: aliceblue;
+    padding: 5%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
