@@ -60,9 +60,60 @@
                 </div>
                 </div>
             </div>
-            <div id="product-content" style="display: none;"></div>
-            <div id="history-content" style="display: none;"></div>
-        </div>
+                <div id="product-content" class="content-products-profile" style="display: none; height: 150px;">
+                <div class="product-content">
+                <div class="carousel-products">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($products as $product)
+                                <div class="carousel-item {{$loop->index == 0 ? 'active' : '' }}">
+                                    <img src="{{URL::asset($product->image)}}" style="width: 350px;">
+                                    <div class="card-carousel-inf">
+                                        <br><b>Producto:</b> {{$product->title}}
+                                        <br><b>Descripción:</b> {{$product->body}}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="content-create-newProduct">
+                    <div class="mb-3">
+                        <b><center><label for="formFile" class="form-label">Foto del producto</label></center></b>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <b><center><label for="exampleFormControlTextarea1" class="form-label">Descripción del producto</label></center></b>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <center><button class="button-login" name="create-newProduct">+</button></center>
+                </div>
+                </div>
+            </div>
+            <div id="history-content" style="display: none;">
+                <div class="content-create-newProduct">
+                    <div class="mb-3">
+                        <b><center><label for="formFile" class="form-label">Fotos de su historia</label></center></b>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                        <b><center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label></center></b>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="buttons-history-seller">
+                        <button class="button-login">Subir</button>
+                        <button class="button-login">Editar</button>
+                    </div>
+                </div>
+            </div>
         <div class="f1"></div>
     </div>
 @endsection
