@@ -24,7 +24,7 @@
                         @endif
 
 
-                    <form action="{{ route('post.update',$post->id) }}" method="POST">
+                    <form action="{{ route('posts.update',$post->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -36,8 +36,9 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
 
-                                <div class="form-floating">
                                 <label for="contenido">Contenido</label>
+                                <div class="form-floating">
+
                                 <textarea class="form-control" name="body" style="height: 100px">{{ $post->body }}</textarea>
 
                                 </div>

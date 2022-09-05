@@ -32,6 +32,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+}
+
+.closeModal {
+    background-color: rgb(195, 230, 230);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    border: none;
+    padding-left: 240px;
 }
 
 .content-header {
@@ -46,7 +55,8 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-
+    flex: 1;
+    justify-content: center;
 }
 
 .content-header-logo img {
@@ -92,6 +102,12 @@ body {
     margin: 50px;
 }
 
+.content-profile-app {
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .box-login form{
     font-size: 30px;
     text-align: center;
@@ -132,6 +148,14 @@ input, select {
     cursor: pointer;
 }
 
+.button-menu {
+    background-color:DarkSlateGray;
+    border: 0ch;
+    color: rgb(195, 230, 230);
+    cursor: pointer;
+    width: 50px;
+}
+
 .content-login-checkbox {
     display: flex;
     align-items: center;
@@ -145,6 +169,8 @@ input, select {
     height: 100%;
     align-items: center;
     margin-right: 50px;
+    justify-content: flex-end;
+    flex: 1;
 }
 
 .content-image-profile {
@@ -218,6 +244,14 @@ input, select {
     background-color: rgb(184, 214, 189);
 }
 
+.carousel-products {
+    width: 500px;
+}
+
+.buttons-history-seller {
+    width: 50px;
+}
+
 .content-profile-avatar {
     display: flex;
     position: relative;
@@ -288,6 +322,20 @@ input, select {
     border-top-right-radius: 50px;
 }
 
+.card-header-user {
+    color: DarkSlateGray;
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+u{
+    text-decoration: none;
+}
+
 .selected {
     background-color: rgb(195, 230, 230);
     color: DarkSlateGray;
@@ -339,4 +387,84 @@ input, select {
         width: 150px;
         margin-top: 0px;
     }
+}
+
+.content-products {
+    background-color: beige;
+    padding: 5%;
+    display: flex;
+    border-radius: 10px;
+    width: 50%;
+    height: 80%;
+}
+
+.counter-products {
+    width: 40%;
+    height: 20%;
+    font-weight: 800;
+}
+
+.img-product img{
+    width: 300px;
+    height: 300px;
+    left: 20px;
+}
+
+.content-perfil-sellerProduct {
+    background-color: bisque;
+    padding: 5%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-perfil-sellerProduct img{
+    width: 22%;
+    height: 22%;
+    border-radius: 100%;
+}
+
+.button-login[name='buy'] {
+    width: 50%;
+}
+
+.content-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.product-content {
+    display: flex;
+    padding: 5%;
+    
+}
+
+.content-create-newProduct {
+    margin: 5%;
+}
+
+.carousel-products {
+    margin: 5%;
+}
+
+.button-login[name=create-newProduct] {
+    border-radius: 100%;
+    width: 50px;
+}
+
+
+.content-create-newProfile {
+    display: flex;
+}
+
+.card-carousel-inf {
+    background-color: aliceblue;
+    padding: 5%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+
+body {
+  font-family: "Tajawal", Arial;
 }

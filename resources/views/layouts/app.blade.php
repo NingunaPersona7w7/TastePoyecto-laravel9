@@ -17,7 +17,38 @@
 <body>
     <div class="content-app">
         <header class="content-header">
-            <div></div>
+            <div class="content-menu">
+                @auth()
+                    <button class= "button-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">☰</button>
+                @endauth
+            </div>
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">MENU</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <a href="{{ url('/home') }}">
+                        <div class="option-profile">home</div>
+                    </a>
+                    <a href="{{ url('/user') }}">
+                        <div class="option-profile">crud</div>
+                    </a>
+                    <a href="{{ url('/profile') }}">
+                        <div class="option-profile">Mi perfil</div>
+                    </a>
+                    <a href="{{ url('/roles') }}">
+                        <div class="option-profile">roles</div>
+                    </a>
+                    <a href="{{ url('/posts') }}">
+                        <div class="option-profile">comida</div>
+                    </a>
+                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <div class="option-profile">Cerrar sesion</div>
+                    </a>
+                </div>
+                </div>
             <div class="content-header-logo">
                 <img src="{{URL::asset('assets/img/icons/logo.png')}}" alt="" srcset="">
             </div>

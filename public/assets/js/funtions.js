@@ -9,11 +9,24 @@ function viewConditions() {
     + '<button class="button-login" onclick="closeModal()">Cerrar</button>';
 }
 
+function confirmSale() {
+    modal = document.getElementById("modal-app");
+    modal.setAttribute("style", "display:flex;");
+    modalContent = document.getElementById("content-modal-app");
+    modalContent.innerHTML = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>"
+    + "<p>(s)</p>"
+    + '<button class="button-login" onclick="redirection()">Confirmar</button>';
+}
+
 function closeModal() {
     modal = document.getElementById("modal-app");
     modal.setAttribute("style", "display:none;");
     modalContent = document.getElementById("content-modal-app");
     modalContent.innerHTML = "";
+}
+
+function redirection() {
+        window.location.replace("http://127.0.0.1:8000/profile");
 }
 
 function viewProfile() {
