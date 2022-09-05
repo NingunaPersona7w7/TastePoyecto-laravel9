@@ -9,12 +9,14 @@ function viewConditions() {
     + '<button class="button-login" onclick="closeModal()">Cerrar</button>';
 }
 
-function confirmSale() {
+function confirmSale(product) {
+    console.log('products ====> ', product);
+    const quantity= document.getElementById(`quantity-${product.id}`).value 
     modal = document.getElementById("modal-app");
     modal.setAttribute("style", "display:flex;");
     modalContent = document.getElementById("content-modal-app");
-    modalContent.innerHTML = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>"
-    + "<p>(s)</p>"
+    modalContent.innerHTML = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>" +
+    quantity + "  --->  " + product.title
     + '<button class="button-login" onclick="redirection()">Confirmar</button>';
 }
 

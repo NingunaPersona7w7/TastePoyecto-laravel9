@@ -120,9 +120,12 @@ body {
 
 input, select {
     border-radius: 5px;
-    height: 50px;
     margin-bottom: 5px;
 }
+
+.h50 {
+    height: 50px;
+} 
 
 .box-login {
     background-color: rgb(35, 59, 39);
@@ -222,14 +225,20 @@ input, select {
     flex: 1;
 }
 
+.card-carousel-buyProducts {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
 .content-profile-seller {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 .content-info-profile-seller {
@@ -238,6 +247,7 @@ input, select {
     background-color:  rgb(240, 255, 242);
     height: -800px;
     padding: 2%;
+    padding-bottom: 150px;;
 }
 
 .content-description-profile-seller {
@@ -246,10 +256,6 @@ input, select {
 
 .carousel-products {
     width: 500px;
-}
-
-.buttons-history-seller {
-    width: 50px;
 }
 
 .content-profile-avatar {
@@ -346,6 +352,15 @@ u{
     flex-direction: column;
 }
 
+.content-products-profile {
+    background-color: rgb(184, 214, 189);
+}
+
+.content-history-profile {
+    background-color: rgb(184, 214, 189);
+    width: 550px;
+}
+
 .reviews-info-profile {
     display: flex;
     padding: 40px;
@@ -416,6 +431,13 @@ u{
     border-radius: 20px;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 7%;
+}
+
+.content-carousel-item-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content-perfil-sellerProduct img{
@@ -448,7 +470,7 @@ u{
     margin: 5%;
 }
 
-.button-login[name=create-newProduct] {
+.circle-button {
     border-radius: 100%;
     width: 50px;
 }
@@ -458,10 +480,121 @@ u{
     display: flex;
 }
 
+.buttons-history-seller {
+    display: flex;
+    justify-content: space-around;
+}
+
 .card-carousel-inf {
     background-color: aliceblue;
     padding: 5%;
+    width: 350px;
 }
+
+.content-history-seller {
+    display: flex;
+    padding: 40px;
+}
+
+.content-history-seller img{
+    padding-right: 40px;
+    border-radius: 10px;
+}
+
+.content-history-seller-withoutImg {
+    padding-right: 40px;
+}
+
+.buttom-report {
+    background-color: rgb(79, 47, 47);
+    color: rgb(230, 195, 195);
+}
+
+.buttom-donate {
+    background-color: rgb(47, 48, 79);
+    color: rgb(195, 199, 230);
+}
+
+.buttom-report:hover {
+    background-color: rgb(230, 195, 195);
+    color: rgb(79, 47, 47);
+    cursor: pointer;
+}
+
+.buttom-donate:hover {
+    background-color: rgb(195, 199, 230);
+    color: rgb(47, 49, 79);
+    cursor: pointer;
+}
+
+.content-card-product-home {
+    width: 350px;
+    height: 350px;
+    margin: 90px;
+    background-color: rgb(245, 244, 208);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.img-product img{
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+    margin-left: 160px;
+    margin-top: -100px;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+.content-card-buy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8%;
+}
+
+.content-cards-buyer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards-orders-ofBuyer {
+    background-color: beige;
+    border-radius: 10px;
+    padding: 5%;
+    
+}
+
+.button-close {
+    background-color: beige;
+    border: none;
+    color: rgb(79, 47, 47);
+}
+
+.button-acept-order-ofBuyer {
+    background-color: rgb(50, 79, 47);
+    color: rgb(195, 230, 195);
+}
+
+.button-decline-order-ofBuyer {
+    background-color: rgb(79, 47, 47);
+    color: rgb(230, 195, 195);
+}
+
+.button-acept-order-ofBuyer:hover{
+    background-color: rgb(199, 230, 195);
+    color: rgb(50, 79, 47);
+    cursor: pointer;
+}
+
+.button-decline-order-ofBuyer:hover{
+    background-color: rgb(230, 195, 195);
+    color: rgb(79, 47, 47);
+    cursor: pointer;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
 

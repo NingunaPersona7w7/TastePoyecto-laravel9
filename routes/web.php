@@ -33,13 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
-
-});
-//rutas de controladores posts home
-
-//sutas roles y controladores de roles
-
-Route::group(['middleware' => 'auth'], function () {
+	Route::post('postCreate', ['as' => 'postCreate', 'uses' => 'App\Http\Controllers\PostController@postCreate']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.profile', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
 	Route::get('profile/{id}', ['as' => 'profile.profileById', 'uses' => 'App\Http\Controllers\ProfileController@profileById']);

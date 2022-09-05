@@ -71,8 +71,38 @@ class ProfileController extends Controller
     public function profileById($id) {
         $user = User::find($id);
         $qualification= 3;
-        $qualifications= [];
-        return view('profile/profileById', compact('user', 'qualification', 'qualifications'));
+        $qualifications = array(
+            [
+                "reviews" => 3,
+                "comment" => "hola soy papa"
+            ],
+            [
+                "reviews" => 2,
+                "comment" => "hola soy mama"
+            ],
+            [
+                "reviews" => 4,
+                "comment" => "hola soy hermano"
+            ],
+            [
+                "reviews" => 5,
+                "comment" => "hola soy hijo"
+            ],
+            [
+                "reviews" => 1,
+                "comment" => "hola soy bobo"
+            ],
+            [
+                "reviews" => 3,
+                "comment" => "hola soy aaaa"
+            ],
+            [
+                "reviews" => 2,
+                "comment" => "hola soy ddddd"
+            ]
+        );
+        $products = Post::where('user_id', $user->id)->get();
+        return view('profile/profileById', compact('user', 'qualification', 'qualifications', 'products'));
     }
     /**
      * Update the profile
