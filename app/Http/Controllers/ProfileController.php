@@ -54,7 +54,36 @@ class ProfileController extends Controller
                 [
                     "reviews" => 2,
                     "comment" => "hola soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
                 ]
+
             );
             return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
         } else {
