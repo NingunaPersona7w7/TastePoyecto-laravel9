@@ -56,7 +56,36 @@ class ProfileController extends Controller
                 [
                     "reviews" => 2,
                     "comment" => "hola soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
+                ],
+                [
+                    "reviews" => 5,
+                    "comment" => "chao soy ddddd"
                 ]
+
             );
             $products = Post::where('user_id', $user->id)->get();
             $history = "soy pobre.";

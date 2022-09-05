@@ -37,9 +37,10 @@
                             {!! Form::label('password_confirmation', 'Confirmar contraseña') !!}
                             {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmar contraseña']) !!}
                         </div>
+                        <!-- arreglar roles en crear usuario-->
                         <div class="form-group">
                             {!! Form::label('rol', 'Rol') !!}
-                            {!! Form::select('roles[]', $roles, [], ['class' => 'form-control']) !!}
+                            {!! Form::select('role[]', $roles, [], ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}

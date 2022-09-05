@@ -19,10 +19,10 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
-Route::get('blog/{post}',[App\Http\Controllers\PageController::class, 'post']);
-
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
+    Route::get('blog/{post}', [PageController::class, 'post'])->name('post');
+});
 
 Auth::routes();
 

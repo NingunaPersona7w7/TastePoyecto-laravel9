@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -11,12 +12,14 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ $post->get_excerpt }}</p>
-                        <a href="{{ route('posts',$post) }}">Leer más</a>
+                        <a href="{{ route('post', $post->id) }}" class="btn btn-primary">Read More</a>
                     </div>
+
                 </div>
                 <br>
 
             @endforeach
+
         </div>
     </div>
 </div>
