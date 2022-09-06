@@ -20,9 +20,8 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('home');
-});
+Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
+Route::get('blog/{post}',[App\Http\Controllers\PageController::class, 'post']);
 
 
 Auth::routes();
@@ -56,12 +55,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 
+// rutas de controladores de midellware
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
 
 });
+//rutas de controladores posts home
+
 //sutas roles y controladores de roles
 
 Route::group(['middleware' => 'auth'], function () {

@@ -21540,7 +21540,7 @@ textarea[resize='horizontal']
 {
     .navbar-vertical.navbar-expand-xs > [class*='container']
     {
-        height: 500%; 
+        height: 100%; 
         min-height: none;
     }
 }

@@ -132,6 +132,14 @@ input, select {
     cursor: pointer;
 }
 
+.button-menu {
+    background-color:DarkSlateGray;
+    border: 0ch;
+    color: rgb(195, 230, 230);
+    cursor: pointer;
+    width: 50px;
+}
+
 .content-login-checkbox {
     display: flex;
     align-items: center;
@@ -288,6 +296,16 @@ input, select {
     border-top-right-radius: 50px;
 }
 
+.card-header-user {
+    color: DarkSlateGray;
+    display: flex;
+    justify-content: center;
+}
+
+div{
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .selected {
     background-color: rgb(195, 230, 230);
     color: DarkSlateGray;
@@ -339,10 +357,6 @@ input, select {
         width: 150px;
         margin-top: 0px;
     }
-}
-
-.former{
-    color: aquamarine;
 }
 
 .cardo{
@@ -402,6 +416,3 @@ input, select {
     font-size: 20px;
     padding-top: 13%;
 }
-
-
-
