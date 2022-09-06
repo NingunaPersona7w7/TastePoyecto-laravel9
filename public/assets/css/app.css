@@ -71,6 +71,7 @@ body {
 .main-content {
     flex: 100;
     padding: 20px;
+    background-color: rgb(240, 255, 242);
 }
 
 .content-login {
@@ -564,7 +565,16 @@ u{
     background-color: beige;
     border-radius: 10px;
     padding: 5%;
-    
+    margin: 5%;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-cards-orders-ofBuyer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .button-close {
@@ -573,14 +583,21 @@ u{
     color: rgb(79, 47, 47);
 }
 
+.button-close[name="donate"]{
+    background-color: dimgray;
+    color: aliceblue;
+}
+
 .button-acept-order-ofBuyer {
     background-color: rgb(50, 79, 47);
     color: rgb(195, 230, 195);
+        width: 100%;
 }
 
 .button-decline-order-ofBuyer {
     background-color: rgb(79, 47, 47);
     color: rgb(230, 195, 195);
+    width: 100%;
 }
 
 .button-acept-order-ofBuyer:hover{
@@ -593,6 +610,30 @@ u{
     background-color: rgb(230, 195, 195);
     color: rgb(79, 47, 47);
     cursor: pointer;
+}
+
+.content-home-seller {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+.cards-donate-ofBuyer {
+    background-color: dimgray;
+    color: white;
+    padding: 20%;
+    border-radius: 100px 1px 1px 100px;
+}
+
+.titles-cards-ofBuyer {
+    display: flex;
+    justify-content: center;
+}
+
+.content-donates.ofBuyer {
+    display: flex;
+    flex-direction: column;
 }
 
 

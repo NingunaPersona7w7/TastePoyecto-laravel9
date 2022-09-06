@@ -47,13 +47,13 @@
                             @foreach ($qualifications as $item)
                                 <div class="content-card-qualification">
                                     <div class="content-star">
-                                        @for ($i = 1; $i <= $item['reviews']; $i++)
+                                        @for ($i = 1; $i <= $item->calification; $i++)
                                             <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
                                                 class="star-icon-reviews">
                                         @endfor
                                     </div>
                                     <div class="content-comment">
-                                        <p>{{ $item['comment'] }}</p>
+                                        <p>{{ $item->body }}</p>
                                     </div>
                                 </div>
                             @endforeach
