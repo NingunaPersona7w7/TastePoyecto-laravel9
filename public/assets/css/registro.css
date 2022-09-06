@@ -9,10 +9,14 @@ body{
 }
 
 .waves{
-    background-color: white ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-image: url(´/assets/wave.png´);
+  background-repeat: no repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .login{
@@ -56,7 +60,7 @@ body{
 }
 
 .input-fill input:hover{
-   background-color: #EAECEE;
+   background-color: #EAECEE; 
 }
 
 .input-fill input:focus + .input-label{
@@ -122,11 +126,11 @@ body{
     color: #0B5345;
 }
 
+/*background-color: white ;
+display: flex;
+justify-content: center;
+align-items: center;*/
 
-
-/*estos son los colores*/
-
-.imagen{
+.registro{
     width: 70%;
 }
-

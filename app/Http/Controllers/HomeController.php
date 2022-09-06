@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Model\Post;
+use App\Models\Post;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,36 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $products = Post::all();
+        $role = '';
+        if(!empty($user->getRoleNames())) {
+            $role = $user->getRoleNames()[0];
+        }
+        if($role == 'seller') {
+            $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
+            return view('seller/home', compact('orders'));
+        } else {
+            return view('buyer/home', compact('products'));
+        }
+    }
+
+    public function storeOrder(Request $request) {
+        request()->validate([
+            'seller_id' => 'required',
+            'buyer_id' => 'required',
+            'post_id' => 'required',
+            'quantity' => 'required',
+            'price' => 'required',
+        ]);
+        Order::create($request->all());
+        return redirect()->back();
+    }
+
+    public function updateOrder(Request $request, $idOrder) {
+        $order = Order::find($idOrder);
+        $order->status = $request->input('status');
+        $order->save();
+        return redirect()->back();
     }
 }

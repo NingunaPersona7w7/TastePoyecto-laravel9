@@ -19,56 +19,26 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
-Route::get('blog/{post}',[App\Http\Controllers\PageController::class, 'post']);
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
+    Route::get('blog/{post}', [PageController::class, 'post'])->name('post');
+});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 
 // rutas de controladores de midellware
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('roles', RolController::class);
+	Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
-
-});
-//rutas de controladores posts home
-
-//sutas roles y controladores de roles
-
-Route::group(['middleware' => 'auth'], function () {
+	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
+	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');
+	Route::post('postCreate', ['as' => 'postCreate', 'uses' => 'App\Http\Controllers\PostController@postCreate']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.profile', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
+	Route::get('profile/{id}', ['as' => 'profile.profileById', 'uses' => 'App\Http\Controllers\ProfileController@profileById']);
 	Route::get('profile/edit', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');

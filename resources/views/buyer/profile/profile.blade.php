@@ -47,13 +47,13 @@
                             @foreach ($qualifications as $item)
                                 <div class="content-card-qualification">
                                     <div class="content-star">
-                                        @for ($i = 1; $i <= $item->calification; $i++)
+                                        @for ($i = 1; $i <= $item['reviews']; $i++)
                                             <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
                                                 class="star-icon-reviews">
                                         @endfor
                                     </div>
                                     <div class="content-comment">
-                                        <p>{{ $item->body }}</p>
+                                        <p>{{ $item['comment'] }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -91,7 +91,6 @@
                     <div class="content-create-newProduct">
                         <form role="form" method="POST" action="{{ route('postCreate') }}">
                             @csrf
-                            <input type="text" name="user_id" value="{{$user->id}}" hidden>
                             <div class="mb-3">
                                 <b>
                                     <center><label for="formFile" class="form-label">Foto del producto</label></center>

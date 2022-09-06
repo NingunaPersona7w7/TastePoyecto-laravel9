@@ -35,6 +35,16 @@ class PostController extends Controller
         return view('post.crear');
     }
 
+    public function postCreate(Request $request)
+    {
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        Post::create($request->all());
+        return redirect()->back();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
