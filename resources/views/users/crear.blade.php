@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><p><div class="card-header">{{ __('Crear usuario') }}</div></p></center>
+                <center><b><div class="form-title-group1">{{ __('Crear usuario') }}</div></b></center>
 
                 <div class="card-body">
 
