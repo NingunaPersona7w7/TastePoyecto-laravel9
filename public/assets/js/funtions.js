@@ -16,7 +16,7 @@ function confirmSale(product) {
     modal.setAttribute("style", "display:flex;");
     modalContent = document.getElementById("content-modal-app");
     modalContent.innerHTML = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>" +
-    quantity + "  --->  " + product.title
+    quantity + "  --->  " + product.title + "<br>TOTAL: $" + quantity*product.price
     + '<button class="button-login" onclick="redirection()">Confirmar</button>';
 }
 

@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $products = Post::all();
-        if($user->role == 'buyer') {
+        if($user->role != 'buyer') {
             return view('buyer/home', compact('products'));
         } else {
             return view('seller/home');
