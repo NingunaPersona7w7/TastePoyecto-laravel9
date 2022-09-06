@@ -14,24 +14,26 @@
 </head>
 <body>
     <main class="login-design">
+
         <div class="waves">
             <img class="imagen" src="imageneslogin/iniciodesesion.png" alt="">
         </div>
+
         <div class="login">
             <div class="login-data">
             <img src="imageneslogin/taste.png" alt="">
             <h1>Inicio de Sesion</h1>
-            <form action="#" class="login-form">
+            <form role="form" method="POST" action="{{ route('login') }}" class="login-form">
                 <div class="input-group">
                     <label class="input-fill">
-                        <input type="email" name="email" id="email " required>
+                        <input type="email" name="email" id="email " value="{{ old('email') }}" required autofocus>
                         <span class="input-label">Correo Electronico</span>
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
                 <div class="input-group">
                     <label class="input-fill">
-                        <input type="password" name="password" id="password " required>
+                        <input type="password" name="password" id="password " value="secret" required>
                         <span class="input-label"> Contraseña</span>
                         <i class="fa-solid fa-lock"></i>
                     </label>

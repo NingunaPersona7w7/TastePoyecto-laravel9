@@ -19,7 +19,7 @@
                     <div class="img-product">
                         <img src="{{ URL::asset($product->image) }}">
                     </div>
-                </div>    
+                </div>
             @endforeach
         </div>
     </div>
