@@ -12,14 +12,20 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ $post->get_excerpt }}</p>
-                        <a href="{{ route('post', $post->id) }}" class="btn btn-primary">Read More</a>
+                        <a href="{{ route('post', $post->id) }}" class="btn btn-primary">leer mas </a>
+                        <p class="text-muted mb-0">
+                            <em>
+                                &ndash; {{ $post->user->name }}
+                            </em>
+                            {{ $post->created_at->format('d M Y') }}
+                        </p>
                     </div>
 
                 </div>
                 <br>
 
             @endforeach
-
+                {{$posts->links()}}
         </div>
     </div>
 </div>

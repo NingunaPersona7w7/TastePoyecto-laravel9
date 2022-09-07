@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                    @can('create-post')
+                    @can('crear-post')
                         <a class="btn btn-warning" href="{{ route('posts.create') }}">Nuevo</a>
                     @endcan
                     <table class="table table-striped mt-2">

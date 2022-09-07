@@ -21,7 +21,8 @@ use App\Http\Controllers\PostController;
 */
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
-    Route::get('blog/{post}', [PageController::class, 'post'])->name('post');
+    Route::get('blog/{post}', [App\Http\Controllers\PageController::class, 'post'])->name('post');
+;
 });
 
 Auth::routes();
