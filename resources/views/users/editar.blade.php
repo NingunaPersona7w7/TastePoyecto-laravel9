@@ -35,8 +35,8 @@
                             {!! Form::password('password', ['class' => 'form-control1', 'placeholder' => 'Contraseña']) !!}
                         </div>
                         <div class="form-group1">
-                            {!! Form::label('password_confirmation', 'Confirmar contraseña') !!}
-                            {!! Form::password('password_confirmation', ['class' => 'form-control1', 'placeholder' => 'Confirmar contraseña']) !!}
+                            {!! Form::label('confirm-password', 'Confirmar contraseña') !!}
+                            {!! Form::password('confirm-password', ['class' => 'form-control1', 'placeholder' => 'Confirmar contraseña']) !!}
                         </div>
                         <div class="form-group1">
                             {!! Form::label('rol', 'Rol') !!}

@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -15,14 +18,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Reset cached roles and permissions
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-        DB::table('users')->insert([
+        $user = User::create([
             'name' => 'Admin',
-            'email' => 'admin@argon.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+            'email' => 'jeisson@admin.com',
+            'password' => bcrypt('987654321'),
+        ],
+        );
+        $rol = Role::where('name', 'Super Admin')->first();        
+        $user->assignRole([$rol->id]);
     }
 }
