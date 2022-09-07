@@ -28,8 +28,11 @@ class SeederTablaPermisos extends Seeder
             'crear-post',
             'editar-post',
             'borrar-post',
-            //comprador
-
+            //users
+            'ver-users',
+            'crear-users',
+            'editar-users',
+            'borrar-users',
         ];
         foreach ($permisos as $permiso) {
             Permission::create(['name' => $permiso]);

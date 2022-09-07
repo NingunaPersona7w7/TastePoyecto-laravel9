@@ -17,7 +17,7 @@
             @foreach ($products as $product)
                 <div class="content-card-product-home">
                     <div class="content-perfil-sellerProduct">
-                        <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}" alt="">
+                        <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}" alt="">{{$product->user->name}}
                     </div>
                     <h2><b>Producto:</b> {{ $product->get_excerpt_title }}</h2>
                     <h6><b>Descripción:</b> {{ $product->get_excerpt }}</h6>

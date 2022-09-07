@@ -53,7 +53,9 @@
                                         @endfor
                                     </div>
                                     <div class="content-comment">
+                                        <h5>{{ $item->title }}</h5>
                                         <p>{{ $item->body }}</p>
+                                        <hr>
                                     </div>
                                 </div>
                             @endforeach
@@ -90,7 +92,7 @@
                     </div>
                     <div class="content-create-newProduct">
                         <a href="{{ route('posts.create') }}">
-                            <center><button class="button-login circle-button" name="create-newProduct" onclick="redirectionCreateProducts()">Crear</button></center>
+                            <center><button class="button-login circle-button" name="create-newProduct">Crear</button></center>
                         </a>
                     </div>
                 </div>
