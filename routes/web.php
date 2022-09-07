@@ -26,13 +26,15 @@ Route::group(['middleware' => ['auth']], function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 
 // rutas de controladores de midellware
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('roles', RolController::class);
+	Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
+	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
+	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');
 	Route::post('postCreate', ['as' => 'postCreate', 'uses' => 'App\Http\Controllers\PostController@postCreate']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.profile', 'uses' => 'App\Http\Controllers\ProfileController@profile']);

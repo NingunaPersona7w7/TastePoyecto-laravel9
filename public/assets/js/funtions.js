@@ -9,15 +9,25 @@ function viewConditions() {
     + '<button class="button-login" onclick="closeModal()">Cerrar</button>';
 }
 
-function confirmSale(product) {
-    console.log('products ====> ', product);
+function confirmSale(product, buyer_id) {
+    console.log('aca');
+    const homeOrder= document.getElementById('homeOrder').value 
+    const tokenOrder= document.getElementById('tokenOrder').value 
     const quantity= document.getElementById(`quantity-${product.id}`).value 
     modal = document.getElementById("modal-app");
     modal.setAttribute("style", "display:flex;");
     modalContent = document.getElementById("content-modal-app");
-    modalContent.innerHTML = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>" +
+    const htmlValue = '<button class= "closeModal" onclick="closeModal()">x</button>' + "<h2>FACTURA</h2>" +
     quantity + "  --->  " + product.title + "<br>TOTAL: $" + quantity*product.price
-    + '<button class="button-login" onclick="redirection()">Confirmar</button>';
+    + '<form method="POST" action="'+homeOrder+'"><input name="_token" value="' + tokenOrder + '" type="hidden" />' +
+    '<input type="text" name="seller_id" value="' +
+    product.user_id +'" hidden /><input type="text" name="buyer_id" value="' +
+    buyer_id + '" hidden /><input type="text" name="post_id" value="'+ 
+    product.id + '" hidden /><input type="text" name="price" value="' +
+    quantity*product.price + '" hidden /><input type="text" name="quantity" value="' + 
+    quantity + '" hidden /><input type="text" name="status" value="pending" hidden /><input class="button-login" type="submit" value="Confirmar" /></form>';
+    console.log(htmlValue);
+    modalContent.innerHTML = htmlValue;
 }
 
 function closeModal() {
