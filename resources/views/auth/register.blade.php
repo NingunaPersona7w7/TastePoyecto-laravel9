@@ -55,6 +55,7 @@
                         <i class="fa-solid fa-lock"></i>
                     </label>
                 </div>
+                <a href="{{ url('/login') }}">¿Tienes una cuenta?</a>
                 <input type="submit" value="Registrar" class="btn-login" />
             </form>
             </div>
