@@ -29,7 +29,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $products = Post::all();
         $role = '';
-        if(!empty($user->getRoleNames())) {
+        if(!empty($user->getRoleNames()) ) {
             $role = $user->getRoleNames()[0];
         }
         if($role == 'seller') {

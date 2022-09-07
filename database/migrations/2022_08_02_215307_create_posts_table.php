@@ -45,6 +45,6 @@ return new class extends Migration
 
     public function users()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(users::class,);
     }
 };

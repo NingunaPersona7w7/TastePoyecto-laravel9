@@ -38,7 +38,7 @@ function closeModal() {
 }
 
 function redirection() {
-        window.location.replace("http://127.0.0.1:8000/profile");
+    window.location.replace("http://127.0.0.1:8000/profile");
 }
 
 function viewProfile() {
