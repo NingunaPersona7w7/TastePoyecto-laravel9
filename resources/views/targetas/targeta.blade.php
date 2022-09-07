@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
             <div class="content-products">
                 @foreach ($posts as $post)
                 <div class="content-perfilDescriptionProduct">
@@ -21,6 +22,7 @@
                 @endforeach
 
             </div>
+
         </div>
     </div>
 </div>

@@ -405,27 +405,72 @@ u{
     }
 }
 
-.content-products {
-    background-color: beige;
-    padding: 5%;
+.cardo{
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-radius: 0.8000rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.705rem;
+    position: relative;
     display: flex;
-    border-radius: 10px;
-    width: 50%;
-    height: 80%;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+    label: custom-control-label;
 }
 
+<<<<<<< HEAD
+.form-control1 {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+=======
 .counter-products {
     width: 40%;
     height: 20%;
     font-weight: 800;
+>>>>>>> 67e152c2865d1f3142819bb96ada198d4a64b87b
 }
 
-.img-product img{
-    width: 300px;
-    height: 300px;
-    left: 20px;
+.form-group1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
 }
 
+<<<<<<< HEAD
+.form-title-group1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    padding-top: 13%;
+}
+=======
 .content-perfil-sellerProduct {
     background-color: bisque;
     padding: 5%;
@@ -644,3 +689,4 @@ u{
 body {
   font-family: "Tajawal", Arial;
 }
+>>>>>>> 67e152c2865d1f3142819bb96ada198d4a64b87b
