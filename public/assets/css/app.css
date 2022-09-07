@@ -564,17 +564,19 @@ u{
 .cards-orders-ofBuyer {
     background-color: beige;
     border-radius: 10px;
-    padding: 5%;
-    margin: 5%;
-    width: 450px;
+    padding: 50px;
+    margin: 30px;
+    width: 350px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .content-cards-orders-ofBuyer {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .button-close {

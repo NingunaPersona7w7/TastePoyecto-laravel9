@@ -89,31 +89,9 @@
                         </div>
                     </div>
                     <div class="content-create-newProduct">
-                        <form role="form" method="POST" action="{{ route('postCreate') }}">
-                            @csrf
-                            <input type="text" name="user_id" value="{{$user->id}}" hidden>
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="formFile" class="form-label">Foto del producto</label></center>
-                                </b>
-                                <input class="form-control" type="file" id="formFile" name="image">
-                            </div>
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="exampleFormControlTextarea1" class="form-label">Nombre del
-                                            producto</label></center>
-                                </b>
-                                <input class="form-control" id="exampleFormControlInputTitle" type="text" name="title" />
-                            </div>
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="exampleFormControlTextarea1" class="form-label">Descripción del
-                                            producto</label></center>
-                                </b>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body"></textarea>
-                            </div>
-                            <center><button class="button-login circle-button" name="create-newProduct">+</button></center>
-                        </form>
+                        <a href="{{ route('posts.create') }}">
+                            <center><button class="button-login circle-button" name="create-newProduct" onclick="redirectionCreateProducts()">Crear</button></center>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -30,16 +30,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="content-donates-ofBuyer">
-                <div class="titles-cards-ofBuyer">
-                    DONACIONES
-                </div>
-                <div class="cards-donate-ofBuyer">
-                    <h1>Nombre Cliente</h1>
-                    <h3 style="color: blue">$$$Donacion</h3>
-                    <h6>Espero te sirva. Saludos.</h6>
-                </div>
-            </div>
+            
         </div>
     </div>
 @endsection
