@@ -70,8 +70,8 @@ class PostController extends Controller
 
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
 
-            $post->image = "assets/img/products/".$nombreimagen;            
-            
+            $post->image = "assets/img/products/".$nombreimagen;
+
         }
         $post->save();
         return redirect()->route('posts.index')->with('success','Post creado correctamente');
@@ -125,6 +125,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index')->with('success','Post eliminado correctamente');
+        return redirect()->route('posts.index');
     }
 }
