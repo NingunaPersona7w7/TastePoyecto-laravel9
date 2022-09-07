@@ -22,25 +22,28 @@
                         </thead>
                         <tbody>
                             @foreach($posts as $post )
-                            <tr>
-                                <td style="display: none;">{{ $post->name }}</td>
-                                <td >{{ $post->title }}</td>
-                                <td >{{ $post->body }}</td>
-                                <td >{{ $post->price }}</td>
-                                <td>
-                                    <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-                                        @can('editar-post')
-                                            <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">Editar</a>
-                                        @endcan
+                            @if ($post->user_id == Auth::user()->id)
+                                <tr>
+                                    <td style="display: none;">{{ $post->name }}</td>
+                                    <td >{{ $post->title }}</td>
+                                    <td >{{ $post->body }}</td>
+                                    <td >{{ $post->price }}</td>
+                                    <td>
+                                        <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                            @can('editar-post')
+                                                <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">Editar</a>
+                                            @endcan
 
-                                        @csrf
-                                        @method('DELETE')
-                                        @can('eliminar-post')
-                                        <button type="submit" class="btn btn-danger">Borrar</button>
-                                        @endcan
-                                    </form>
-                                </td>
-                            </tr>
+                                            @csrf
+                                            @method('DELETE')
+                                            @can('eliminar-post')
+                                            <button type="submit" class="btn btn-danger">Borrar</button>
+                                            @endcan
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endif
+
                             @endforeach
                         </tbody>
                     </table>

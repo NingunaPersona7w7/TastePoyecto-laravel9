@@ -34,10 +34,17 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
-                                    {!! Form::open(['method' => 'DELETE', 'route'=>['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                                    @can('editar-user')
+                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
+                                    @endcan
+
+
+                                    @can('eliminar-user')
+                                        {!! Form::open(['method' => 'DELETE', 'route'=>['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}
+                                        {!! Form::close() !!}
+                                    @endcan
+
                                 </td>
                             </tr>
                             @endforeach

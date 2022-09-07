@@ -56,13 +56,15 @@ class PostController extends Controller
     {
         request()->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'price' => 'required'
         ]);
         $user = Auth::user();
         $post = new Post();
         $post->user_id =$user->id;
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->price = $request->price;
         if($request->hasFile("image")) {
             $imagen = $request->file("image");
             $nombreimagen = uniqid().".".$imagen->guessExtension();
@@ -111,7 +113,18 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required',
             'body' => 'required',
+            'price' => 'required',
         ]);
+        if($request->hasFile("image")) {
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $post->image = "assets/img/products/".$nombreimagen;
+
+        }
         $post->update($request->all());
         return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
     }
