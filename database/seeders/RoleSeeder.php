@@ -19,12 +19,12 @@ class RoleSeeder extends Seeder
     {
         $roles =[
             ['name' => 'Super Admin', 'permissions' => 'all'],
-            ['name' => 'Seller', 'permissions' => "ver-post,crear-post,editar-post,borrar-post"],
+            ['name' => 'Seller', 'permissions' => "ver-post,crear-post,editar-post,eliminar-post"],
             ['name' => 'Buyer', 'permissions' => "ver-post"]
         ];
         foreach ($roles as $role) {
             $rol = Role::create(['name' => $role['name']]);
-            if ($role['permissions'] == 'all') {            
+            if ($role['permissions'] == 'all') {
                 $permissions = Permission::pluck('id','id')->all();
                 $rol->syncPermissions($permissions);
             } else {

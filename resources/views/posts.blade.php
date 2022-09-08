@@ -15,7 +15,7 @@
                         <a href="{{ route('post', $post->id) }}" class="btn btn-primary">leer mas </a>
                         <p class="text-muted mb-0">
                             <em>
-                                &ndash; {{ $post->user }}
+                                &ndash; {{ $post->user->name }}
                             </em>
                             {{ $post->created_at->format('d M Y') }}
                         </p>
