@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Comment;
 use Egulias\EmailValidator\Parser\Comment as ParserComment;
 
-class CommentsController extends Controller
+class OrdenController extends Controller
 {
     public function comments(){
         return view('comments', [

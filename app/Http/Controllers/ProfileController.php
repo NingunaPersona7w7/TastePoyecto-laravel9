@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Post;
+use App\Models\Comment;
 
 class ProfileController extends Controller
 {
@@ -26,41 +29,53 @@ class ProfileController extends Controller
         if($user->role != 'buyer') {
             $role = 'Vendedor';
             $qualification = 2;
-            $qualifications = array(
-                [
-                    "reviews" => 3,
-                    "comment" => "hola soy papa"
-                ],
-                [
-                    "reviews" => 2,
-                    "comment" => "hola soy mama"
-                ],
-                [
-                    "reviews" => 4,
-                    "comment" => "hola soy hermano"
-                ],
-                [
-                    "reviews" => 5,
-                    "comment" => "hola soy hijo"
-                ],
-                [
-                    "reviews" => 1,
-                    "comment" => "hola soy bobo"
-                ],
-                [
-                    "reviews" => 3,
-                    "comment" => "hola soy aaaa"
-                ],
-                [
-                    "reviews" => 2,
-                    "comment" => "hola soy ddddd"
-                ]
-            );
-            return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
+            $qualifications = Comment::where('user_id', $user->id)->get();
+            
+            $products = Post::where('user_id', $user->id)->get();
+            $history = "soy pobre.";
+            return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications', 'products'));
         } else {
             $role = 'Comprador';
-            return view('buyer/profile/profile', compact('user', 'role'));
+    
+            return view('buyer/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
         }
+    }
+
+    public function profileById($id) {
+        $user = User::find($id);
+        $qualification= 3;
+        $qualifications = array(
+            [
+                "reviews" => 3,
+                "comment" => "hola soy papa"
+            ],
+            [
+                "reviews" => 2,
+                "comment" => "hola soy mama"
+            ],
+            [
+                "reviews" => 4,
+                "comment" => "hola soy hermano"
+            ],
+            [
+                "reviews" => 5,
+                "comment" => "hola soy hijo"
+            ],
+            [
+                "reviews" => 1,
+                "comment" => "hola soy bobo"
+            ],
+            [
+                "reviews" => 3,
+                "comment" => "hola soy aaaa"
+            ],
+            [
+                "reviews" => 2,
+                "comment" => "hola soy ddddd"
+            ]
+        );
+        $products = Post::where('user_id', $user->id)->get();
+        return view('profile/profileById', compact('user', 'qualification', 'qualifications', 'products'));
     }
     /**
      * Update the profile

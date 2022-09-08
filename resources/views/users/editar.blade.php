@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Crear usuario') }}</div>
+            <div class="cardo">
+                <center><b><div class="form-title-group1">{{ __('Editar usuario') }}</div></b></center>
 
                 <div class="card-body">
 
@@ -22,36 +22,38 @@
 
                     {!! Form::model($user, ['method' =>'PATCH', 'route' => ['users.update', $user->id]]) !!}
                     <div class="row">
-                        <div class="form-group">
+                        <div class="form-group1">
                             {!! Form::label('name', 'Nombre') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control1', 'placeholder' => 'Nombre']) !!}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group1">
                             {!! Form::label('email', 'Email') !!}
-                            {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+                            {!! Form::text('email', null, ['class' => 'form-control1', 'placeholder' => 'Email']) !!}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group1">
                             {!! Form::label('password', 'Contraseña') !!}
-                            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) !!}
+                            {!! Form::password('password', ['class' => 'form-control1', 'placeholder' => 'Contraseña']) !!}
                         </div>
-                        <div class="form-group">
-                            {!! Form::label('password_confirmation', 'Confirmar contraseña') !!}
-                            {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirmar contraseña']) !!}
+                        <div class="form-group1">
+                            {!! Form::label('confirm-password', 'Confirmar contraseña') !!}
+                            {!! Form::password('confirm-password', ['class' => 'form-control1', 'placeholder' => 'Confirmar contraseña']) !!}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group1">
                             {!! Form::label('rol', 'Rol') !!}
-                            {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control')) !!}
+                            {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control1')) !!}
                         </div>
-                        <div class="form-group">
-                            {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
-                        </div>
-                    {!! Form::close() !!}
-                </div>
-
-
+                        <center><div class="form-group1">
+                            {!! Form::submit('Modificar', ['class' => 'button-login']) !!}
+                        </div></center>
+                        
+                        {!! Form::close() !!}
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 @endsection
+

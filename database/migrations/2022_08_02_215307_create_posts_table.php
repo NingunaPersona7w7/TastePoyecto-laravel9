@@ -25,6 +25,7 @@ return new class extends Migration
 
             $table->text('body');
             $table->string('iframe')->nullable();
+            $table->bigInteger('price')->default(1);
 
             $table->timestamps();
 
@@ -44,6 +45,6 @@ return new class extends Migration
 
     public function users()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(users::class,);
     }
 };

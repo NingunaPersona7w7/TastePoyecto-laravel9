@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                    @can('create-rol')
+                    @can('crear-rol')
                         <a class="btn btn-warning" href="{{ route('roles.create') }}">Nuevo</a>
                     @endcan
                     <table class="table table-striped mt-2">

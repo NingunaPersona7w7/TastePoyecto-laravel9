@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                    @can('create-post')
+                    @can('crear-post')
                         <a class="btn btn-warning" href="{{ route('posts.create') }}">Nuevo</a>
                     @endcan
                     <table class="table table-striped mt-2">
@@ -17,6 +17,7 @@
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > Titulo</th>
                             <th style="color: rgb(0, 0, 0)" > Contenido</th>
+                            <th style="color: rgb(0, 0, 0)" > Precio</th>
                             <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
                         <tbody>
@@ -25,6 +26,7 @@
                                 <td style="display: none;">{{ $post->name }}</td>
                                 <td >{{ $post->title }}</td>
                                 <td >{{ $post->body }}</td>
+                                <td >{{ $post->price }}</td>
                                 <td>
                                     <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
                                         @can('editar-post')

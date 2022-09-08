@@ -53,11 +53,10 @@ class UserController extends Controller
 
         ]);
 
-        $input = $request->all();
+        $input = $request->except(['role']);
         $input['password'] = Hash::make($input['password']);
-
         $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        $user->assignRole($request->input('role'));
 
         return redirect()->route('users.index');
     }
@@ -70,7 +69,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $comments = Comment::find($id);
+        return view('comment.show',['comment'=>$comments]);
     }
 
     /**
