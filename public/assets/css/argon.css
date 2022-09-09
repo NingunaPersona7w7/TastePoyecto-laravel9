@@ -2532,7 +2532,7 @@ pre code
 .table-darker thead th,
 .table-darker tbody + tbody
 {
-    border-color: #7a7a7a;
+    border-color: #f10707;
 }
 
 .table-hover .table-darker:hover
