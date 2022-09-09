@@ -21,6 +21,7 @@
                     </div>
                     <h2><b>Producto:</b> {{ $product->get_excerpt_title }}</h2>
                     <h6><b>Descripción:</b> {{ $product->get_excerpt }}</h6>
+                    <a href="{{ route('post', $product->id) }}" >leer mas </a>
                     <h5 style="bacground-color:"><b>Precio: ${{ $product->price }}</b></h5>
 
                     <div class="content-card-buy" {{$user = Auth::user()}}>

@@ -34,9 +34,9 @@ class HomeController extends Controller
         }
         if($role == 'seller') {
             $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
-            return view('seller/home', compact('orders'));
+            return view('seller.home', compact('orders'));
         } else {
-            return view('buyer/home', compact('products'));
+            return view('buyer.home', compact('products'));
         }
     }
 

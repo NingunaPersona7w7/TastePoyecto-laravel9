@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('users.crear', compact('roles'));
+        return view('se', compact('roles'));
     }
 
     /**
@@ -114,7 +114,10 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
-        return redirect()->back();;
+        if($user->hasRole('Seller'))
+            return redirect()->route('seller');
+        else
+            return redirect()->route('home');
     }
 
     /**

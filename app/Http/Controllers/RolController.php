@@ -110,4 +110,10 @@ class RolController extends Controller
         DB::table('roles')->where('id', $id)->delete();
         return redirect()->route('roles.index');
     }
+
+    public function home()
+    {
+
+        return view('seller.home');
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\OrdenController;
 
 
 /*
@@ -20,8 +21,9 @@ use App\Http\Controllers\PostController;
 |
 */
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/',[App\Http\Controllers\PageController::class, 'posts']);
+    Route::get('/',[App\Http\Controllers\HomeController::class,'index']);
     Route::get('blog/{post}', [App\Http\Controllers\PageController::class, 'post'])->name('post');
+    Route::get('seller',[App\Http\Controllers\RolController::class,'home'])->name('seller');
 ;
 });
 
@@ -34,8 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
 	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
-	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
-	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');
+	Route::post('/homeOrder', [App\Http\Controllers\OrdenController::class,'store'])->name('homeOrder');
+	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\OrdenController::class,'update'])->name('homeUpdatedOrder');
 	Route::post('postCreate', ['as' => 'postCreate', 'uses' => 'App\Http\Controllers\PostController@postCreate']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.profile', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
