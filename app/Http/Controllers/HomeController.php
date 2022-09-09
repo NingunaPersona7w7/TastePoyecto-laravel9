@@ -58,4 +58,10 @@ class HomeController extends Controller
         $order->save();
         return redirect()->back();
     }
+    public function orders(){
+
+        return view('seller.orders', [
+            'orders' => Order::with('user')->lates()->paginate()]);
+
+    }
 }
