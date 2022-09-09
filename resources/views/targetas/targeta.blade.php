@@ -1,29 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-
-            <div class="content-products">
-                @foreach ($posts as $post)
-                <div class="content-perfilDescriptionProduct">
-                    <div class="content-perfil-sellerProduct">
-                        <img src="{{URL::asset('assets/img/profile/profile.jpg')}}" alt=""> Pepita
-                    </div>
-                    <br><h2>{{ $post->title }}</h2>
-                    <h6>Rica, lechuga, zanahoria y menudencias de loquito</h6>
-                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood">
-                    <button class="button-login" name="buy" onclick="confirmSale()"><u>Comprar</u></button>
-                </div>
-                    <div class="img-product">
-                        <img src="{{URL::asset('assets/img/icons/food.png')}}" alt="">
-                </div>
-                @endforeach
-
-            </div>
-
+<section >
+    <h2>Estilo A</h2>
+    <div class="card estilo-a">
+        <a href="#">
+        <div class="img-container">
+           <img src="" alt="producto 1">
         </div>
+    </a>
+        <div class="info-container">
+       <h3>Hamburguesa</h3>
+       <strong>5000$</strong>
+       <span class="promo">15% de descuento</span>
+       <span class="rating"> ★ ★ ★ ★ ★</span>
+       <a href="" class="add-cart">Añadir al carrito</a>
     </div>
-</div>
+    </div>
+
+
+    <div class="card estilo-a">
+        <a href="#">
+        <div class="img-container">
+           <img src="" alt="producto 1">
+        </div>
+    </a>
+    <div class="info-container"></div>
+       <h3>Pizza</h3>
+       <strong>5000$</strong>
+       <span class="promo">15% de descuento</span>
+       <span class="rating"> ★ ★ ★ ★ ★</span>
+       <a href="" class="add-cart">Añadir al carrito</a>
+    </div>
+    </div> 
+</section>
 @endsection
