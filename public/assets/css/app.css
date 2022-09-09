@@ -691,6 +691,47 @@ u{
     color:rgb(195, 230, 195);
 }
 
+footer {
+    width: 100%;
+    padding: 50px 0px;
+    background-image: url(assets/img/footer.png);
+    background-size: cover;
+
+}
+
+.content-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.box-footer {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.logo-footer {
+    width: 80px;
+}
+
+.inf-footer {
+    max-width: 350px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #212529;
+    font-size: 10px;
+}
+
+.box-footer h2 {
+    margin-bottom: 30px;
+    color: black;
+    font-weight: 700;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
 
 body {
