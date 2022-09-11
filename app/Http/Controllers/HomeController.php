@@ -34,9 +34,9 @@ class HomeController extends Controller
         }
         if($role == 'seller') {
             $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
-            return view('seller/home', compact('orders'));
+            return view('seller.home', compact('orders'));
         } else {
-            return view('buyer/home', compact('products'));
+            return view('buyer.home', compact('products'));
         }
     }
 
@@ -57,5 +57,11 @@ class HomeController extends Controller
         $order->status = $request->input('status');
         $order->save();
         return redirect()->back();
+    }
+    public function orders(){
+
+        return view('seller.orders', [
+            'orders' => Order::with('user')->lates()->paginate()]);
+
     }
 }
