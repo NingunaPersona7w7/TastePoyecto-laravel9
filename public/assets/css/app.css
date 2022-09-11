@@ -691,6 +691,45 @@ u{
     color:rgb(195, 230, 195);
 }
 
+.content-orders-buyer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.squares-ordersByBuyer {
+    background-color: rgba(50, 79, 47, 0.26);
+    width: 1000px;
+    height: 500px;
+    padding-top: 100px;
+    padding: 100px;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-ordersByBuyer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.content-inf-orders {
+    display: flex;
+}
+
+.content-logo-invoice {
+    width: 100%;
+}
+
+.col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+    background-color: #ffffffd1;
+    padding: 100px;
+    border: 1px solid;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
 
 body {
@@ -701,6 +740,7 @@ body {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
     color: var(--bs-table-striped-color);
 }
+
 .table1{
     padding: 0.5rem 0.5rem;
     background-color: var(--bs-table-bg);

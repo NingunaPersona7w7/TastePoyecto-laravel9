@@ -35,4 +35,10 @@ class OrdenController extends Controller
         return view('seller.orders', ['orders' => Order::all()]);
 
     }
+
+    public function show($id){
+        $order = Order::find($id);
+        return view('buyer.orders', ['order' => $order]);
+
+    }
 }

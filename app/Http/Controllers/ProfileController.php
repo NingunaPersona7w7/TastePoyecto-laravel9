@@ -9,6 +9,7 @@ use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Order;
 use App\Models\Comment;
 
 class ProfileController extends Controller
@@ -36,8 +37,8 @@ class ProfileController extends Controller
             return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications', 'products'));
         } else {
             $role = 'Comprador';
-    
-            return view('buyer/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
+            $orders = Order::where('buyer_id', $user->id)->get();
+            return view('buyer/profile/profile', compact('user', 'role', 'orders'));
         }
     }
 

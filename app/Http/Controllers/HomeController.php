@@ -48,8 +48,8 @@ class HomeController extends Controller
             'quantity' => 'required',
             'price' => 'required',
         ]);
-        Order::create($request->all());
-        return redirect()->back();
+        $order = Order::create($request->all());
+        return redirect()->route('order.show', ['id' => $order->id]);
     }
 
     public function updateOrder(Request $request, $idOrder) {
