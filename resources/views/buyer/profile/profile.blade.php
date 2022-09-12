@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-profile-seller">
+    <div class="content-profile-buyer">
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
@@ -12,131 +12,80 @@
             </div>
             <div class="profile-info">
                 <h4>{{ $user->name }}</h4>
-                @if (!empty($user->getRoleNames()))
-                    @foreach ($user->getRoleNames() as $roleName)
-                        <h4><span class="">{{ $roleName }}</span></h4>
-                    @endforeach
-                @endif
                 <h4>{{ $user->email }}</h4>
             </div>
-            <div class="content-profile-qualification">
-                @for ($i = 1; $i <= $qualification; $i++)
-                    <img src="{{ URL::asset('assets/img/icons/Star.png') }}" class="star-icon">
-                @endfor
-            </div>
         </div>
-
-        <div class="content-buttonsProfile-inf">
-            <div class="buttons-info-profile">
-                <div id="review" class="button-profile selected" onclick="showOptionSelected('review')">
-                    Reseñas
-                </div>
-                <div id="product" class="button-profile" onclick="showOptionSelected('product')">
-                    Productos
-                </div>
-                <div id="history" class="button-profile" onclick="showOptionSelected('history')">
-                    Historia
-                </div>
-            </div>
-            <div class="content-description-profile-seller">
-
-                <div id="review-content" class="content-reviews-profile" style="display: block;">
-
-                    <div class="content-buttons-info-profile">
-                        <div class="reviews-info-profile">
-                            @foreach ($qualifications as $item)
-                                <div class="content-card-qualification">
-                                    <div class="content-star">
-                                        @for ($i = 1; $i <= $item['reviews']; $i++)
-                                            <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
-                                                class="star-icon-reviews">
-                                        @endfor
-                                    </div>
-                                    <div class="content-comment">
-                                        <p>{{ $item['comment'] }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
+        <div class="content-invoices" >
+            @foreach ($orders as $order)
+                <div class="card-invoice">
+                    <h2>Factura</h2>
+                    <div class="my-3">
+                        <div class="col-10">
+                            <h1>Compra de {{$order->buyer->name}}</h1>
+                            @if ($order->status == "pending")
+                                <h3 class="c-y">Estado: {{$order->status}}</h3>
+                            @elseif ($order->status == "complete" )                               
+                                <h3 class="c-g">Estado: {{$order->status}}</h3>
+                            @elseif ($order->status == "delete")
+                                <h3 class="c-r">Estado: {{$order->status}}</h3>
+                            @endif
+                            
+                            <P>direccion</P>
+                        </div>
+                        <div class="col-2">
+                            <img class="content-logo-invoice" src="{{ URL::asset('assets/img/icons/food.png') }}"/>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="product-content" class="content-products-profile" style="display: none;">
-                <div class="product-content">
-                    <div class="carousel-products">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                @foreach ($products as $product)
-                                    <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                                        <img src="{{ URL::asset($product->image) }}" style="width: 350px;">
-                                        <div class="card-carousel-inf">
-                                            <br><b>Producto:</b> {{ $product->title }}
-                                            <br><b>Descripción:</b> {{ $product->body }}
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                    <hr />
+                    <div class="fact-info mt-3">
+                        <div class="col-3">
+                            <h5>Vendedor</h5>
+                        </div>
+                        
+                        <div class="col-3">
+                            <a href="{{ route('profile.edit')}}">
+                                <p>{{$order->seller->name}}</p>
+                            </a>
                         </div>
                     </div>
-                    <div class="content-create-newProduct">
-                        <form role="form" method="POST" action="{{ route('postCreate') }}">
-                            @csrf
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="formFile" class="form-label">Foto del producto</label></center>
-                                </b>
-                                <input class="form-control" type="file" id="formFile" name="image">
-                            </div>
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="exampleFormControlTextarea1" class="form-label">Nombre del
-                                            producto</label></center>
-                                </b>
-                                <input class="form-control" id="exampleFormControlInputTitle" type="text" name="title" />
-                            </div>
-                            <div class="mb-3">
-                                <b>
-                                    <center><label for="exampleFormControlTextarea1" class="form-label">Descripción del
-                                            producto</label></center>
-                                </b>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="body"></textarea>
-                            </div>
-                            <center><button class="button-login circle-button" name="create-newProduct">+</button></center>
-                        </form>
+                    <div class="fact-info mt-3">
+                        <div class="col-3">
+                            <h5>Pedido</h5>
+                        </div>
+                        
+                        <div class="col-3">
+                            <p>{{$order->created_at}}</p>
+                        </div>
                     </div>
+                    
+                    <div>
+                        <table class="table table-borderless factura">
+                        <thead>
+                            <tr>
+                            <th>Cant.</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>{{$order->quantity}}</td>
+                            <td>{{$order->post->title}}</td>
+                            <td>${{$order->price}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                            <th></th>
+                            <th>Total Factura</th>
+                            <th>${{$order->price}}</th>
+                            </tr>
+                        </tfoot>
+                        </table>
+                    </div>
+                
                 </div>
-            </div>
-            <div id="history-content" class="content-history-profile" style="display: none;">
-                <div class="content-create-newProduct">
-                    <div class="mb-3">
-                        <b>
-                            <center><label for="formFile" class="form-label">Fotos de su historia</label></center>
-                        </b>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                        <b>
-                            <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label>
-                            </center>
-                        </b>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="buttons-history-seller">
-                        <button class="button-login circle-button" name="buttons-history-seller">Subir</button>
-                        <button class="button-login circle-button" name="buttons-history-seller">Editar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="f1"></div>
+            @endforeach
         </div>
-    @endsection
+    </div>
+@endsection

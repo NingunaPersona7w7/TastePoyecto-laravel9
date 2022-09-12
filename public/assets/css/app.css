@@ -722,12 +722,48 @@ u{
     width: 100%;
 }
 
+.c-y {
+    color: #F4E948;
+}
+
+.c-g {
+    color: #48F462;
+}
+
+.c-r {
+    color: #C70039;
+}
+
 .col-11 {
     flex: 0 0 auto;
     width: 91.66666667%;
     background-color: #ffffffd1;
     padding: 100px;
     border: 1px solid;
+}
+
+.content-profile-buyer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.content-invoices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-invoice {
+    background-color: #ffffffd1;
+    padding: 40px;
+    border: 1px solid;
+    width: 350px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');

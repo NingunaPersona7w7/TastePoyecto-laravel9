@@ -30,9 +30,9 @@ class HomeController extends Controller
         $products = Post::all();
         $role = '';
         if(!empty($user->getRoleNames()) ) {
-            $role = $user->getRoleNames();
+            $role = $user->getRoleNames()[0];
         }
-        if($role == 'seller') {
+        if($role == 'Seller') {
             $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
             return view('seller.home', compact('orders'));
         } else {

@@ -5,7 +5,7 @@
         <div class="content-home-seller">
             <div>
                 <div class="titles-cards-ofBuyer">
-                    PEDIDOS
+                    <h1>PEDIDOS</h1>
                 </div>
                 <div class="content-cards-orders-ofBuyer">
                     @foreach ($orders as $order)

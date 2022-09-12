@@ -16,13 +16,19 @@
                 @if ($order->status == "pending")
                     <style>
                         h3 {
-                            color: grey;
+                            color: #F4E948;
                         }
                     </style>
-                @elseif ($order->status == "acept")
+                @elseif ($order->status == "complete")
                     <style>
                         h3 {
-                            color: green;
+                            color: #48F462;
+                        }
+                    </style>
+                @elseif ($order->status == "delete")
+                    <style>
+                        h3 {
+                            color: #C70039;
                         }
                     </style>
                 @endif
