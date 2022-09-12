@@ -235,7 +235,7 @@ input, select {
 
 .content-profile-seller {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
     padding: 10px;
@@ -250,7 +250,7 @@ input, select {
     height: -800px;
     padding: 2%;
     padding-bottom: 150px;
-
+    margin: 10px;
 }
 
 .content-description-profile-seller {
@@ -353,6 +353,7 @@ u{
 .content-buttonsProfile-inf {
     display: flex;
     flex-direction: column;
+    margin: 80px;
 }
 
 .content-products-profile {
@@ -561,6 +562,11 @@ u{
     color: rgb(195, 199, 230);
 }
 
+.buttom-reviews {
+    background-color: rgb(61, 47, 79);
+    color: rgb(217, 195, 230);
+}
+
 .buttom-report:hover {
     background-color: rgb(230, 195, 195);
     color: rgb(79, 47, 47);
@@ -570,6 +576,12 @@ u{
 .buttom-donate:hover {
     background-color: rgb(195, 199, 230);
     color: rgb(47, 49, 79);
+    cursor: pointer;
+}
+
+.buttom-reviews:hover {
+    background-color: rgb(207, 195, 230);
+    color: rgb(64, 47, 79);
     cursor: pointer;
 }
 
@@ -769,6 +781,13 @@ u{
     width: 350px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.make-reviews {
+    background-color: #c082dd48;
+    padding: 50px;
+    border-radius: 50px;
+    margin: 50px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');

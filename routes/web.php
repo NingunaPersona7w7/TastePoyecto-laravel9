@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('orders/{id}', ['as' => 'order.show', 'uses' => 'App\Http\Controllers\OrdenController@show']);
+	Route::post('/comments', ['as' => 'comments.store', 'uses' => 'App\Http\Controllers\CommentController@store']);
 });
 
 
