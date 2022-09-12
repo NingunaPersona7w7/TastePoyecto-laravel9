@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -56,8 +57,25 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required',
             'body' => 'required',
+            'price' => 'required'
         ]);
-        Post::create($request->all());
+        $user = Auth::user();
+        $post = new Post();
+        $post->user_id =$user->id;
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->price = $request->price;
+        if($request->hasFile("image")) {
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $post->image = "assets/img/products/".$nombreimagen;
+
+        }
+        $post->save();
         return redirect()->route('posts.index')->with('success','Post creado correctamente');
     }
 
@@ -95,7 +113,18 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required',
             'body' => 'required',
+            'price' => 'required',
         ]);
+        if($request->hasFile("image")) {
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $post->image = "assets/img/products/".$nombreimagen;
+
+        }
         $post->update($request->all());
         return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
     }
@@ -109,6 +138,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index')->with('success','Post eliminado correctamente');
+        return redirect()->route('posts.index');
     }
 }

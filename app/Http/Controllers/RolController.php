@@ -95,6 +95,7 @@ class RolController extends Controller
 
         $role = Role::find($id);
         $role ->name =$request->input('name');
+        $role ->save();
         $role->syncPermissions($request->input('permission'));
         return redirect()->route('roles.index')->with('success','Rol actualizado correctamente');
     }
@@ -109,5 +110,11 @@ class RolController extends Controller
     {
         DB::table('roles')->where('id', $id)->delete();
         return redirect()->route('roles.index');
+    }
+
+    public function home()
+    {
+
+        return view('seller.home');
     }
 }

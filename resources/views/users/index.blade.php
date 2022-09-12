@@ -4,13 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('crud Administrador') }}</div>
+            <div class="cardo">
+                <center><b><div class="form-title-group1">{{ __('Crud Administrador') }}</div></b></center>
+                @can('ver-rol')
 
-                <div class="card-body">
 
-                    <a class="btn btn-warning" href="{{ route('users.create') }}">Create User</a>
-                    <table class="table table-striped mt-2">
+                <div class="form-group1">
+
+                    <center><a class="btn btn-warning" href="{{ route('users.create') }}">Crear usuario</a></center>
+                    <table class="table table-striped1 mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > nombre</th>
@@ -32,10 +34,17 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
-                                    {!! Form::open(['method' => 'DELETE', 'route'=>['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                                    @can('editar-user')
+                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
+                                    @endcan
+
+
+                                    @can('eliminar-user')
+                                        {!! Form::open(['method' => 'DELETE', 'route'=>['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}
+                                        {!! Form::close() !!}
+                                    @endcan
+
                                 </td>
                             </tr>
                             @endforeach
@@ -46,6 +55,7 @@
 
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </div>

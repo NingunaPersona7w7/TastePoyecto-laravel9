@@ -5,12 +5,13 @@
         <div class="content-home-seller">
             <div>
                 <div class="titles-cards-ofBuyer">
-                    PEDIDOS
+                    <h1>PEDIDOS</h1>
                 </div>
                 <div class="content-cards-orders-ofBuyer">
                     @foreach ($orders as $order)
                         <div class="cards-orders-ofBuyer">
                             <h1><span>{{ $order->buyer->name }}</span></h1>
+                            <p>direccion</p>
                             <h3><span>{{ $order->quantity }}</span> <span>{{ $order->post->title }}</span></h3>
                             <h2>$<span>{{ $order->price }}</span></h2>
                             <div class="buttons-orders-ofBuyer">
@@ -30,16 +31,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="content-donates-ofBuyer">
-                <div class="titles-cards-ofBuyer">
-                    DONACIONES
-                </div>
-                <div class="cards-donate-ofBuyer">
-                    <h1>Nombre Cliente</h1>
-                    <h3 style="color: blue">$$$Donacion</h3>
-                    <h6>Espero te sirva. Saludos.</h6>
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection

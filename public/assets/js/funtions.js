@@ -1,12 +1,21 @@
 let profile_state = false;
 
-function viewConditions() {
+function donate() {
     modal = document.getElementById("modal-app");
-    modal.setAttribute("style", "display:flex;");
+    modal.setAttribute("style", "display:flex; background-color: #4f425e;");
     modalContent = document.getElementById("content-modal-app");
-    modalContent.innerHTML = "<h2>Terminos y condiciones</h2>"
-    + "<p>Muchos terminos </p>"
-    + '<button class="button-login" onclick="closeModal()">Cerrar</button>';
+    modalContent.setAttribute("style", "background-color: rgb(213, 195, 230);");
+    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¿Cuanto desea donar?</h2>"
+    + "<input type='number' min='1' pattern='^[0-9]+'>"
+    + '<button class="button-login buttom-donate" onclick="thanksDonate()">Donar</button>';
+}
+
+function thanksDonate() {
+    modal = document.getElementById("modal-app");
+    modal.setAttribute("style", "display:flex; background-color: #4f425e;");
+    modalContent = document.getElementById("content-modal-app");
+    modalContent.setAttribute("style", "background-color: rgb(213, 195, 230);");
+    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¡Gracias por donar!</h2>"
 }
 
 function confirmSale(product, buyer_id) {
@@ -38,7 +47,7 @@ function closeModal() {
 }
 
 function redirection() {
-        window.location.replace("http://127.0.0.1:8000/profile");
+    window.location.replace("http://127.0.0.1:8000/profile");
 }
 
 function viewProfile() {

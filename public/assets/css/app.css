@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    
+
 }
 
 .content-app {
@@ -36,7 +36,7 @@ body {
 }
 
 .closeModal {
-    background-color: rgb(195, 230, 230);
+    background-color: rgba(195, 230, 230, 0);
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     border: none;
@@ -65,7 +65,7 @@ body {
     margin-right: 50px;
     animation-duration: 3s;
     animation-name: logo-animate;
-    
+
 }
 
 .main-content {
@@ -126,7 +126,7 @@ input, select {
 
 .h50 {
     height: 50px;
-} 
+}
 
 .box-login {
     background-color: rgb(35, 59, 39);
@@ -172,9 +172,10 @@ input, select {
     display: flex;
     height: 100%;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 30px;
     justify-content: flex-end;
     flex: 1;
+    color: #ced4da;
 }
 
 .content-image-profile {
@@ -200,7 +201,7 @@ input, select {
     border-radius: 5px;
     border: 1px solid black;
     width: 200px;
-    
+
 }
 
 .option-profile {
@@ -234,7 +235,7 @@ input, select {
 
 .content-profile-seller {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
     padding: 10px;
@@ -248,7 +249,8 @@ input, select {
     background-color:  rgb(240, 255, 242);
     height: -800px;
     padding: 2%;
-    padding-bottom: 150px;;
+    padding-bottom: 150px;
+    margin: 10px;
 }
 
 .content-description-profile-seller {
@@ -351,6 +353,7 @@ u{
 .content-buttonsProfile-inf {
     display: flex;
     flex-direction: column;
+    margin: 80px;
 }
 
 .content-products-profile {
@@ -405,27 +408,68 @@ u{
     }
 }
 
-.content-products {
-    background-color: beige;
-    padding: 5%;
+.cardo{
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-radius: 0.8000rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.705rem;
+    position: relative;
     display: flex;
-    border-radius: 10px;
-    width: 50%;
-    height: 80%;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+
 }
 
+.form-control1 {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 .counter-products {
     width: 40%;
     height: 20%;
     font-weight: 800;
 }
 
-.img-product img{
-    width: 300px;
-    height: 300px;
-    left: 20px;
+.form-group1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
 }
 
+.form-title-group1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    padding-top: 13%;
+}
 .content-perfil-sellerProduct {
     background-color: bisque;
     padding: 5%;
@@ -433,6 +477,8 @@ u{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 7%;
+    text-decoration: none;
+    color: #212529;
 }
 
 .content-carousel-item-product {
@@ -460,7 +506,7 @@ u{
 .product-content {
     display: flex;
     padding: 5%;
-    
+
 }
 
 .content-create-newProduct {
@@ -516,6 +562,11 @@ u{
     color: rgb(195, 199, 230);
 }
 
+.buttom-reviews {
+    background-color: rgb(61, 47, 79);
+    color: rgb(217, 195, 230);
+}
+
 .buttom-report:hover {
     background-color: rgb(230, 195, 195);
     color: rgb(79, 47, 47);
@@ -525,6 +576,12 @@ u{
 .buttom-donate:hover {
     background-color: rgb(195, 199, 230);
     color: rgb(47, 49, 79);
+    cursor: pointer;
+}
+
+.buttom-reviews:hover {
+    background-color: rgb(207, 195, 230);
+    color: rgb(64, 47, 79);
     cursor: pointer;
 }
 
@@ -564,17 +621,19 @@ u{
 .cards-orders-ofBuyer {
     background-color: beige;
     border-radius: 10px;
-    padding: 5%;
-    margin: 5%;
-    width: 450px;
+    padding: 50px;
+    margin: 30px;
+    width: 350px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .content-cards-orders-ofBuyer {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .button-close {
@@ -636,9 +695,126 @@ u{
     flex-direction: column;
 }
 
+.name-profile {
+    text-decoration: none;
+    color: #ced4da;
+}
+
+.name-profile:hover{
+    text-decoration: none;
+    color:rgb(195, 230, 195);
+}
+
+.content-orders-buyer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.squares-ordersByBuyer {
+    background-color: rgba(50, 79, 47, 0.26);
+    width: 1000px;
+    height: 500px;
+    padding-top: 100px;
+    padding: 100px;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-ordersByBuyer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.content-inf-orders {
+    display: flex;
+}
+
+.content-logo-invoice {
+    width: 100%;
+}
+
+.c-y {
+    color: #F4E948;
+}
+
+.c-g {
+    color: #48F462;
+}
+
+.c-r {
+    color: #C70039;
+}
+
+.col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+    background-color: #ffffffd1;
+    padding: 100px;
+    border: 1px solid;
+}
+
+.content-profile-buyer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.content-invoices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.card-invoice {
+    background-color: #ffffffd1;
+    padding: 40px;
+    border: 1px solid;
+    width: 350px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.make-reviews {
+    background-color: #c082dd48;
+    padding: 50px;
+    border-radius: 50px;
+    margin: 50px;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
 
 body {
   font-family: "Tajawal", Arial;
+}
+
+.table-striped1{
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color);
+}
+
+.table1{
+    --bs-table-color: var(--bs-body-color);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--bs-body-color);
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: var(--bs-body-color);
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: var(--bs-body-color);
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-table-color);
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
 }

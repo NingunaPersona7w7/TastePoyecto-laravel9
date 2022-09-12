@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Pagination\Paginator; // <-- Add this line
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::before(function ($user, $ability) {
                 return $user->email == 'jeisson@admin.com' ?? null;
         });
+        Paginator::useBootstrap(); // <-- Add this line
     }
 
 }
