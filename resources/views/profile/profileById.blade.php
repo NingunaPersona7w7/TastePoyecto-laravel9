@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-profile-seller">
+    <div class="content-profile-seller" {{$userBuyer = Auth::user()}}>
+        <input type="text"
+                id="homeOrder"
+                value="{{URL::route('homeOrder')}}"
+                hidden
+        />
+        <input
+                type="text"
+                id="tokenOrder"
+                value="{{ csrf_token() }}"
+                hidden
+        />
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
@@ -9,6 +20,7 @@
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
+                <button class="button-login buttom-create-reviews">Hacer Reseña</button>
                 <button class="button-login buttom-donate">Donar</button>
                 <button class="button-login buttom-report">Reportar</button>
             </div>
@@ -46,16 +58,18 @@
 
                     <div class="content-buttons-info-profile">
                         <div class="reviews-info-profile">
-                            @foreach ($qualifications as $item)
+                           @foreach ($qualifications as $item)
                                 <div class="content-card-qualification">
                                     <div class="content-star">
-                                        @for ($i = 1; $i <= $item['reviews']; $i++)
+                                        @for ($i = 1; $i <= $item->calification; $i++)
                                             <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
                                                 class="star-icon-reviews">
                                         @endfor
                                     </div>
                                     <div class="content-comment">
-                                        <p>{{ $item['comment'] }}</p>
+                                        <h5>{{ $item->title }}</h5>
+                                        <p>{{ $item->body }}</p>
+                                        <hr>
                                     </div>
                                 </div>
                             @endforeach
@@ -76,8 +90,8 @@
                                                 <br><b>Producto:</b> {{ $product->title }}
                                                 <br><b>Descripción:</b> {{ $product->body }}
                                                 <div class="card-carousel-buyProducts">
-                                                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood">
-                                                    <button class="button-login circle-button" name="buy" onclick="confirmSale()"><u>Comprar</u></button>
+                                                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood" id="quantity-{{$product->id}}">
+                                                    <button class="button-login circle-button" name="buy" onclick="confirmSale({{ json_encode($product) }}, {{$userBuyer->id}})"><u>Comprar</u></button>
                                                 </div>
                                             </div>
                                         </div>

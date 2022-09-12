@@ -27,7 +27,11 @@ class ProfileController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        if($user->role != 'buyer') {
+        $role = '';
+        if(!empty($user->getRoleNames()) ) {
+            $role = $user->getRoleNames()[0];
+        }
+        if($role != 'Buyer') {
             $role = 'Vendedor';
             $qualification = 2;
             $qualifications = Comment::where('user_id', $user->id)->get();
@@ -42,7 +46,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function profileById($id) {
+    public function show($id) {
         $user = User::find($id);
         $qualification= 3;
         $qualifications = array(

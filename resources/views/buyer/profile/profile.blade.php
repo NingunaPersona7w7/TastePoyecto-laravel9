@@ -17,7 +17,7 @@
         </div>
         <div class="content-invoices" >
             @foreach ($orders as $order)
-                <div class="card-invoice">
+                <div class="card-invoice" onclick="redirectOrder({{$order->id}})">
                     <h2>Factura</h2>
                     <div class="my-3">
                         <div class="col-10">
@@ -43,7 +43,7 @@
                         </div>
                         
                         <div class="col-3">
-                            <a href="{{ route('profile.edit')}}">
+                            <a href="{{ URL::route('profile.show', ['id' => $order->seller->id])}}">
                                 <p>{{$order->seller->name}}</p>
                             </a>
                         </div>
@@ -85,7 +85,14 @@
                     </div>
                 
                 </div>
+                
             @endforeach
         </div>
     </div>
+    <script> 
+        function redirectOrder(id) {
+            const url = "{!! URL::route('order.show', ['id' => '$id']) !!}"
+            window.location.href = url.replace('%24id', id);
+        }
+    </script>
 @endsection

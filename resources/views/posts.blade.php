@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ $post->get_excerpt }}</p>
-                        <a href="{{ route('post', $post->id) }}" class="btn btn-primary">leer mas </a>
+                        <a href="{{ route('post', $post->id) }}" class="btn btn-primary">leer más </a>
                         <p class="text-muted mb-0">
                             <em>
                                 &ndash; {{ $post->user->name }}

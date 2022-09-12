@@ -48,7 +48,7 @@
                 </div>
                 
                 <div class="col-3">
-                    <a href="{{ route('profile.edit')}}">
+                    <a href="{{ URL::route('profile.show', ['id' => $order->seller->id])}}">
                         <p>{{$order->seller->name}}</p>
                     </a>
                 </div>

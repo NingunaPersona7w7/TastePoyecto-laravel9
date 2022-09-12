@@ -476,6 +476,8 @@ u{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 7%;
+    text-decoration: none;
+    color: #212529;
 }
 
 .content-carousel-item-product {
@@ -757,6 +759,7 @@ u{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: space-evenly;
 }
 
 .card-invoice {
@@ -764,6 +767,8 @@ u{
     padding: 40px;
     border: 1px solid;
     width: 350px;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
