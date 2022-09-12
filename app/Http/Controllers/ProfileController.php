@@ -31,32 +31,44 @@ class ProfileController extends Controller
         if(!empty($user->getRoleNames()) ) {
             $role = $user->getRoleNames()[0];
         }
-        if($role != 'Buyer') {
+        if($role == 'Seller') {
             $role = 'Vendedor';
-            $qualification = 0;
+            $qualification = 1;
             $qualifications = Comment::where('user_id', $user->id)->get();
-            foreach ($qualifications as $qua) {
-                $qualification += $qua->calification;
+            if(count($qualifications)==0){
+                $qualification=0;
+            }else{
+                foreach ($qualifications as $qua) {
+                    $qualification += $qua->calification;
+                }
+                $qualification = round($qualification/count($qualifications));
             }
-            $qualification = round($qualification/count($qualifications));
             $products = Post::where('user_id', $user->id)->get();
             $history = "soy pobre.";
             return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications', 'products'));
-        } else {
+        } else if($role=='Buyer'){
             $role = 'Comprador';
             $orders = Order::where('buyer_id', $user->id)->get();
             return view('buyer/profile/profile', compact('user', 'role', 'orders'));
+        }
+        else {
+            $users = User::paginate(5);
+            return view('users.index', compact('users'));
         }
     }
 
     public function show($id) {
         $user = User::find($id);
-        $qualification = 0;
+        $qualification = 1;
         $qualifications = Comment::where('user_id', $id)->get();
-        foreach ($qualifications as $qua) {
-            $qualification += $qua->calification;
+        if(count($qualifications)==0){
+            $qualification = 1;
+        }else{
+            foreach ($qualifications as $qua) {
+                $qualification += $qua->calification;
+            }
+            $qualification = round($qualification/count($qualifications));
         }
-        $qualification = round($qualification/count($qualifications));
         $products = Post::where('user_id', $user->id)->get();
         return view('profile/profileById', compact('user', 'qualification', 'qualifications', 'products'));
     }
