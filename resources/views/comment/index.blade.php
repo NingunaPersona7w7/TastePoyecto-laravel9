@@ -12,6 +12,7 @@
                     @can('crear-comment')
                         <a class="btn btn-warning" href="{{ route('comments.create') }}">Nuevo</a>
                     @endcan
+                    
                     <table class="table table-striped mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>

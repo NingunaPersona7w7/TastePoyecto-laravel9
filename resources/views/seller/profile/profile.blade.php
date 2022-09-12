@@ -49,7 +49,7 @@
 
             <div class="content-description-profile-seller">
 
-                <div id="review-content" class="content-reviews-profile" style="display: block;">
+                <div id="review-content" class="content-reviews-profile" style="display: none;">
 
                     <div class="content-buttons-info-profile">
                         <div class="reviews-info-profile">
@@ -69,6 +69,11 @@
                                 </div>
                             @endforeach
                         </div>
+                    </div>
+                    <div class="content-create-newComment">
+                        <a href="{{ route('comments.create') }}">
+                            <center><button class="button-login circle-button" name="create-newComment">Crear</button></center>
+                        </a>
                     </div>
                 </div>
             </div>
