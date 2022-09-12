@@ -20,7 +20,7 @@
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
-                <button class="button-login buttom-donate">Donar</button>
+                <button class="button-login buttom-donate" onclick="donate()">Donar</button>
                 <button class="button-login buttom-report">Reportar</button>
             </div>
             <div class="profile-info">
