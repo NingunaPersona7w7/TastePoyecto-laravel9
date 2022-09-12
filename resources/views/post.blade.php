@@ -18,6 +18,8 @@
                             </em>
                             {{ $post->created_at->format('d M Y') }}
                         </p>
+
+                        </div>
                     </div>
 
                 </div>

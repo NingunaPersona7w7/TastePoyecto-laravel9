@@ -10,7 +10,7 @@
                     <h5 class="card-title">{{ $comment.>tittle }}</h5>
                     <p class="text">
                         {{ $comment->get_except }}
-                        <a href="{{ route('comments', $comment) }}">Leer más</a>
+                        <a href="{{ route('comments', $comment->id) }}">Leer más</a>
                     </p>
                     <p class="text-muted mb-0">
                         <em>

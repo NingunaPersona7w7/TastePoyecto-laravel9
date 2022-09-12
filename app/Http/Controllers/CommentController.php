@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> 62505aa93e1eae2d2e1ae00acf9793cc3b13646f
-
 class CommentController extends Controller
 {
     function __construct()
@@ -23,6 +19,7 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $comments = Comment::paginate(5);
@@ -59,7 +56,6 @@ class CommentController extends Controller
     {
         request()->validate([
             'title' => 'required',
-<<<<<<< HEAD
             'body' => 'required'
         ]);
         $user = Auth::user();
@@ -70,10 +66,7 @@ class CommentController extends Controller
        
         $comment->save();
         return redirect()->route('comments.index')->with('success','Comentario creado correctamente');
-=======
-            'body' => 'required',
-            'calification' => 'required'
-        ]);
+
         $comment = new Comment();
         $comment->user_id = $request->user_id;
         $comment->body = $request->body;
@@ -82,7 +75,6 @@ class CommentController extends Controller
         $comment->slug = uniqid().$request->title;
         $comment->save();
         return redirect()->back();
->>>>>>> 62505aa93e1eae2d2e1ae00acf9793cc3b13646f
     }
 
     /**

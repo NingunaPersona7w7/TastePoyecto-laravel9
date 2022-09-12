@@ -39,4 +39,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('comments');
     }
+
+    public function users()
+    {
+        return $this->belongsTo(users::class,);
+    }
 };

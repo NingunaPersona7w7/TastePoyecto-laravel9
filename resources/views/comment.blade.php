@@ -5,21 +5,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $comment->tittle }}</h5>
-                    <p class="text">
-                        {{ $comment->body }}
-                    </p>
-                    <p class="text-muted mb-0">
-                        <em>
-                            &ndash; {{ $comment->user->name }}
-                        </em>
-                        {{ $comment->created_at->format('d M Y') }}
-                    </p>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ $comment->title }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ $comment->body}}</p>
+                        <!-- poner boton que redireccione a compra -->
+                        <p class="text-muted mb-0">
+                            <em>
+                                &ndash; {{ $comment->user->name }}
+                            </em>
+                            {{ $post->created_at->format('d M Y') }}
+                        </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
         </div>
     </div>
 </div>

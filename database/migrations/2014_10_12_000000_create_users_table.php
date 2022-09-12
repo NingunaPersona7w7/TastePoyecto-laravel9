@@ -45,10 +45,6 @@ return new class extends Migration
         return $this->hasMany(Comment::class);
     }
 
-    public function comment(){
-        return $this->hasMany(Post::class);
-    }
-
     public function stories(){
         return $this->hasMany(stories::class);
     }

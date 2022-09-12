@@ -9,25 +9,13 @@ use Egulias\EmailValidator\Parser\Comment as ParserComment;
 
 class OrdenController extends Controller
 {
-<<<<<<< HEAD
-    public function comments(){
-        return view('comments', [
-            'posts' => CommentsController::with('users')->latest()->paginate()
-        ]);
-    }
-    public function index()
-    {
-        $roles = Comment::paginate(5);
-        return view('roles.index', compact('roles'));
-    }
-
-    public function comment(CommentsController $comment){
-        return view('comment', ['post' => $comment]);
-=======
     public function index()
     {
         $orders = Order::paginate(5);
         return view('seller.home', compact('orders '));
+
+        $roles = Comment::paginate(5);
+        return view('roles.index', compact('roles'));
     }
     public function store(Request $request) {
         request()->validate([
@@ -56,7 +44,11 @@ class OrdenController extends Controller
     public function show($id){
         $order = Order::find($id);
         return view('buyer.orders', ['order' => $order]);
+    }
 
->>>>>>> 62505aa93e1eae2d2e1ae00acf9793cc3b13646f
+    public function comments(){
+        return view('comments', [
+            'posts' => CommentsController::with('users')->latest()->paginate()
+        ]);
     }
 }

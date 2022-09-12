@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 Use App\HttpControllers\Frontend\RatingController;
 
 
@@ -24,7 +25,10 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/',[App\Http\Controllers\HomeController::class,'index']);
     Route::get('blog/{post}', [App\Http\Controllers\PageController::class, 'post'])->name('post');
     Route::get('seller',[App\Http\Controllers\RolController::class,'home'])->name('seller');
-;
+
+	//rutas de prueba
+	Route::get('comentarios',[App\Http\Controllers\CommentController::class,'index']);
+    Route::get('blog/{comentarios}', [App\Http\Controllers\CommentController::class, 'comentario'])->name('comentarios');
 });
 
 
