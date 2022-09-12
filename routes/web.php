@@ -28,10 +28,10 @@ Route::group(['middleware' => ['auth']], function (){
 
 
 
-Route::group(['middleware' => ['auth']], function(){
+/*Route::group(['middleware' => ['auth']], function(){
 	Route::get('/',[App\Http\Controllers\CommentController::class, 'comments']);
     //Route::get('blog/{comment}', [App\Http\Controllers\CommentController::class, 'comment'])->name('comment');
-}); 
+}); */
 
 
 Auth::routes();
