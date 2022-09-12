@@ -121,12 +121,6 @@
                 <div class="content-create-newProduct">
                     <div class="mb-3">
                         <b>
-                            <center><label for="formFile" class="form-label">Fotos de su historia</label></center>
-                        </b>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                        <b>
                             <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label>
                             </center>
                         </b>

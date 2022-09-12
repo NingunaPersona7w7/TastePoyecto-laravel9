@@ -16,11 +16,14 @@
             >
             @foreach ($products as $product)
                 <div class="content-card-product-home">
-                    <div class="content-perfil-sellerProduct">
-                        <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}" alt="">{{$product->user->name}}
-                    </div>
+                    <a href={{URL::route('profile.show', ['id' => $product->user->id])}}>
+                        <div class="content-perfil-sellerProduct">
+                            <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}" alt="">{{$product->user->name}}
+                        </div>
+                    </a>
                     <h2><b>Producto:</b> {{ $product->get_excerpt_title }}</h2>
                     <h6><b>Descripción:</b> {{ $product->get_excerpt }}</h6>
+                    <a href="{{ route('post', $product->id) }}" >leer más </a>
                     <h5 style="bacground-color:"><b>Precio: ${{ $product->price }}</b></h5>
 
                     <div class="content-card-buy" {{$user = Auth::user()}}>

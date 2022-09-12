@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-profile-seller">
+    <div class="content-profile-seller" {{$userBuyer = Auth::user()}}>
+        <input type="text"
+                id="homeOrder"
+                value="{{URL::route('homeOrder')}}"
+                hidden
+        />
+        <input
+                type="text"
+                id="tokenOrder"
+                value="{{ csrf_token() }}"
+                hidden
+        />
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
@@ -9,7 +20,7 @@
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
-                <button class="button-login buttom-donate">Donar</button>
+                <button class="button-login buttom-donate" onclick="donate()">Donar</button>
                 <button class="button-login buttom-report">Reportar</button>
             </div>
             <div class="profile-info">
@@ -28,6 +39,9 @@
             </div>
         </div>
 
+        <div class="content-box-profileById">
+            
+        </div>
         <div class="content-buttonsProfile-inf">
             <div class="buttons-info-profile">
                 <div id="review" class="button-profile selected" onclick="showOptionSelected('review')">
@@ -46,16 +60,18 @@
 
                     <div class="content-buttons-info-profile">
                         <div class="reviews-info-profile">
-                            @foreach ($qualifications as $item)
+                           @foreach ($qualifications as $item)
                                 <div class="content-card-qualification">
                                     <div class="content-star">
-                                        @for ($i = 1; $i <= $item['reviews']; $i++)
+                                        @for ($i = 1; $i <= $item->calification; $i++)
                                             <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
                                                 class="star-icon-reviews">
                                         @endfor
                                     </div>
                                     <div class="content-comment">
-                                        <p>{{ $item['comment'] }}</p>
+                                        <h5>{{ $item->title }}</h5>
+                                        <p>{{ $item->body }}</p>
+                                        <hr>
                                     </div>
                                 </div>
                             @endforeach
@@ -76,8 +92,8 @@
                                                 <br><b>Producto:</b> {{ $product->title }}
                                                 <br><b>Descripción:</b> {{ $product->body }}
                                                 <div class="card-carousel-buyProducts">
-                                                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood">
-                                                    <button class="button-login circle-button" name="buy" onclick="confirmSale()"><u>Comprar</u></button>
+                                                    <input type="number" class="counter-products" min="1" pattern="^[0-9]+" name="amountFood" id="quantity-{{$product->id}}">
+                                                    <button class="button-login circle-button" name="buy" onclick="confirmSale({{ json_encode($product) }}, {{$userBuyer->id}})"><u>Comprar</u></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,13 +118,38 @@
             <div id="history-content" class="content-history-profile" style="display: none;">
                 <div class="content-history-seller">
                     <div class="content-history-seller-withoutImg">
-                        <h1>SOY MUY POBRE</h1>
-                        <p>Historia troste :C</p>
+                        <h1>✎</h1>
+                        <p>...</p>
                     </div>
-                    <img src="{{ URL::asset('assets/img/Historia/pobre.jpeg') }}" style="width: 350px;">
                 </div>
             </div>
         
             <div class="f1"></div>
+        </div>
+        <div class="make-reviews">
+            <h3>Haz tu reseña aquí</h3>
+            <form action="{{URL::route('comments.store')}}" method="POST">
+                @csrf
+                <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Titulo</label>
+                    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Me gusto la comida">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Reseña</label>
+                  <input type="text" class="form-control" name="body" id="exampleFormControlInput1" placeholder="La comida tenia sazon">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Calificación</label>
+                  <select class="form-control" name="calification" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <input type="submit" class="button-login buttom-reviews" value="Enviar">
+            </form>
         </div>
     @endsection
