@@ -24,7 +24,7 @@
         <div class="login">
             <div class="login-data">
             <img src="{{URL::asset('assets/css/imageneslogin/taste.png')}}" >
-            <h1>Inicio de Sesion</h1>
+            <h1>Inicio de Sesión</h1>
             <form role="form" method="POST" action="{{ route('login') }}" class="login-form">
                 @csrf
                 <div class="input-group">
@@ -52,7 +52,7 @@
                     </label>
                 </div>
                 <a href="{{ url('/register') }}">¿Necesitas una Cuenta?</a>
-                <input type="submit" value="Iniciar Sesion" class="btn-login" />
+                <input type="submit" value="Iniciar Sesión" class="btn-login" />
             </form>
             </div>
         </div>

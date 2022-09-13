@@ -9,6 +9,7 @@ use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Order;
 use App\Models\Comment;
 
 class ProfileController extends Controller
@@ -26,54 +27,36 @@ class ProfileController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        if($user->role != 'buyer') {
+        $role = '';
+        if(!empty($user->getRoleNames()) ) {
+            $role = $user->getRoleNames()[0];
+        }
+        if($role != 'Buyer') {
             $role = 'Vendedor';
-            $qualification = 2;
+            $qualification = 0;
             $qualifications = Comment::where('user_id', $user->id)->get();
-            
+            foreach ($qualifications as $qua) {
+                $qualification += $qua->calification;
+            }
+            $qualification = round($qualification/count($qualifications));
             $products = Post::where('user_id', $user->id)->get();
             $history = "soy pobre.";
             return view('seller/profile/profile', compact('user', 'role', 'qualification', 'qualifications', 'products'));
         } else {
             $role = 'Comprador';
-    
-            return view('buyer/profile/profile', compact('user', 'role', 'qualification', 'qualifications'));
+            $orders = Order::where('buyer_id', $user->id)->get();
+            return view('buyer/profile/profile', compact('user', 'role', 'orders'));
         }
     }
 
-    public function profileById($id) {
+    public function show($id) {
         $user = User::find($id);
-        $qualification= 3;
-        $qualifications = array(
-            [
-                "reviews" => 3,
-                "comment" => "hola soy papa"
-            ],
-            [
-                "reviews" => 2,
-                "comment" => "hola soy mama"
-            ],
-            [
-                "reviews" => 4,
-                "comment" => "hola soy hermano"
-            ],
-            [
-                "reviews" => 5,
-                "comment" => "hola soy hijo"
-            ],
-            [
-                "reviews" => 1,
-                "comment" => "hola soy bobo"
-            ],
-            [
-                "reviews" => 3,
-                "comment" => "hola soy aaaa"
-            ],
-            [
-                "reviews" => 2,
-                "comment" => "hola soy ddddd"
-            ]
-        );
+        $qualification = 0;
+        $qualifications = Comment::where('user_id', $id)->get();
+        foreach ($qualifications as $qua) {
+            $qualification += $qua->calification;
+        }
+        $qualification = round($qualification/count($qualifications));
         $products = Post::where('user_id', $user->id)->get();
         return view('profile/profileById', compact('user', 'qualification', 'qualifications', 'products'));
     }
