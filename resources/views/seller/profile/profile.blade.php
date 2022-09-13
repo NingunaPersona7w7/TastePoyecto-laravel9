@@ -5,7 +5,7 @@
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
-                    <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
+                    <img src="{{ URL::asset($user->image) }}">
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
@@ -99,12 +99,6 @@
             </div>
             <div id="history-content" class="content-history-profile" style="display: none;">
                 <div class="content-create-newProduct">
-                    <div class="mb-3">
-                        <b>
-                            <center><label for="formFile" class="form-label">Fotos de su historia</label></center>
-                        </b>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
                     <div class="mb-3">
                         <b>
                             <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label>

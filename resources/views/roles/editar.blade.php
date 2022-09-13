@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Crear rol') }}</div>
+            <div class="cardo">
+                <center><b><div class="form-title-group1">{{ __('Crear rol') }}</div></b></center>
 
                 <div class="card-body">
 
@@ -24,11 +24,11 @@
 
                     {!! Form::model($role, ['method' =>'PATCH', 'route' => ['roles.update', $role->id]]) !!}
                     <div class="row">
-                        <div class="form-group">
+                        <div class="form-group1">
                             {!! Form::label('rol', 'Nombre del rol') !!}
                             {!! Form::text('name', null, ['class' => 'form-control']) !!}
                         </div>
-                        <div class="form-grou">
+                        <div class="form-group1">
                             <label for="">Permisos para este rol</label>
                             <br/>
                             @foreach ($permission as $value)
@@ -40,9 +40,9 @@
                             @endforeach
                         </div>
                     </div>
-                        <div class="form-group">
-                            {!! Form::submit('guardar', ['class' => 'btn btn-primary']) !!}
-                        </div>
+                        <center><div class="form-group1">
+                            {!! Form::submit('Guardar', ['class' => 'button-login']) !!}
+                        </div></center>
                     {!! Form::close() !!}
                 </div>
             </div>

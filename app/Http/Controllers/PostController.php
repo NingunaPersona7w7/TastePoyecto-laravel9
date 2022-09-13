@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate();
         return view('post.index', compact('posts'));
     }
 
@@ -56,13 +56,15 @@ class PostController extends Controller
     {
         request()->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'price' => 'required'
         ]);
         $user = Auth::user();
         $post = new Post();
         $post->user_id =$user->id;
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->price = $request->price;
         if($request->hasFile("image")) {
             $imagen = $request->file("image");
             $nombreimagen = uniqid().".".$imagen->guessExtension();
@@ -70,8 +72,8 @@ class PostController extends Controller
 
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
 
-            $post->image = "assets/img/products/".$nombreimagen;            
-            
+            $post->image = "assets/img/products/".$nombreimagen;
+
         }
         $post->save();
         return redirect()->route('posts.index')->with('success','Post creado correctamente');
@@ -111,8 +113,24 @@ class PostController extends Controller
         request()->validate([
             'title' => 'required',
             'body' => 'required',
+            'price' => 'required',
         ]);
         $post->update($request->all());
+        if($request->hasFile("image")) {
+            if($post->image != null){
+                Post::disk('images')->delete($post->image);
+                $post->image->delete();
+            }
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $post->image = "assets/img/products/".$nombreimagen;
+
+        }
+        $post->save();
         return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
     }
 
@@ -125,6 +143,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index')->with('success','Post eliminado correctamente');
+        return redirect()->route('posts.index');
     }
 }

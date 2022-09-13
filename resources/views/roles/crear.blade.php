@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Crear rol') }}</div>
+            <div class="cardo">
+                <center><b><div class="form-title-group1">{{ __('Crear rol') }}</div></b></center>
 
                 <div class="card-body">
 
@@ -23,10 +23,10 @@
                     @endif
 
                     {!! Form::open(['route' => 'roles.store', 'method' => 'POST']) !!}
-                    <div class="row">
+                    <div class="form-group1">
                         <div class="col-xs-12 col-sm-12 col-md-12 ">
-                            <label for="">nombre del rol</label>
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            <label for="">Nombre del rol</label>
+                            {!! Form::text('name', null, ['class' => 'form-control1']) !!}
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <label for="">Permisos para este rol</label>
@@ -40,9 +40,9 @@
                             @endforeach
                         </div>
                     </div>
-                        <div class="form-group">
-                            {!! Form::submit('guardar', ['class' => 'btn btn-primary']) !!}
-                        </div>
+                        <center><div class="form-group1">
+                            {!! Form::submit('Guardar', ['class' => 'button-login']) !!}
+                        </div></center>
                     {!! Form::close() !!}
                 </div>
             </div>

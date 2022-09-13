@@ -36,7 +36,7 @@ body {
 }
 
 .closeModal {
-    background-color: rgb(195, 230, 230);
+    background-color: rgba(195, 230, 230, 0);
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     border: none;
@@ -235,7 +235,7 @@ input, select {
 
 .content-profile-seller {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
     padding: 10px;
@@ -250,7 +250,7 @@ input, select {
     height: -800px;
     padding: 2%;
     padding-bottom: 150px;
-
+    margin: 10px;
 }
 
 .content-description-profile-seller {
@@ -353,6 +353,7 @@ u{
 .content-buttonsProfile-inf {
     display: flex;
     flex-direction: column;
+    margin: 80px;
 }
 
 .content-products-profile {
@@ -476,6 +477,8 @@ u{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 7%;
+    text-decoration: none;
+    color: #212529;
 }
 
 .content-carousel-item-product {
@@ -559,6 +562,11 @@ u{
     color: rgb(195, 199, 230);
 }
 
+.buttom-reviews {
+    background-color: rgb(61, 47, 79);
+    color: rgb(217, 195, 230);
+}
+
 .buttom-report:hover {
     background-color: rgb(230, 195, 195);
     color: rgb(79, 47, 47);
@@ -568,6 +576,12 @@ u{
 .buttom-donate:hover {
     background-color: rgb(195, 199, 230);
     color: rgb(47, 49, 79);
+    cursor: pointer;
+}
+
+.buttom-reviews:hover {
+    background-color: rgb(207, 195, 230);
+    color: rgb(64, 47, 79);
     cursor: pointer;
 }
 
@@ -691,8 +705,116 @@ u{
     color:rgb(195, 230, 195);
 }
 
+.content-orders-buyer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.squares-ordersByBuyer {
+    background-color: rgba(50, 79, 47, 0.26);
+    width: 1000px;
+    height: 500px;
+    padding-top: 100px;
+    padding: 100px;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-ordersByBuyer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.content-inf-orders {
+    display: flex;
+}
+
+.content-logo-invoice {
+    width: 100%;
+}
+
+.c-y {
+    color: #F4E948;
+}
+
+.c-g {
+    color: #48F462;
+}
+
+.c-r {
+    color: #C70039;
+}
+
+.col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+    background-color: #ffffffd1;
+    padding: 100px;
+    border: 1px solid;
+}
+
+.content-profile-buyer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.content-invoices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.card-invoice {
+    background-color: #ffffffd1;
+    padding: 40px;
+    border: 1px solid;
+    width: 350px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.make-reviews {
+    background-color: #c082dd48;
+    padding: 50px;
+    border-radius: 50px;
+    margin: 50px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
 
 body {
   font-family: "Tajawal", Arial;
+}
+
+.table-striped1{
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color);
+}
+
+.table1{
+    --bs-table-color: var(--bs-body-color);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--bs-body-color);
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: var(--bs-body-color);
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: var(--bs-body-color);
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-table-color);
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
 }

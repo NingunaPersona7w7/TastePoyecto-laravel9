@@ -114,7 +114,20 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
-        return redirect()->route('users.index');
+        // if($user->hasRole('Seller'))
+        //     return redirect()->route('seller');
+        // else
+        if($request->hasFile("image")) {
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $user->image = "assets/img/products/".$nombreimagen;
+
+        }
+        return redirect()->route('home');
     }
 
     /**
