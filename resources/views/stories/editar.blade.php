@@ -24,14 +24,20 @@
                         @endif
 
 
-                    <form action="{{ route('comments.update',$comment->id) }}" method="POST">
+                    <form action="{{ route('stories.update',$stori->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="titulo">Título</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $comment->title }}">
+                                    <input type="text" name="title" class="form-control" value="{{ $stori->title }}">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input type="text" name="price" class="form-control" value="{{ $stori->price }}">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -39,7 +45,7 @@
                                 <label for="contenido">Contenido</label>
                                 <div class="form-floating">
 
-                                <textarea class="form-control" name="body" style="height: 100px">{{ $comment->body }}</textarea>
+                                <textarea class="form-control" name="body" style="height: 100px">{{ $stori->body }}</textarea>
 
                                 </div>
                             

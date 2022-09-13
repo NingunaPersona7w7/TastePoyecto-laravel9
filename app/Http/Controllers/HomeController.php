@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Order;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -35,9 +36,14 @@ class HomeController extends Controller
         if($role == 'Seller') {
             $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
             return view('seller.home', compact('orders'));
-        } else {
-            return view('buyer.home', compact('products'));
         }
+        else if($role == 'Buyer'){
+            return view('buyer.home', compact('products'));
+        } else{
+            $users = User::paginate(5);
+            return view('users.index', compact('users'));
+        }
+
     }
 
     public function storeOrder(Request $request) {

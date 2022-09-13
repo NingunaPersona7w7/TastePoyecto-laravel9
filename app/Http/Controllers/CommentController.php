@@ -7,13 +7,6 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permissions:ver-comment|crear-comment|editar-comment|eliminar-comment',['only'=>['index']]);
-        $this->middleware('permissions:crear-comment' ,['only'=>['create', 'store']]);
-        $this->middleware('permissions:editar-comment' ,['only'=>['edit', 'update']]);
-        $this->middleware('permissions:eliminar-comment' ,['only'=>['destroy']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -94,7 +87,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $id)
+    public function edit(Comment $comment)
     {
         return view('comment.editar', compact('comment'));
     }

@@ -9,30 +9,36 @@
 
                 <div class="card-body">
 
-
-                <a class="btn btn-warning" href="{{ route('comments.create') }}">Nuevo</a>
-                    
+                    @can('crear-stori')
+                        <a class="btn btn-warning" href="{{ route('stories.create') }}">Nuevo</a>
+                    @endcan
                     
                     <table class="table table-striped mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > Titulo</th>
                             <th style="color: rgb(0, 0, 0)" > Contenido</th>
+                            <th style="color: rgb(0, 0, 0)" > Precio</th>
+                            <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
                         <tbody>
-                            @foreach($comments as $comment )
+                            @foreach($stories as $stori )
                             <tr>
-                                <td style="display: none;">{{ $comment->name }}</td>
-                                <td >{{ $comment->title }}</td>
-                                <td >{{ $comment->body }}</td>
+                                <td style="display: none;">{{ $stori->name }}</td>
+                                <td >{{ $stori->title }}</td>
+                                <td >{{ $stori->body }}</td>
+                                <td >{{ $stori->price }}</td>
                                 <td>
-                                    <form action="{{ route('comments.destroy',$comment->id) }}" method="POST">
+                                    <form action="{{ route('stories.destroy',$post->id) }}" method="POST">
+                                        @can('editar-stori')
+                                            <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">Editar</a>
+                                        @endcan
 
-                                        @methot('UPDATE')
-                                            <a class="btn btn-primary" href="{{ route('comments.editar',$comment->id) }}" class="btn btn-primary">Editar</a>
                                         @csrf
                                         @method('DELETE')
+                                        @can('eliminar-stori')
                                         <button type="submit" class="btn btn-danger">Borrar</button>
+                                        @endcan
                                     </form>
                                 </td>
                             </tr>
@@ -40,7 +46,7 @@
                         </tbody>
                     </table>
                     <div class="pagination justify-content-end">
-                        {!! $comments->links() !!}
+                        {!! $stories->links() !!}
                     </div>
                 </div>
             </div>

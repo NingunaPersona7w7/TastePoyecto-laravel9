@@ -42,18 +42,23 @@
                             {!! Form::label('rol', 'Rol') !!}
                             {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control1')) !!}
                         </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Imagen</label>
+                            <input class="form-control" type="file" name="image">
+                        </div>
                         <center><div class="form-group1">
                             {!! Form::submit('Modificar', ['class' => 'button-login']) !!}
                         </div></center>
-                        
+
+
                         {!! Form::close() !!}
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
+
 </div>
 @endsection
 

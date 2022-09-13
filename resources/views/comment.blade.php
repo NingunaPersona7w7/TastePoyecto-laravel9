@@ -11,7 +11,6 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ $comment->body}}</p>
-                        <!-- poner boton que redireccione a compra -->
                         <p class="text-muted mb-0">
                             <em>
                                 &ndash; {{ $comment->user->name }}

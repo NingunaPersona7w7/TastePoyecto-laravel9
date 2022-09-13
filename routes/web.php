@@ -27,10 +27,10 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('seller',[App\Http\Controllers\RolController::class,'home'])->name('seller');
 
 	//rutas de prueba
+	
+});
 	Route::get('comentarios',[App\Http\Controllers\CommentController::class,'index']);
     Route::get('blog/{comentarios}', [App\Http\Controllers\CommentController::class, 'comentario'])->name('comentarios');
-});
-
 
 
 
