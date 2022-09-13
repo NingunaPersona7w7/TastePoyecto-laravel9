@@ -30,4 +30,15 @@ class OrdenController extends Controller
         $order->save();
         return redirect()->back();
     }
+    public function orders(){
+
+        return view('seller.orders', ['orders' => Order::all()]);
+
+    }
+
+    public function show($id){
+        $order = Order::find($id);
+        return view('buyer.orders', ['order' => $order]);
+
+    }
 }

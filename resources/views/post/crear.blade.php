@@ -2,13 +2,13 @@
 
 @section('content')
     <section class="section">
-        <div class="section-header">
+        <center><b><div class="form-title-group1">
             <h3 class="page__heading">Crear post</h3>
-        </div>
+        </div></b></center>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="cardo">
                         <div class="card-body">
 
                             @if ($errors->any())
@@ -50,7 +50,7 @@
                                             <input class="form-control" type="file" name="image">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <center><button type="submit" class="button-login">Guardar</button></center>
                                     </div>
                             </form>
 

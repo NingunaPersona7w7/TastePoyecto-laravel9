@@ -5,13 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><b><div class="form-title-group1">{{ __('crud Administrador') }}</div></b></center>
+                <center><b><div class="form-title-group1">{{ __('Crud Administrador') }}</div></b></center>
                 @can('ver-rol')
 
 
-                <div class="card-body">
-
-                    <a class="btn btn-warning" href="{{ route('users.create') }}">Create User</a>
+                <div class="form-group1">
+                    <center><a class="btn btn-warning" href="{{ route('users.create') }}">Crear usuario</a></center>
                     <table class="table table-striped1 mt-2">
                         <thead style="background-color: #677ef;">
                             <th style="display: none;" > ID</th>
@@ -35,7 +34,7 @@
                                 </td>
                                 <td>
                                     @can('editar-user')
-                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
+                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuario</a>
                                     @endcan
  
  

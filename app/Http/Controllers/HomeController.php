@@ -30,9 +30,9 @@ class HomeController extends Controller
         $products = Post::all();
         $role = '';
         if(!empty($user->getRoleNames()) ) {
-            $role = $user->getRoleNames();
+            $role = $user->getRoleNames()[0];
         }
-        if($role == 'seller') {
+        if($role == 'Seller') {
             $orders = Order::where('seller_id', $user->id)->where('status', 'pending')->get();
             return view('seller.home', compact('orders'));
         } else {
@@ -48,8 +48,8 @@ class HomeController extends Controller
             'quantity' => 'required',
             'price' => 'required',
         ]);
-        Order::create($request->all());
-        return redirect()->back();
+        $order = Order::create($request->all());
+        return redirect()->route('order.show', ['id' => $order->id]);
     }
 
     public function updateOrder(Request $request, $idOrder) {
@@ -57,5 +57,11 @@ class HomeController extends Controller
         $order->status = $request->input('status');
         $order->save();
         return redirect()->back();
+    }
+    public function orders(){
+
+        return view('seller.orders', [
+            'orders' => Order::with('user')->lates()->paginate()]);
+
     }
 }

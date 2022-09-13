@@ -7,8 +7,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\OrdenController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +34,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
 	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
-	Route::post('/homeOrder', [App\Http\Controllers\OrdenController::class,'store'])->name('homeOrder');
-	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\OrdenController::class,'update'])->name('homeUpdatedOrder');
+	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
+	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');
 	Route::post('postCreate', ['as' => 'postCreate', 'uses' => 'App\Http\Controllers\PostController@postCreate']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.profile', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
-	Route::get('profile/{id}', ['as' => 'profile.profileById', 'uses' => 'App\Http\Controllers\ProfileController@profileById']);
+	Route::get('profile/{id}', ['as' => 'profile.show', 'uses' => 'App\Http\Controllers\ProfileController@show']);
 	Route::get('profile/edit', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
@@ -49,6 +47,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('icons', function () {return view('pages.icons');})->name('icons');
 	Route::get('table-list', function () {return view('pages.tables');})->name('table');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+	Route::get('orders/{id}', ['as' => 'order.show', 'uses' => 'App\Http\Controllers\OrdenController@show']);
+	Route::post('/comments', ['as' => 'comments.store', 'uses' => 'App\Http\Controllers\CommentController@store']);
 });
 
 
