@@ -18,6 +18,13 @@
                             </em>
                             {{ $post->created_at->format('d M Y') }}
                         </p>
+
+                        <!-- section comentarios  -->
+                        <div>
+                            <a href="{{ route('comments', $post->id) }}" class="btn btn-primary">Ver comentarios </a>
+                        </div>
+                        <!-- end section   -->
+
                         </div>
                     </div>
                 </div>

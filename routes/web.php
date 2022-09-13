@@ -29,8 +29,8 @@ Route::group(['middleware' => ['auth']], function (){
 	//rutas de prueba
 	
 });
-	Route::get('comentarios',[App\Http\Controllers\CommentController::class,'index']);
-    Route::get('blog/{comentarios}', [App\Http\Controllers\CommentController::class, 'comentario'])->name('comentarios');
+	Route::get('comments',[App\Http\Controllers\CommentController::class,'index']);
+    Route::get('blog/{comments}', [App\Http\Controllers\CommentController::class, 'comment'])->name('comments');
 
 
 
