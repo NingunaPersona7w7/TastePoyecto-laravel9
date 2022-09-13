@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate();
         return view('post.index', compact('posts'));
     }
 
@@ -115,7 +115,12 @@ class PostController extends Controller
             'body' => 'required',
             'price' => 'required',
         ]);
+        $post->update($request->all());
         if($request->hasFile("image")) {
+            if($post->image != null){
+                Post::disk('images')->delete($post->image);
+                $post->image->delete();
+            }
             $imagen = $request->file("image");
             $nombreimagen = uniqid().".".$imagen->guessExtension();
             $ruta = public_path("assets/img/products/");
@@ -125,7 +130,7 @@ class PostController extends Controller
             $post->image = "assets/img/products/".$nombreimagen;
 
         }
-        $post->update($request->all());
+        $post->save();
         return redirect()->route('posts.index')->with('success','Post actualizado correctamente');
     }
 
