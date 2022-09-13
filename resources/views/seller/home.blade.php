@@ -5,12 +5,13 @@
         <div class="content-home-seller">
             <div>
                 <div class="titles-cards-ofBuyer">
-                    PEDIDOS
+                    <h1>PEDIDOS</h1>
                 </div>
                 <div class="content-cards-orders-ofBuyer">
                     @foreach ($orders as $order)
                         <div class="cards-orders-ofBuyer">
                             <h1><span>{{ $order->buyer->name }}</span></h1>
+                            <p>direccion</p>
                             <h3><span>{{ $order->quantity }}</span> <span>{{ $order->post->title }}</span></h3>
                             <h2>$<span>{{ $order->price }}</span></h2>
                             <div class="buttons-orders-ofBuyer">
