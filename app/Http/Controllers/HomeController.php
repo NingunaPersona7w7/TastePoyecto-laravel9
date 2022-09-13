@@ -39,7 +39,8 @@ class HomeController extends Controller
         }
         else if($role == 'Buyer'){
             return view('buyer.home', compact('products'));
-        } else{
+        }
+        else{
             $users = User::paginate(5);
             return view('users.index', compact('users'));
         }
