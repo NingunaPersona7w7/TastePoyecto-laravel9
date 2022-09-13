@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><b><div class="form-title-group1">{{ __('Crear rol') }}</div></b></center>
+                <center><b><div class="form-title-group1">{{ __('Editar rol') }}</div></b></center>
 
                 <div class="card-body">
                     @if ($errors->any())
