@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            @foreach{$comments as $comment}
+            @foreach($comments as $comment)
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">{{ $comment->tittle }}</h5>
