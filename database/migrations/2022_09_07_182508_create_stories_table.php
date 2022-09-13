@@ -13,20 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-
-            $table->bigInteger('user_id')->unsigned();
+        Schema::create('stories', function (Blueprint $table) {
+            $table->bigInteger('story_id')->unsigned();
 
             $table->string('title');
-            $table->string('slug')->unique();
 
             $table->text('body');
-            $table->Integer('calification')->default(1);
 
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('story_id')->references('id')->on('users');
         });
     }
 
@@ -37,11 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
-    }
-
-    public function users()
-    {
-        return $this->belongsTo(users::class,);
+        Schema::dropIfExists('stories');
     }
 };

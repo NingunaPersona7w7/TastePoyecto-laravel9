@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+Use App\HttpControllers\Frontend\RatingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +25,20 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/',[App\Http\Controllers\HomeController::class,'index']);
     Route::get('blog/{post}', [App\Http\Controllers\PageController::class, 'post'])->name('post');
     Route::get('seller',[App\Http\Controllers\RolController::class,'home'])->name('seller');
-;
+
+	//rutas de prueba
+	
 });
+	Route::get('comentarios',[App\Http\Controllers\CommentController::class,'index']);
+    Route::get('blog/{comentarios}', [App\Http\Controllers\CommentController::class, 'comentario'])->name('comentarios');
+
+
+
+/*Route::group(['middleware' => ['auth']], function(){
+	Route::get('/',[App\Http\Controllers\CommentController::class, 'comments']);
+    //Route::get('blog/{comment}', [App\Http\Controllers\CommentController::class, 'comment'])->name('comment');
+}); */
+
 
 Auth::routes();
 
@@ -33,6 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
+	Route::resource('comments', CommentController::class);
 	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
 	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');
@@ -49,6 +65,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('orders/{id}', ['as' => 'order.show', 'uses' => 'App\Http\Controllers\OrdenController@show']);
 	Route::post('/comments', ['as' => 'comments.store', 'uses' => 'App\Http\Controllers\CommentController@store']);
+	Route::get('add-rating', [RatingController::class, 'add'] );
+
 });
-
-

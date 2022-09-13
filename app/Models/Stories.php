@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class stories extends Model
 {
     use Sluggable;
-    protected $fillable = ['title','body'];
+    protected $fillable = ['title','body']; //<---- Add this line
 
     /**
      * Return the sluggable configuration array for this model.
@@ -29,4 +29,14 @@ class Comment extends Model
         return $this->belongsTo(User::class);
 
     }
+    public function getGetExcerptAttribute(){
+
+        return substr($this->body, 0, 50);
+    }
+
+    public function getGetExcerptTitleAttribute(){
+
+            return substr($this->title, 0, 20);
+
+        }
     }

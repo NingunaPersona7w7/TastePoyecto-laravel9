@@ -69,7 +69,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $comments = Comment::find($id);
+        return view('comment.show',['comment'=>$comments]);
     }
 
     /**

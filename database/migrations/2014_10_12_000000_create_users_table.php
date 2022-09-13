@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('adress')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -42,5 +43,9 @@ return new class extends Migration
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function stories(){
+        return $this->hasMany(stories::class);
     }
 };

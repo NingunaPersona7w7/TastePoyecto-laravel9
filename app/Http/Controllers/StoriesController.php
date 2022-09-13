@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comment;
-use Illuminate\Support\Facades\Auth;
-class CommentController extends Controller
+Use App\Models\Stories;
+
+class StoriesController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permissions:ver-stori|crear-stori|editar-stori|eliminar-stori',['only'=>['index']]);
+        $this->middleware('permissions:crear-stori' ,['only'=>['create', 'store']]);
+        $this->middleware('permissions:editar-stori' ,['only'=>['edit', 'update']]);
+        $this->middleware('permissions:eliminar-stori' ,['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +22,8 @@ class CommentController extends Controller
     
     public function index()
     {
-        $comments = Comment::paginate(5);
-        return view('comment.index', compact('comments'));
+        $stories = Stori::paginate(1);
+        return view('stori.index', compact('stories'));
     }
 
     /**
@@ -26,16 +33,16 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comment.crear');
+        return view('stori.crear');
     }
 
-    public function commentCreate(Request $request)
+    public function storiCreate(Request $request)
     {
         request()->validate([
             'title' => 'required',
             'body' => 'required',
         ]);
-        Comment::create($request->all());
+        Stori::create($request->all());
         return redirect()->back();
     }
 
@@ -52,21 +59,21 @@ class CommentController extends Controller
             'body' => 'required'
         ]);
         $user = Auth::user();
-        $comment = new Comment();
-        $comment->user_id =$user->id;
-        $comment->title = $request->title;
-        $comment->body = $request->body;
+        $stori = new Stori();
+        $stori->user_id =$user->id;
+        $stori->title = $request->title;
+        $stori->body = $request->body;
        
-        $comment->save();
-        return redirect()->route('comments.index')->with('success','Comentario creado correctamente');
+        $stori->save();
+        return redirect()->route('stories.index')->with('success','Historia creada correctamente');
 
-        $comment = new Comment();
-        $comment->user_id = $request->user_id;
-        $comment->body = $request->body;
-        $comment->title = $request->title;
-        $comment->calification = $request->calification;
-        $comment->slug = uniqid().$request->title;
-        $comment->save();
+        $stori = new Stori();
+        $stori->user_id = $request->user_id;
+        $stori->body = $request->body;
+        $stori->title = $request->title;
+        $stori->calification = $request->calification;
+        $stori->slug = uniqid().$request->title;
+        $stori->save();
         return redirect()->back();
     }
 
@@ -87,9 +94,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Stori $id)
     {
-        return view('comment.editar', compact('comment'));
+        return view('stori.editar', compact('stori'));
     }
 
     /**
@@ -99,14 +106,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Stori $stori)
     {
         request()->validate([
             'title' => 'required',
             'body' => 'required',
         ]);
-        $comment->update($request->all());
-        return redirect()->route('comment.index')->with('success','Comentario actualizado correctamente');
+        $stori->update($request->all());
+        return redirect()->route('stori.index')->with('success','Historia actualizada correctamente');
     }
 
     /**
@@ -115,9 +122,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Stori $stori)
     {
-        $comment->delete();
-        return redirect()->route('comments.index')->with('success','Comentario eliminado correctamente');
+        $stori->delete();
+        return redirect()->route('stories.index')->with('success','Historia eliminada correctamente');
     }
 }
