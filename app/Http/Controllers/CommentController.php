@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
-
+use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     /**
@@ -12,9 +12,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        //
+        $comments = Comment::paginate(5);
+        return view('post', compact('comments'));
     }
 
     /**
@@ -24,7 +26,17 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('comment.crear');
+    }
+
+    public function commentCreate(Request $request)
+    {
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        Comment::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -37,9 +49,17 @@ class CommentController extends Controller
     {
         request()->validate([
             'title' => 'required',
-            'body' => 'required',
-            'calification' => 'required'
+            'body' => 'required'
         ]);
+        $user = Auth::user();
+        $comment = new Comment();
+        $comment->user_id =$user->id;
+        $comment->title = $request->title;
+        $comment->body = $request->body;
+       
+        $comment->save();
+        return redirect()->route('comments.index')->with('success','Comentario creado correctamente');
+
         $comment = new Comment();
         $comment->user_id = $request->user_id;
         $comment->body = $request->body;
@@ -67,9 +87,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comment $comment)
     {
-        //
+        return view('comment.editar', compact('comment'));
     }
 
     /**
@@ -79,9 +99,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comment $comment)
     {
-        //
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        $comment->update($request->all());
+        return redirect()->route('comments.index')->with('success','Comentario actualizado correctamente');
     }
 
     /**
@@ -90,8 +115,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->route('comments.index')->with('success','Comentario eliminado correctamente');
     }
 }

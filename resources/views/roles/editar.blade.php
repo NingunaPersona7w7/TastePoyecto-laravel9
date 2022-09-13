@@ -1,26 +1,29 @@
 @extends('layouts.app')
-
+ 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><b><div class="form-title-group1">{{ __('Crear rol') }}</div></b></center>
+                <center><b><div class="form-title-group1">{{ __('Editar rol') }}</div></b></center>
 
                 <div class="card-body">
-
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Verifique los campos</strong>
-
+ 
                                 @foreach ($errors->all() as $error)
                                     <span class="help-block">{{ $error }}</span>
                                 @endforeach
-
+ 
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     @endif
+ 
+                    
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
 
                     {!! Form::model($role, ['method' =>'PATCH', 'route' => ['roles.update', $role->id]]) !!}
                     <div class="row">
@@ -33,7 +36,7 @@
                             <br/>
                             @foreach ($permission as $value)
                                 <label>
-                                    {{ Form::checkbox('permission[]', $value->id, in_array($value->id,$rolePermission) ? true : false, ['class' => 'name']) }}
+                                    {{ Form::checkbox('permission[]', $value->id, false, ['class' => 'name']) }}
                                     {{ $value->name }}
                                 </label>
                                 <br/>

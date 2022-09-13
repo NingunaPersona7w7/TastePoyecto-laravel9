@@ -5,11 +5,16 @@
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
-                    <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
+                    <img src="{{ URL::asset($user->image) }}">
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
             </div>
+                <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
+                <button class="button-login" href="{{ route('users.edit', $user->id) }}">Mensajes</a></button>
+                <!-- <button class="button-login">Mensajes</a></button> ...   No tocar :3-->
+            </div>
+
             <div class="profile-info">
                 <h4>{{ $user->name }}</h4>
                 @if (!empty($user->getRoleNames()))
@@ -26,6 +31,8 @@
             </div>
         </div>
 
+                                                                    <!-- Botones del perfil -->
+
         <div class="content-buttonsProfile-inf">
             <div class="buttons-info-profile">
                 <div id="review" class="button-profile selected" onclick="showOptionSelected('review')">
@@ -38,31 +45,44 @@
                     Historia
                 </div>
             </div>
+
+                                                                    <!-- Fin botones -->
+
+                                                                    <!-- Reseñas --> 
+
             <div class="content-description-profile-seller">
 
-                <div id="review-content" class="content-reviews-profile" style="display: block;">
+                <div id="review-content" class="content-reviews-profile" style="display: none;">
 
                     <div class="content-buttons-info-profile">
                         <div class="reviews-info-profile">
-                            @foreach ($qualifications as $item)
+                            @foreach ($qualifications as $comment)
                                 <div class="content-card-qualification">
                                     <div class="content-star">
-                                        @for ($i = 1; $i <= $item->calification; $i++)
+                                        @for ($i = 1; $i <= $comment->calification; $i++)
                                             <img src="{{ URL::asset('assets/img/icons/Star.png') }}"
                                                 class="star-icon-reviews">
                                         @endfor
                                     </div>
                                     <div class="content-comment">
-                                        <h5>{{ $item->title }}</h5>
-                                        <p>{{ $item->body }}</p>
+                                        <h5>{{ $comment->title }}</h5>
+                                        <p>{{ $comment->body }}</p>
                                         <hr>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </div>
+                    <div class="content-create-newComment">
+                        <a href="{{ route('comments.create') }}">
+                            <center><button class="button-login circle-button" name="create-newComment">Crear</button></center>
+                        </a>
+                    </div>
                 </div>
             </div>
+
+                                                                    <!-- Productos -->
+
             <div id="product-content" class="content-products-profile" style="display: none;">
                 <div class="product-content">
                     <div class="carousel-products">
@@ -97,6 +117,9 @@
                     </div>
                 </div>
             </div>
+
+                                                                    <!-- Historia conmovedora -->
+
             <div id="history-content" class="content-history-profile" style="display: none;">
                 <div class="content-create-newProduct">
                     <div class="mb-3">

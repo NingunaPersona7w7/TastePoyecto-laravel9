@@ -69,7 +69,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $comments = Comment::find($id);
+        return view('comment.show',['comment'=>$comments]);
     }
 
     /**
@@ -114,10 +115,20 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
-        if($user->hasRole('Seller'))
-            return redirect()->route('seller');
-        else
-            return redirect()->route('home');
+        // if($user->hasRole('Seller'))
+        //     return redirect()->route('seller');
+        // else
+        if($request->hasFile("image")) {
+            $imagen = $request->file("image");
+            $nombreimagen = uniqid().".".$imagen->guessExtension();
+            $ruta = public_path("assets/img/products/");
+
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+            $user->image = "assets/img/products/".$nombreimagen;
+
+        }
+        return redirect()->route('home');
     }
 
     /**

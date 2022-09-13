@@ -123,6 +123,7 @@
                     </div>
                 </div>
             </div>
+        
             <div class="f1"></div>
         </div>
         <div class="make-reviews">

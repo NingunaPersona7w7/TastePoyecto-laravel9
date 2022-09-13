@@ -10,7 +10,6 @@
 
 
                 <div class="form-group1">
-
                     <center><a class="btn btn-warning" href="{{ route('users.create') }}">Crear usuario</a></center>
                     <table class="table table-striped1 mt-2">
                         <thead style="background-color: #677ef;">
@@ -35,16 +34,16 @@
                                 </td>
                                 <td>
                                     @can('editar-user')
-                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuarior</a>
+                                        <a class="btn btn-danger" href="{{ route('users.edit', $user->id) }}">Editar usuario</a>
                                     @endcan
-
-
+ 
+ 
                                     @can('eliminar-user')
                                         {!! Form::open(['method' => 'DELETE', 'route'=>['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                                         {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
-
+ 
                                 </td>
                             </tr>
                             @endforeach
@@ -52,7 +51,7 @@
                     </table>
                     <div class="pagination justify-content-end">
                         {!! $users->links() !!}
-
+ 
                     </div>
                 </div>
                 @endcan
@@ -61,3 +60,4 @@
     </div>
 </div>
 @endsection
+

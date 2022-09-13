@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Model\Comment;
+use Egulias\EmailValidator\Parser\Comment as ParserComment;
 
 class OrdenController extends Controller
 {
@@ -11,6 +13,9 @@ class OrdenController extends Controller
     {
         $orders = Order::paginate(5);
         return view('seller.home', compact('orders '));
+
+        $roles = Comment::paginate(5);
+        return view('roles.index', compact('roles'));
     }
     public function store(Request $request) {
         request()->validate([
@@ -39,6 +44,11 @@ class OrdenController extends Controller
     public function show($id){
         $order = Order::find($id);
         return view('buyer.orders', ['order' => $order]);
+    }
 
+    public function comments(){
+        return view('comments', [
+            'posts' => CommentsController::with('users')->latest()->paginate()
+        ]);
     }
 }
