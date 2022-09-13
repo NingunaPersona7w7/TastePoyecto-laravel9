@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
+=======
 use App\Models\Post;
 use App\Models\Order;
 use App\Models\User;
+>>>>>>> 8cf2d7e47ee166e888bb161e0d30c912883e4072
 
 class HomeController extends Controller
 {
@@ -27,6 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        return view('home'); 
+=======
         $user = Auth::user();
         $products = Post::all();
         $role = '';
@@ -69,5 +74,6 @@ class HomeController extends Controller
         return view('seller.orders', [
             'orders' => Order::with('user')->lates()->paginate()]);
 
+>>>>>>> 8cf2d7e47ee166e888bb161e0d30c912883e4072
     }
 }

@@ -65,9 +65,11 @@
                     </div>
                 </div>
             @endauth
-            <div class="content-header-logo">
-                <img src="{{ URL::asset('assets/img/icons/logo.png') }}" alt="" srcset="">
-            </div>
+            <a class="name-profile" href="{{ url('/home') }}">
+                <div class="content-header-logo">
+                    <img src="{{ URL::asset('assets/img/icons/logo.png') }}" alt="" srcset="">
+                </div>
+            </a>
             <div class="content-profile-app">
                 @auth()
                     @include('layouts.profile')
@@ -88,6 +90,26 @@
     </div>
     <script src="{{ URL::asset('assets/js/funtions.js') }}"></script>
 
+    <footer>
+        <div class="content-footer">
+            <div class="box-footer">
+                <div class="logo-footer">
+                    <img src="assets/img/logo.png" alt="">
+                </div>
+                <div class="inf-footer">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nisi temporibus inventore 
+                        atque at ipsa labore 
+                        quia dolores dolorem sapiente quis perferendis, officia optio facere reiciendis! Exercitationem, 
+                        aperiam quibusdam? Aliquid.
+                    </p>
+                </div>
+            </div>
+            <div class="box-footer">
+                <h2>Contactanos</h2>
+                <a href="#">Click Aquí</a>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
