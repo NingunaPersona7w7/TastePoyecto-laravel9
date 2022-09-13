@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><b><div class="form-title-group1">{{ __('roles') }}</div></b></center>
+                <center><b><div class="form-title-group1">{{ __('Roles') }}</div></b></center>
 
                 <div class="card-body">
 
@@ -24,7 +24,7 @@
                                 <td >{{ $role->name }}</td>
                                 <td>
                                     @can('editar-rol')
-                                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}" class="btn btn-primary">Edit</a>
+                                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}" class="btn btn-primary">Editar</a>
                                     @endcan
                                     @can('eliminar-rol')
                                         {!! Form::open(['method' => 'DELETE', 'route'=>['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
