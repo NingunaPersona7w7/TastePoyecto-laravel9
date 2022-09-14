@@ -801,6 +801,7 @@ body {
     color: var(--bs-table-striped-color);
 }
 
+
 .table1{
     --bs-table-color: var(--bs-body-color);
     --bs-table-bg: transparent;
@@ -818,3 +819,46 @@ body {
     vertical-align: top;
     border-color: var(--bs-table-border-color);
 }
+
+.option-profile1 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
+    color: rgb(0 0 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+.section-body {
+    width: 500px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.option-profile2 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: rgb(0 0 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-deconration-none {
+    color: transparent;
+}
+
+

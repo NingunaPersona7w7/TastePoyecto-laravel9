@@ -10,7 +10,7 @@
                 <div class="card-body">
 
 
-                <a class="btn btn-warning" href="{{ route('comments.create') }}">Nuevo</a>
+                    <a class="btn btn-warning" href="{{ route('comments.create') }}">Nuevo</a>
                     
                     
                     <table class="table table-striped mt-2">
@@ -28,8 +28,8 @@
                                 <td>
                                     <form action="{{ route('comments.destroy',$comment->id) }}" method="POST">
 
-                                        @methot('UPDATE')
-                                            <a class="btn btn-primary" href="{{ route('comments.editar',$comment->id) }}" class="btn btn-primary">Editar</a>
+                                        
+                                            <a class="btn btn-primary" href="{{ route('comments.edit',$comment->id) }}" class="btn btn-primary">Editar</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Borrar</button>

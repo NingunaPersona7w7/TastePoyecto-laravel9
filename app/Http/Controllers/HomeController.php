@@ -26,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> db4c1c0e03e0433d824f4238eeaacb88d71d91e7
         $user = Auth::user();
         $products = Post::all();
         $role = '';
@@ -38,7 +42,8 @@ class HomeController extends Controller
         }
         else if($role == 'Buyer'){
             return view('buyer.home', compact('products'));
-        } else{
+        }
+        else{
             $users = User::paginate(5);
             return view('users.index', compact('users'));
         }

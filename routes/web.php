@@ -25,12 +25,17 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/',[App\Http\Controllers\HomeController::class,'index']);
     Route::get('blog/{post}', [App\Http\Controllers\PageController::class, 'post'])->name('post');
     Route::get('seller',[App\Http\Controllers\RolController::class,'home'])->name('seller');
+<<<<<<< HEAD
+    Route::get('buyer',[App\Http\Controllers\RolController::class,'index'])->name('buyer');
+;
+=======
 
 	//rutas de prueba
 	
+>>>>>>> 30f3a1148852bcf874b1e45e22b0f64adec42286
 });
-	Route::get('comentarios',[App\Http\Controllers\CommentController::class,'index']);
-    Route::get('blog/{comentarios}', [App\Http\Controllers\CommentController::class, 'comentario'])->name('comentarios');
+	Route::get('comments',[App\Http\Controllers\CommentController::class,'index']);
+    Route::get('blog/{comments}', [App\Http\Controllers\CommentController::class, 'comment'])->name('comments');
 
 
 

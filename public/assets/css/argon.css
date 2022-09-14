@@ -81,7 +81,9 @@ main,
 nav,
 section
 {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body
@@ -97,6 +99,10 @@ body
 
     color: #525f7f;
     background-color: #f8f9fe;
+}
+
+.section-body {
+    width: 500px;
 }
 
 [tabindex='-1']:focus:not(:focus-visible)
@@ -2182,7 +2188,7 @@ pre code
     width: 100%;
     margin-bottom: 1rem;
 
-    i*color: #525f7f;
+    color: #525f7f;
     background-color: transparent;
 }
 .table th,

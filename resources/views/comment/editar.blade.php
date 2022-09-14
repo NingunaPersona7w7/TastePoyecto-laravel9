@@ -42,6 +42,11 @@
                                 <textarea class="form-control" name="body" style="height: 100px">{{ $comment->body }}</textarea>
 
                                 </div>
+
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Imagen</label>
+                                    <input class="form-control" type="file" name="image">
+                                </div>
                             
                             <br>
                             <button type="submit" class="btn btn-primary">Guardar</button>

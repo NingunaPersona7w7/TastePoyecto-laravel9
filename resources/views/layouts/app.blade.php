@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
 </head>
-
+ 
 <body>
     <div class="content-app">
         <header class="content-header">
@@ -31,63 +31,67 @@
                 </div>
                 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                     aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
+                    <center><b><div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">MENU</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
+                    </div></b></center>
                     <div class="offcanvas-body">
-                        <a href="{{ url('/home') }}">
-                            <div class="option-profile">Pagina Principal  </div>
+                        <a class="text-deconration-none" href="{{ url('/home') }}">
+                            <div class="option-profile1">Pagina Principal  </div>
                         </a>
                         @can('ver-user')
-                        <a href="{{ url('/user') }}">
-                            <div class="option-profile">Crud</div>
+                        <a class="text-deconration-none" href="{{ url('/user') }}">
+                            <div class="option-profile1">Crud</div>
                         </a>
                         @endcan
-                        <a href="{{ url('/profile') }}">
-                            <div class="option-profile">Mi perfil</div>
+                        <a class="text-deconration-none" href="{{ url('/profile') }}">
+                            <div class="option-profile1">Mi perfil</div>
                         </a>
                         @can('ver-rol')
-                            <a href="{{ url('/roles') }}">
-                                <div class="option-profile">Roles</div>
+                            <a class="text-deconration-none" href="{{ url('/roles') }}">
+                                <div class="option-profile1">Roles</div>
                             </a>
                         @endcan
                         @can('crear-post')
-                            <a href="{{ url('/posts') }}">
-                                <div class="option-profile">Crear Comida</div>
+                            <a class="text-deconration-none" href="{{ url('/posts') }}">
+                                <div class="option-profile1">Crear Comida</div>
                             </a>
                         @endcan
-                            <a href="{{ route('logout') }}" class="dropdown-item"
+                           
+                    </div>
+                    <a href="{{ route('logout') }}" class="dropdown-item"
                                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                                <div class="option-profile">Cerrar sesión</div>
+                                <div class="option-profile2">Cerrar sesión</div>
                             </a>
-                    </div>
                 </div>
             @endauth
-            <a class="name-profile" href="{{ url('/home') }}">
-                <div class="content-header-logo">
-                    <img src="{{ URL::asset('assets/img/icons/logo.png') }}" alt="" srcset="">
-                </div>
-            </a>
+            <div class="content-header-logo">
+                <img src="{{ URL::asset('assets/img/icons/logo.png') }}" alt="" srcset="">
+            </div>
             <div class="content-profile-app">
                 @auth()
                     @include('layouts.profile')
                 @endauth
             </div>
         </header>
-
+ 
         <main class="main-content">
             @yield('content')
-
-
+ 
+ 
         </main>
     </div>
     <div id="modal-app" class="modal-app">
         <div id="content-modal-app" class="content-modal-app">
-
+ 
         </div>
     </div>
     <script src="{{ URL::asset('assets/js/funtions.js') }}"></script>
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> db4c1c0e03e0433d824f4238eeaacb88d71d91e7
 </body>
+ 
 </html>
