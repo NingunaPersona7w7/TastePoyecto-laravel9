@@ -4,9 +4,6 @@
     <div class="cards-orders-ofBuyer-cards-donate-ofBuyer">
         <div class="content-home-seller">
             <div>
-                <div class="titles-cards-ofBuyer">
-                    <h1>PEDIDOS</h1>
-                </div>
                 <div class="content-cards-orders-ofBuyer">
                     @foreach ($orders as $order)
                         <div class="cards-orders-ofBuyer">
