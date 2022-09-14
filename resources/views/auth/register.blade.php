@@ -32,15 +32,13 @@
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
-
-                <div class="input-group">
+                                <div class="input-group">
                     <label class="input-fill">
                         <input type="text" name="adress" value="{{ old('adress') }}" id = "adress" required autofocus>
                         <span class="input-label">Dirección </span>
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
-
                 <div class="input-group">
                     <label class="input-fill">
                         <input type="email" name="email" value="{{ old('email') }}" id="email " required>
@@ -66,11 +64,19 @@
                         <span class="input-label">Confirmar Contraseña</span>
                         <i class="fa-solid fa-lock"></i>
                     </label>
-                    @if ($errors->has('password'))
-                    <span class="invalid-feedback" style="display: block;" role="alert">
-                        <strong>El correo o la contraseña son incorrectas</strong>
-                    </span>
-                @endif
+                </div>
+                <div class="input-group">
+                    <form action=""></form>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Roles</option>
+                        <option value="1">Comprador </option>
+                        <option value="2">Vendedor</option>
+                      </select>
+                    </form>
+                    <div class="form-group1"{{$user->assignRole($request->input('roles'));}}>
+                        {!! Form::label('rol', 'Rol') !!}
+                        {!! Form::select('role', $roles, [], ['class' => 'form-control']) !!}
+                    </div>
                 </div>
                 <a href="{{ url('/login') }}">¿Tienes una cuenta?</a>
                 <input type="submit" value="Registrar" class="btn-login" />
