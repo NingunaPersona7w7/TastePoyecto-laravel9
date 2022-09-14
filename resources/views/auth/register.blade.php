@@ -40,7 +40,11 @@
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
-
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback" style="display: block;" role="alert">
+                        <strong>El correo o la contraseña son incorrectas</strong>
+                    </span>
+                @endif
                 <div class="input-group">
                     <label class="input-fill">
                         <input type="password" name="password"  id="password " required>
@@ -54,6 +58,11 @@
                         <span class="input-label">Confirmar Contraseña</span>
                         <i class="fa-solid fa-lock"></i>
                     </label>
+                    @if ($errors->has('password'))
+                    <span class="invalid-feedback" style="display: block;" role="alert">
+                        <strong>El correo o la contraseña son incorrectas</strong>
+                    </span>
+                @endif
                 </div>
                 <a href="{{ url('/login') }}">¿Tienes una cuenta?</a>
                 <input type="submit" value="Registrar" class="btn-login" />

@@ -118,14 +118,18 @@ class UserController extends Controller
         // if($user->hasRole('Seller'))
         //     return redirect()->route('seller');
         // else
-        if($request->hasFile("image")) {
-            $imagen = $request->file("image");
-            $nombreimagen = uniqid().".".$imagen->guessExtension();
-            $ruta = public_path("assets/img/products/");
+        if($request->hasFile('image')) {
+            if($user->image != null){
+                user::disk('images')->delete($user->image);
+                $user->image->delete();
+            }
+            $imagen = $request->file('image');
+            $nombreimagen = uniqid().'.'.$imagen->guessExtension();
+            $ruta = public_path('assets/img/products/');
 
             copy($imagen->getRealPath(),$ruta.$nombreimagen);
 
-            $user->image = "assets/img/products/".$nombreimagen;
+            $user->image = 'assets/img/products/'.$nombreimagen;
 
         }
         return redirect()->route('home');

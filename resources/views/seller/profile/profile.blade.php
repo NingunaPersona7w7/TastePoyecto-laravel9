@@ -10,10 +10,7 @@
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
             </div>
-                <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
-                <button class="button-login" href="{{ route('users.edit', $user->id) }}">Mensajes</a></button>
-                <!-- <button class="button-login">Mensajes</a></button> ...   No tocar :3-->
-            </div>
+
 
             <div class="profile-info">
                 <h4>{{ $user->name }}</h4>
@@ -48,7 +45,7 @@
 
                                                                     <!-- Fin botones -->
 
-                                                                    <!-- Reseñas --> 
+                                                                    <!-- Reseñas -->
 
             <div class="content-description-profile-seller">
 
