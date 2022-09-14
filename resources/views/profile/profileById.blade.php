@@ -115,15 +115,21 @@
 
                 </div>
             </div>
+
+
+
             <div id="history-content" class="content-history-profile" style="display: none;">
                 <div class="content-history-seller">
                     <div class="content-history-seller-withoutImg">
                         <h1>✎</h1>
                         <p>...</p>
+
                     </div>
                 </div>
             </div>
         
+
+            
             <div class="f1"></div>
         </div>
         <div class="make-reviews">
