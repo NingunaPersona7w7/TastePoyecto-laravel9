@@ -88,10 +88,6 @@
         </div>
     </div>
     <script src="{{ URL::asset('assets/js/funtions.js') }}"></script>
-<<<<<<< HEAD
-=======
- 
->>>>>>> db4c1c0e03e0433d824f4238eeaacb88d71d91e7
 </body>
  
 </html>

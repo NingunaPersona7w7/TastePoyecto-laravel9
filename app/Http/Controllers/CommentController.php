@@ -51,15 +51,7 @@ class CommentController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        $user = Auth::user();
-        $comment = new Comment();
-        $comment->user_id =$user->id;
-        $comment->title = $request->title;
-        $comment->body = $request->body;
        
-        $comment->save();
-        return redirect()->route('comments.index')->with('success','Comentario creado correctamente');
-
         $comment = new Comment();
         $comment->user_id = $request->user_id;
         $comment->body = $request->body;

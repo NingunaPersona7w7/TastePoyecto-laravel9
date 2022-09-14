@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Request;
 use App\Models\Post;
 use App\Models\Order;
 use App\Models\User;
@@ -26,10 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-=======
-
->>>>>>> db4c1c0e03e0433d824f4238eeaacb88d71d91e7
         $user = Auth::user();
         $products = Post::all();
         $role = '';
