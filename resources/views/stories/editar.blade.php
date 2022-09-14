@@ -35,12 +35,6 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="precio">Precio</label>
-                                    <input type="text" name="price" class="form-control" value="{{ $stori->price }}">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
 
                                 <label for="contenido">Contenido</label>
                                 <div class="form-floating">

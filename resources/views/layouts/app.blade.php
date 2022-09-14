@@ -88,7 +88,6 @@
         </div>
     </div>
     <script src="{{ URL::asset('assets/js/funtions.js') }}"></script>
- 
 </body>
  
 </html>

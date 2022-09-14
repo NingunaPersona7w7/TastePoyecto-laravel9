@@ -4,16 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Stories;
+use Illuminate\Support\Facades\Auth;
 
 class StoriesController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permissions:ver-stori|crear-stori|editar-stori|eliminar-stori',['only'=>['index']]);
-        $this->middleware('permissions:crear-stori' ,['only'=>['create', 'store']]);
-        $this->middleware('permissions:editar-stori' ,['only'=>['edit', 'update']]);
-        $this->middleware('permissions:eliminar-stori' ,['only'=>['destroy']]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -58,9 +53,9 @@ class StoriesController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        $user = Auth::user();
-        $stori = new Stori();
-        $stori->user_id =$user->id;
+
+        $stori = new Stories();
+        $stori->stori_id = $stori->stori_id;
         $stori->title = $request->title;
         $stori->body = $request->body;
        
@@ -68,7 +63,7 @@ class StoriesController extends Controller
         return redirect()->route('stories.index')->with('success','Historia creada correctamente');
 
         $stori = new Stori();
-        $stori->user_id = $request->user_id;
+        $stori->stori_id = $request->stori_id;
         $stori->body = $request->body;
         $stori->title = $request->title;
         $stori->calification = $request->calification;

@@ -18,13 +18,6 @@
                             </em>
                             {{ $post->created_at->format('d M Y') }}
                         </p>
-
-                        <!-- section comentarios  -->
-                        <div>
-                            
-                        </div>
-                        <!-- end section   -->
-
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,6 @@
                                 <td style="display: none;">{{ $stori->name }}</td>
                                 <td >{{ $stori->title }}</td>
                                 <td >{{ $stori->body }}</td>
-                                <td >{{ $stori->price }}</td>
                                 <td>
                                     <form action="{{ route('stories.destroy',$post->id) }}" method="POST">
                                         @can('editar-stori')

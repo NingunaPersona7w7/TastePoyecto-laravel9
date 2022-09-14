@@ -19,11 +19,14 @@
                     <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
-                <button class="button-login">Mensajes</button>
+
+               <button class="button-login"> <a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: DarkSlateGray;" href="mailto:{{$user->email}}">Mensajes</a></button>
+
                 <button class="button-login buttom-donate" onclick="donate()">Donar</button>
-                <button class="button-login buttom-report">Reportar</button>
+                <button class="button-login buttom-report"><a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: rgb(151, 53, 53);" href="mailto:jamartnez36@misena.edu.co">Reportar</a></button>
             </div>
             <div class="profile-info">
+
                 <h4>{{ $user->name }}</h4>
                 @if (!empty($user->getRoleNames()))
                     @foreach ($user->getRoleNames() as $roleName)
@@ -121,9 +124,25 @@
             <div id="history-content" class="content-history-profile" style="display: none;">
                 <div class="content-history-seller">
                     <div class="content-history-seller-withoutImg">
-                        <h1>✎</h1>
+                        <!-- <h1>✎</h1>
                         <p>...</p>
-
+                        -->
+                         <div class="make-stories">
+                            <h3>Escribe tu historia aquí</h3>
+                            <form action="{{URL::route('stories.store')}}" method="POST">
+                                @csrf
+                                <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Titulo</label>
+                                    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Título de la historia">
+                                </div>
+                                <div class="form-group">
+                                <label for="exampleFormControlInput1">Cuerpo</label>
+                                <input type="text" class="form-control" name="body" id="exampleFormControlInput1" placeholder="Contenido de la historia">
+                                </div>
+                                <input type="submit" class="button-login buttom-reviews" value="Enviar">
+                            </form>
+                        </div> 
                     </div>
                 </div>
             </div>
