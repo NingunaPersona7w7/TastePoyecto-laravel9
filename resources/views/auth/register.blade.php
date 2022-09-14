@@ -35,6 +35,14 @@
 
                 <div class="input-group">
                     <label class="input-fill">
+                        <input type="text" name="adress" value="{{ old('adress') }}" id = "adress" required autofocus>
+                        <span class="input-label">Dirección </span>
+                        <i class="fa-solid fa-envelope"></i>
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-fill">
                         <input type="email" name="email" value="{{ old('email') }}" id="email " required>
                         <span class="input-label">Correo Electronico</span>
                         <i class="fa-solid fa-envelope"></i>
