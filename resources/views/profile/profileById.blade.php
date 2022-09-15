@@ -20,7 +20,7 @@
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
 
-               <button class="button-login"> <a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: DarkSlateGray;" href="mailto:{{$user->email}}">Mensajes</a></button>
+               <button class="button-login"> <a style="text-decoration:none; color: rgb(182, 194, 194);" href="mailto:{{$user->email}}">Mensajes</a></button>
 
                 <button class="button-login buttom-donate" onclick="donate()">Donar</button>
                 <button class="button-login buttom-report"><a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: rgb(151, 53, 53);" href="mailto:jamartnez36@misena.edu.co">Reportar</a></button>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="content-box-profileById">
-            
+
         </div>
         <div class="content-buttonsProfile-inf">
             <div class="buttons-info-profile">
@@ -142,13 +142,13 @@
                                 </div>
                                 <input type="submit" class="button-login buttom-reviews" value="Enviar">
                             </form>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
-        
 
-            
+
+
             <div class="f1"></div>
         </div>
         <div class="make-reviews">

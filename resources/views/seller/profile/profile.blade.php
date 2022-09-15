@@ -70,11 +70,6 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="content-create-newComment">
-                        <a href="{{ route('comments.create') }}">
-                            <center><button class="button-login circle-button" name="create-newComment">Crear</button></center>
-                        </a>
-                    </div>
                 </div>
             </div>
 
