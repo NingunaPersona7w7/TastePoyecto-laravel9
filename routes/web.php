@@ -31,10 +31,10 @@ Route::group(['middleware' => ['auth']], function (){
 
 
 	//rutas de prueba
-	
+
 
 });
-	
+
 
 Auth::routes();
 

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="cardo">
-                <center><b><div class="form-title-group1">{{ __('Roles') }}</div></b></center>
+                <center><b><div class="form-title-group1">{{ __('Comida') }}</div></b></center>
 
                 <div class="card-body">
 
@@ -21,7 +21,31 @@
                             <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
                         <tbody>
+                            <?php
+                                $user = Auth::user();
+                                $role = '';
+                                if(!empty($user->getRoleNames()) ) {
+                                    $role = $user->getRoleNames()[0];
+                                }
+                            ?>
                             @foreach($posts as $post )
+                            @if ($role == 'Super Admin')
+                                <tr>
+                                    <td style="display: none;">{{ $post->id }}</td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->content }}</td>
+                                    <td>{{ $post->price }}</td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">Editar</a>
+                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            @else
                             @if ($post->user_id == Auth::user()->id)
                                 <tr>
                                     <td style="display: none;">{{ $post->name }}</td>
@@ -43,7 +67,7 @@
                                     </td>
                                 </tr>
                             @endif
-
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
