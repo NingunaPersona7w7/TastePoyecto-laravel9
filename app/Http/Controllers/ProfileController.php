@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Order;
+use  App\Models\Stories;
 use App\Models\Comment;
 
 class ProfileController extends Controller

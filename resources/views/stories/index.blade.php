@@ -18,8 +18,6 @@
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > Titulo</th>
                             <th style="color: rgb(0, 0, 0)" > Contenido</th>
-                            <th style="color: rgb(0, 0, 0)" > Precio</th>
-                            <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
                         <tbody>
                             @foreach($stories as $stori )
@@ -28,9 +26,9 @@
                                 <td >{{ $stori->title }}</td>
                                 <td >{{ $stori->body }}</td>
                                 <td>
-                                    <form action="{{ route('stories.destroy',$post->id) }}" method="POST">
+                                    <form action="{{ route('stories.destroy',$stori->id) }}" method="POST">
                                         @can('editar-stori')
-                                            <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary">Editar</a>
+                                            <a class="btn btn-primary" href="{{ route('stories.edit',$stori->id) }}" class="btn btn-primary">Editar</a>
                                         @endcan
 
                                         @csrf

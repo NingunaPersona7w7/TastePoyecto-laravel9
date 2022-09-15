@@ -17,7 +17,7 @@ class StoriesController extends Controller
     
     public function index()
     {
-        $stories = Stori::paginate(1);
+        $stories = Stories::paginate();
         return view('stori.index', compact('stories'));
     }
 
@@ -55,21 +55,21 @@ class StoriesController extends Controller
         ]);
 
         $stori = new Stories();
-        $stori->stori_id = $stori->stori_id;
+        $stori->user_id = $request->user_id;
         $stori->title = $request->title;
         $stori->body = $request->body;
        
         $stori->save();
         return redirect()->route('stories.index')->with('success','Historia creada correctamente');
 
-        $stori = new Stori();
+        /*$stori = new Stori();
         $stori->stori_id = $request->stori_id;
         $stori->body = $request->body;
         $stori->title = $request->title;
         $stori->calification = $request->calification;
         $stori->slug = uniqid().$request->title;
         $stori->save();
-        return redirect()->back();
+        return redirect()->back();*/
     }
 
     /**
