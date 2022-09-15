@@ -18,7 +18,7 @@ class StoriesController extends Controller
     public function index()
     {
         $stories = Stories::paginate();
-        return view('stori.index', compact('stories'));
+        return view('stories.index', compact('stories'));
     }
 
     /**
@@ -28,7 +28,7 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        return view('stori.crear');
+        return view('stories.crear');
     }
 
     public function storiCreate(Request $request)
@@ -91,7 +91,7 @@ class StoriesController extends Controller
      */
     public function edit(Stori $id)
     {
-        return view('stori.editar', compact('stori'));
+        return view('stories.editar', compact('stori'));
     }
 
     /**
