@@ -69,8 +69,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $comments = Comment::find($id);
-        return view('comment.show',['comment'=>$comments]);
+        $user = User::find($id);
+        return view('users.show',compact('user'));
     }
 
     /**
@@ -132,6 +132,7 @@ class UserController extends Controller
             $user->image = 'assets/img/products/'.$nombreimagen;
 
         }
+        $user->save();
         return redirect()->route('home');
     }
 
@@ -145,5 +146,15 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('users.index');
+    }
+
+    public function role(Request $request){
+        $this->validate($request, [
+            'roles'=>'required',
+        ]);
+        $input = $request->except(['role']);
+        $user = User::create($input);
+        $user->assignRole($request->input('role'));
+
     }
 }
