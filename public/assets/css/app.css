@@ -509,6 +509,12 @@ u{
 
 }
 
+.stori-content {
+    display: flex;
+    padding: 5%;
+
+}
+
 .content-create-newProduct {
     margin: 5%;
 }
@@ -862,4 +868,9 @@ body {
     color: transparent;
 }
 
-
+.content-storiProfile{
+    background-color: rgb(184, 214, 189);
+     margin-top: 25%;
+    float: right; 
+    width: 5%px;
+}

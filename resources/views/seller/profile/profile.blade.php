@@ -42,7 +42,6 @@
                     Historia
                 </div>
             </div>
-
                                                                     <!-- Fin botones -->
 
                                                                     <!-- Reseñas -->
@@ -119,12 +118,29 @@
                             <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label>
                             </center>
                         </b>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="buttons-history-seller">
-                        <button class="button-login circle-button" name="buttons-history-seller">Subir</button>
-                        <button class="button-login circle-button" name="buttons-history-seller">Editar</button>
-                    </div>
+
+                <div class="make-stories">
+                            
+
+                            @if($user->stories!=null)
+                                
+                                <p>wenas</p>
+                            @else
+                                <h3>Escribe tu historia aquí</h3>
+                                <form action="{{URL::route('stories.store')}}" method="POST">
+                                @csrf
+                                <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Titulo</label>
+                                    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Título de la historia">
+                                </div>
+                                <div class="form-group">
+                                <label for="exampleFormControlInput1">Cuerpo</label>
+                                <textarea class="form-control" name="body" id="exampleFormControlInput1" rows="3" placeholder="Contenido de la historia"></textarea>
+                                    </div>
+                                <input type="submit" class="button-login buttom-reviews" value="Enviar">
+                            </form>
+                            @endif
                 </div>
             </div>
             <div class="f1"></div>

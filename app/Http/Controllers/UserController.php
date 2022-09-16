@@ -132,6 +132,7 @@ class UserController extends Controller
             $user->image = 'assets/img/products/'.$nombreimagen;
 
         }
+        $user->save();
         return redirect()->route('home');
     }
 

@@ -38,6 +38,5 @@ class stories extends Model
     public function getGetExcerptTitleAttribute(){
 
             return substr($this->title, 0, 20);
-
         }
     }

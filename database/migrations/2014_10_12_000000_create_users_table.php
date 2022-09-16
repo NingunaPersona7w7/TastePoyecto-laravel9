@@ -28,7 +28,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     *tiene un
      * @return void
      */
     public function down()
@@ -47,6 +47,6 @@ return new class extends Migration
     }
 
     public function stories(){
-        return $this->hasMany(stories::class);
+        return $this->hasOne(stories::class);
     }
 };
