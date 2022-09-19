@@ -31,6 +31,10 @@
                             {!! Form::text('email', null, ['class' => 'form-control1', 'placeholder' => 'Email']) !!}
                         </div>
                         <div class="form-group1">
+                            {!! Form::label('adress', 'Dirección Domicilio') !!} 
+                            {!! Form::text('adress', null, ['class' => 'form-control1', 'placeholder' => 'Direccion']) !!}
+                        </div>
+                        <div class="form-group1">
                             {!! Form::label('password', 'Contraseña') !!}
                             {!! Form::password('password', ['class' => 'form-control1', 'placeholder' => 'Contraseña']) !!}
                         </div>

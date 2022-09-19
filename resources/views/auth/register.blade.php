@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
-                                <div class="input-group">
+                <div class="input-group">
                     <label class="input-fill">
                         <input type="text" name="adress" value="{{ old('adress') }}" id = "adress" required autofocus>
                         <span class="input-label">Dirección </span>

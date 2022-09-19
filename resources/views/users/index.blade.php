@@ -16,6 +16,7 @@
                             <th style="display: none;" > ID</th>
                             <th style="color: rgb(0, 0, 0)" > nombre</th>
                             <th style="color: rgb(0, 0, 0)" > Email</th>
+                            <th style="color: rgb(0, 0, 0)" > Dirección</th>
                             <th style="color: rgb(0, 0, 0)" > rol</th>
                             <th style="color: rgb(0, 0, 0)">Acciones</th>
                         </thead>
