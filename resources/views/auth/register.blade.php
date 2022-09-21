@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-envelope"></i>
                     </label>
                 </div>
-                                <div class="input-group">
+                <div class="input-group">
                     <label class="input-fill">
                         <input type="text" name="adress" value="{{ old('adress') }}" id = "adress" required autofocus>
                         <span class="input-label">Dirección </span>
@@ -66,11 +66,28 @@
                     </label>
                 </div>
                 <div class="input-group">
+<<<<<<< HEAD
                     {!! Form::open(['route' => ['users.RolStore'], 'method' => 'POST']) !!}
                         {!! Form::label('rol', 'Rol') !!}
                         {!! Form::select('role', $roles, [], ['class' => 'form-control']) !!}
                     {!! Form::close() !!}
 
+||||||| 79ab20b
+                    <form action=""></form>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Roles</option>
+                        <option value="1">Comprador </option>
+                        <option value="2">Vendedor</option>
+                      </select>
+                    </form>
+                    <div class="form-group1"{{$user->assignRole($request->input('roles'));}}>
+                        {!! Form::label('rol', 'Rol') !!}
+                        {!! Form::select('role', $roles, [], ['class' => 'form-control']) !!}
+                    </div>
+=======
+
+
+>>>>>>> 663f05a50a8604463cff12813f2e2b3a80c3503a
                 </div>
                 <a href="{{ url('/login') }}">¿Tienes una cuenta?</a>
                 <input type="submit" value="Registrar" class="btn-login" />

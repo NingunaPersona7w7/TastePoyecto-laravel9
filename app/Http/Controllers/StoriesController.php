@@ -4,16 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Stories;
+use Illuminate\Support\Facades\Auth;
 
 class StoriesController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permissions:ver-stori|crear-stori|editar-stori|eliminar-stori',['only'=>['index']]);
-        $this->middleware('permissions:crear-stori' ,['only'=>['create', 'store']]);
-        $this->middleware('permissions:editar-stori' ,['only'=>['edit', 'update']]);
-        $this->middleware('permissions:eliminar-stori' ,['only'=>['destroy']]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +17,8 @@ class StoriesController extends Controller
     
     public function index()
     {
-        $stories = Stori::paginate(1);
-        return view('stori.index', compact('stories'));
+        $stories = Stories::paginate();
+        return view('stories.index', compact('stories'));
     }
 
     /**
@@ -33,7 +28,7 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        return view('stori.crear');
+        return view('stories.crear');
     }
 
     public function storiCreate(Request $request)
@@ -58,23 +53,23 @@ class StoriesController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        $user = Auth::user();
-        $stori = new Stori();
-        $stori->user_id =$user->id;
+
+        $stori = new Stories();
+        $stori->user_id = $request->user_id;
         $stori->title = $request->title;
         $stori->body = $request->body;
        
         $stori->save();
         return redirect()->route('stories.index')->with('success','Historia creada correctamente');
 
-        $stori = new Stori();
-        $stori->user_id = $request->user_id;
+        /*$stori = new Stori();
+        $stori->stori_id = $request->stori_id;
         $stori->body = $request->body;
         $stori->title = $request->title;
         $stori->calification = $request->calification;
         $stori->slug = uniqid().$request->title;
         $stori->save();
-        return redirect()->back();
+        return redirect()->back();*/
     }
 
     /**
@@ -96,7 +91,7 @@ class StoriesController extends Controller
      */
     public function edit(Stori $id)
     {
-        return view('stori.editar', compact('stori'));
+        return view('stories.editar', compact('stori'));
     }
 
     /**

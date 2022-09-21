@@ -13,9 +13,6 @@ class OrdenController extends Controller
     {
         $orders = Order::paginate(5);
         return view('seller.home', compact('orders '));
-
-        $roles = Comment::paginate(5);
-        return view('roles.index', compact('roles'));
     }
     public function store(Request $request) {
         request()->validate([

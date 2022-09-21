@@ -14,14 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('stories', function (Blueprint $table) {
-            $table->bigInteger('story_id')->unsigned();
+            $table->bigIncrements('id');
+
+            $table->bigInteger('user_id')->unsigned()->nullable();
 
             $table->string('title');
+            $table->string('slug')->unique();
 
             $table->text('body');
 
             $table->timestamps();
-            $table->foreign('story_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -33,5 +36,10 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('stories');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(users::class,);
     }
 };

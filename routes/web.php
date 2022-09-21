@@ -8,6 +8,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\StoriesController;
 Use App\HttpControllers\Frontend\RatingController;
 
 
@@ -35,13 +36,6 @@ Route::group(['middleware' => ['auth']], function (){
 });
 
 
-
-/*Route::group(['middleware' => ['auth']], function(){
-	Route::get('/',[App\Http\Controllers\CommentController::class, 'comments']);
-    //Route::get('blog/{comment}', [App\Http\Controllers\CommentController::class, 'comment'])->name('comment');
-}); */
-
-
 Auth::routes();
 
 
@@ -51,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
 	Route::resource('comments', CommentController::class);
+	Route::resource('stories', StoriesController::class);
 	Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 	Route::post('/homeOrder', [App\Http\Controllers\HomeController::class,'storeOrder'])->name('homeOrder');
 	Route::post('/homeOrderUpdate/{idOrder}', [App\Http\Controllers\HomeController::class,'updateOrder'])->name('homeUpdatedOrder');

@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+||||||| 79ab20b
+use App\Http\Controllers\Request;
+=======
+use Illuminate\Http\Request;
+>>>>>>> 663f05a50a8604463cff12813f2e2b3a80c3503a
 use App\Models\Post;
 use App\Models\Order;
 use App\Models\User;

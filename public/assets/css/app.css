@@ -71,7 +71,7 @@ body {
 .main-content {
     flex: 100;
     padding: 20px;
-    background-color: rgb(240, 255, 242);
+    background-color: white;
 }
 
 .content-login {
@@ -246,7 +246,7 @@ input, select {
 .content-info-profile-seller {
     display: flex;
     flex-direction: column;
-    background-color:  rgb(240, 255, 242);
+    background-color:  white;
     height: -800px;
     padding: 2%;
     padding-bottom: 150px;
@@ -471,7 +471,7 @@ u{
     padding-top: 13%;
 }
 .content-perfil-sellerProduct {
-    background-color: bisque;
+    background-color: rgba(240, 255, 243, 0.815);
     padding: 5%;
     border-radius: 20px;
     display: flex;
@@ -504,6 +504,12 @@ u{
 }
 
 .product-content {
+    display: flex;
+    padding: 5%;
+
+}
+
+.stori-content {
     display: flex;
     padding: 5%;
 
@@ -589,10 +595,11 @@ u{
     width: 350px;
     height: 400px;
     margin: 90px;
-    background-color: rgb(245, 244, 208);
+    background-color: #e5f0de;
     padding: 40px;
     border-radius: 20px;
     border: 2px solid black;
+    box-shadow: 15px 5px 10px #48529944;
 }
 
 .img-product img{
@@ -832,7 +839,7 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
- 
+
 .section-body {
     width: 500px;
 }
@@ -861,4 +868,9 @@ body {
     color: transparent;
 }
 
-
+.content-storiProfile{
+    background-color: rgb(184, 214, 189);
+     margin-top: 25%;
+    float: right; 
+    width: 5%px;
+}

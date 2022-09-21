@@ -12,7 +12,7 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function index()
     {
         $comments = Comment::paginate(5);
@@ -51,7 +51,7 @@ class CommentController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-       
+
         $comment = new Comment();
         $comment->user_id = $request->user_id;
         $comment->body = $request->body;
