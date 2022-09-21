@@ -66,12 +66,9 @@
                     </label>
                 </div>
                 <div class="input-group">
-                    {!! Form::open(['route' => ['users.role'], 'method' => 'POST']) !!}
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Roles</option>
-                        <option value="Seller">Comprador </option>
-                        <option value="Buyer">Vendedor</option>
-                    </select>
+                    {!! Form::open(['route' => ['users.RolStore'], 'method' => 'POST']) !!}
+                        {!! Form::label('rol', 'Rol') !!}
+                        {!! Form::select('role', $roles, [], ['class' => 'form-control']) !!}
                     {!! Form::close() !!}
 
                 </div>

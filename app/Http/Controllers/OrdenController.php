@@ -48,7 +48,7 @@ class OrdenController extends Controller
 
     public function comments(){
         return view('comments', [
-            'posts' => CommentsController::with('users')->latest()->paginate()
+            'posts' => Comment::with('users')->latest()->paginate()
         ]);
     }
 }

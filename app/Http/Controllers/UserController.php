@@ -157,4 +157,15 @@ class UserController extends Controller
         $user->assignRole($request->input('role'));
 
     }
+    public function RolStore(Request $request)
+    {
+        $this->validate($request, [
+            'roles'=>'required',
+        ]);
+        $input = $request->except(['role']);
+        $user = User::create($input);
+        $user->assignRole($request->input('role'));
+
+        return redirect()->route('users.index');
+    }
 }
