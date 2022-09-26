@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Image;
 use Spatie\Permission\Traits\HasRoles;
 
 
@@ -46,7 +47,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function orders(){
         return $this->hasMany(Post::class);
+    }
+
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+
+    public function getProfileImageAttribute()
+    {
+        return $this->image
+            ? "images/{$this->image->path}"
+            : 'https://www.gravatar.com/avatar/404?d=mp';
     }
 }

@@ -31,7 +31,7 @@
                             {!! Form::text('email', null, ['class' => 'form-control1', 'placeholder' => 'Email']) !!}
                         </div>
                         <div class="form-group1">
-                            {!! Form::label('adress', 'Dirección Domicilio') !!} 
+                            {!! Form::label('adress', 'Dirección Domicilio') !!}
                             {!! Form::text('adress', null, ['class' => 'form-control1', 'placeholder' => 'Direccion']) !!}
                         </div>
                         <div class="form-group1">
@@ -46,9 +46,19 @@
                             {!! Form::label('rol', 'Rol') !!}
                             {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control1')) !!}
                         </div>
+
+                        </div>
+                        </div>
                         <div class="mb-3">
-                            <label for="formFile" class="form-label">Imagen</label>
-                            <input class="form-control" type="file" name="image">
+                                <label class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Image') }}
+                                </label>
+                                    <div class="custom-file">
+                                        <input type="file" accept="image/*" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">
+                                            Profile image...
+                                        </label>
+                                    </div>
                         </div>
                         <center><div class="form-group1">
                             {!! Form::submit('Modificar', ['class' => 'button-login']) !!}

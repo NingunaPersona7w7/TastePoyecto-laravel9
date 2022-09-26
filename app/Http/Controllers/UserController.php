@@ -97,6 +97,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        return DB::transaction(function () use ($request, $id) {
         $this->validate($request, [
             'name' => 'required',
             'email'=>'required|email|unique:users,email,'.$id,
@@ -110,31 +111,24 @@ class UserController extends Controller
         }else{
             $input = Arr::except($input, ['password']);
         }
-
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id', $id)->delete();
-
         $user->assignRole($request->input('roles'));
-        // if($user->hasRole('Seller'))
-        //     return redirect()->route('seller');
-        // else
-        if($request->hasFile('image')) {
-            if($user->image != null){
-                user::disk('images')->delete($user->image);
+
+        $user->save();
+        if ($request->hasFile('image')) {
+            if ($user->image != null) {
+                Storage::disk('images')->delete($user->image->path);
                 $user->image->delete();
             }
-            $imagen = $request->file('image');
-            $nombreimagen = uniqid().'.'.$imagen->guessExtension();
-            $ruta = public_path('assets/img/products/');
 
-            copy($imagen->getRealPath(),$ruta.$nombreimagen);
-
-            $user->image = 'assets/img/products/'.$nombreimagen;
-
+            $user->image()->create([
+                'path' => $request->image->store('users', 'images'),
+            ]);
         }
-        $user->save();
-        return redirect()->route('home');
+        return redirect()->route('home')->withSuccess('Profile edited');
+    }, 5);
     }
 
     /**
