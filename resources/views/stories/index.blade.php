@@ -9,9 +9,7 @@
 
                 <div class="card-body">
 
-                    @can('crear-stori')
                         <a class="btn btn-warning" href="{{ route('stories.create') }}">Nuevo</a>
-                    @endcan
                     
                     <!-- <table class="table table-striped mt-2"> -->
                      <table class="table table-striped1 mt-2">
@@ -34,15 +32,15 @@
                                     </td>
                                     <td> 
                                         <form action="{{ route('stories.destroy',$stori->id) }}" method="POST">
-                                            @can('editar-stori')
+                                            
                                                 <a class="btn btn-primary" href="{{ route('stories.edit',$stori->id) }}" class="btn btn-primary">Editar</a>
-                                            @endcan
+                                            
 
                                             @csrf
                                             @method('DELETE')
-                                            @can('eliminar-stori')
+                                            
                                             <button type="submit" class="btn btn-danger">Borrar</button>
-                                            @endcan
+                                        
                                         </form>
                                     </td>
                                 </tr>
