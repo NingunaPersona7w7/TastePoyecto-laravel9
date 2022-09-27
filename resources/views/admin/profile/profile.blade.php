@@ -29,8 +29,16 @@
                             @elseif ($order->status == "delete")
                                 <h3 class="c-r">Estado: {{$order->status}}</h3>
                             @endif
+<<<<<<< HEAD
 
                             <P>direccion</P>
+||||||| 663f05a
+                            
+                            <P>direccion</P>
+=======
+                            
+                            <P>{{$order->buyer->adress}}</P>
+>>>>>>> ecfa0305886a5251098a8eda883019f51cd47eaf
                         </div>
                         <div class="col-2">
                             <img class="content-logo-invoice" src="{{ URL::asset('assets/img/icons/food.png') }}"/>

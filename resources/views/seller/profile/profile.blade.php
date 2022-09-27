@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-profile-seller">
+<div class="content-profile-seller">
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
@@ -39,7 +39,7 @@
                     Productos
                 </div>
                 <div id="history" class="button-profile" onclick="showOptionSelected('history')">
-                    Historia
+                    Descripción
                 </div>
             </div>
                                                                     <!-- Fin botones -->
@@ -115,22 +115,21 @@
                 <div class="content-create-newProduct">
                     <div class="mb-3">
                         <b>
-                            <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su historia</label>
+                            <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su descripción</label>
                             </center>
                         </b>
 
                 <div class="make-stories">
-                    <h3>Escribe tu historia aquí</h3>
                         <form action="{{URL::route('stories.store')}}" method="POST">
                             @csrf
                                 <input type="text" name="user_id" value="{{$user->id}}" hidden>
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">Titulo</label>
-                                        <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Título de la historia">
+                                        <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Título de la descripción">
                                     </div>
                                         <div class="form-group">
                                         <label for="exampleFormControlInput1">Cuerpo</label>
-                                        <textarea class="form-control" name="body" id="exampleFormControlInput1" rows="3" placeholder="Contenido de la historia"></textarea>
+                                        <textarea class="form-control" name="body" id="exampleFormControlInput1" rows="3" placeholder="Contenido de la descripción"></textarea>
                                         </div>
                                 <input type="submit" class="button-login buttom-reviews" value="Enviar">
                         </form>

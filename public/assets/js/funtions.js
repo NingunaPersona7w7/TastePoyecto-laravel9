@@ -5,9 +5,9 @@ function donate() {
     modal.setAttribute("style", "display:flex; background-color: #4f425e;");
     modalContent = document.getElementById("content-modal-app");
     modalContent.setAttribute("style", "background-color: rgb(213, 195, 230);");
-    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¿Cuanto desea donar?</h2>"
+    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¿Cuanto desea dar?</h2>"
     + "<input type='number' min='1' pattern='^[0-9]+'>"
-    + '<button class="button-login buttom-donate" onclick="thanksDonate()">Donar</button>';
+    + '<button class="button-login buttom-donate" onclick="thanksDonate()">Propina</button>';
 }
 
 function thanksDonate() {
@@ -15,7 +15,7 @@ function thanksDonate() {
     modal.setAttribute("style", "display:flex; background-color: #4f425e;");
     modalContent = document.getElementById("content-modal-app");
     modalContent.setAttribute("style", "background-color: rgb(213, 195, 230);");
-    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¡Gracias por donar!</h2>"
+    modalContent.innerHTML = '<div style="width:100%;display: flex; justify-content: flex-end;"><button class= "closeModal" onclick="closeModal()">x</button></div>' + "<h2>¡Gracias por dar!</h2>"
 }
 
 function confirmSale(product, buyer_id) {

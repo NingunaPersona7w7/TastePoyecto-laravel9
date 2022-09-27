@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $qualification = 0;
         $qualifications = Comment::where('user_id', $id)->get();
         if(count($qualifications)==0){
-            $qualification = 1;
+            $qualification = 0;
         }else{
             foreach ($qualifications as $qua) {
                 $qualification += $qua->calification;

@@ -46,6 +46,28 @@
                             {!! Form::label('rol', 'Rol') !!}
                             {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control1')) !!}
                         </div>
+<<<<<<< HEAD
+||||||| 663f05a
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Imagen</label>
+                            <input class="form-control" type="file" name="image">
+                        </div>
+=======
+
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                                <label class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Image') }}
+                                </label>
+                                    <div class="custom-file">
+                                        <input type="file" accept="image/*" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">
+                                            Profile image...
+                                        </label>
+                                    </div>
+                        </div>
+>>>>>>> ecfa0305886a5251098a8eda883019f51cd47eaf
                         <center><div class="form-group1">
                             {!! Form::submit('Modificar', ['class' => 'button-login']) !!}
                         </div></center>
