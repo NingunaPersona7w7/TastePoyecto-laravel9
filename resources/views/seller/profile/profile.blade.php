@@ -5,7 +5,7 @@
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
-                    <img src="{{ URL::asset($user->image) }}">
+                    <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
