@@ -18,11 +18,10 @@
                 <div class="photo-profile">
                     <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
                 </div>
-                <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
 
                <button class="button-login"> <a style="text-decoration:none; color: rgb(182, 194, 194);" href="mailto:{{$user->email}}">Mensajes</a></button>
 
-                <button class="button-login buttom-donate" onclick="donate()">Donar</button>
+                <button class="button-login buttom-donate" onclick="donate()">Propina</button>
                 <button class="button-login buttom-report"><a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: rgb(151, 53, 53);" href="mailto:jamartnez36@misena.edu.co">Reportar</a></button>
             </div>
             <div class="profile-info">
@@ -54,7 +53,7 @@
                     Productos
                 </div>
                 <div id="history" class="button-profile" onclick="showOptionSelected('history')">
-                    Historia
+                    Descripción
                 </div>
             </div>
             <div class="content-description-profile-seller">
@@ -125,9 +124,9 @@
                 <div class="content-history-seller">
                     <div class="content-history-seller-withoutImg">
                          <div class="make-stories">
-                            <h3>Ver historia</h3>
-                            <form action="{{URL::route('stories.store')}}" method="POST">
-                         <!--        @csrf
+                            <h3>Ver descripción</h3>
+                         <!--   <form action="{{URL::route('stories.store')}}" method="POST">
+                                 @csrf
                                 <input type="text" name="user_id" value="{{$user->id}}" hidden>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Titulo</label>
@@ -136,9 +135,9 @@
                                 <div class="form-group">
                                 <label for="exampleFormControlInput1">Cuerpo</label>
                                 <input type="text" class="form-control" name="body" id="exampleFormControlInput1" placeholder="Contenido de la historia">
-                                </div> -->
+                                </div> 
                                 <input type="submit" class="button-login buttom-reviews" value="Enviar">
-                            </form>
+                            </form>-->
                         </div>
                     </div>
                 </div>

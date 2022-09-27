@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-profile-seller">
+<div class="content-profile-seller">
         <div class="content-info-profile-seller">
             <div class="content-profile-avatar">
                 <div class="photo-profile">
-                    <img src="{{ URL::asset($user->image) }}">
+                    <img src="{{ URL::asset('assets/img/profile/profile.jpg') }}">
                 </div>
                 <center><a class="button-login" href="{{ route('users.edit', $user->id) }}">Editar usuario</a></center>
                 <button class="button-login">Mensajes</button>
@@ -39,10 +39,9 @@
                     Productos
                 </div>
                 <div id="history" class="button-profile" onclick="showOptionSelected('history')">
-                    Historia
+                    Descripción
                 </div>
             </div>
-
                                                                     <!-- Fin botones -->
 
                                                                     <!-- Reseñas -->
@@ -107,6 +106,33 @@
                             <center><button class="button-login circle-button" name="create-newProduct">Crear</button></center>
                         </a>
                     </div>
+                </div>
+            </div>
+
+                                                                    <!-- Historia conmovedora -->
+
+            <div id="history-content" class="content-history-profile" style="display: none;">
+                <div class="content-create-newProduct">
+                    <div class="mb-3">
+                        <b>
+                            <center><label for="exampleFormControlTextarea1" class="form-label">Escriba su descripción</label>
+                            </center>
+                        </b>
+
+                <div class="make-stories">
+                        <form action="{{URL::route('stories.store')}}" method="POST">
+                            @csrf
+                                <input type="text" name="user_id" value="{{$user->id}}" hidden>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Titulo</label>
+                                        <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Título de la descripción">
+                                    </div>
+                                        <div class="form-group">
+                                        <label for="exampleFormControlInput1">Cuerpo</label>
+                                        <textarea class="form-control" name="body" id="exampleFormControlInput1" rows="3" placeholder="Contenido de la descripción"></textarea>
+                                        </div>
+                                <input type="submit" class="button-login buttom-reviews" value="Enviar">
+                        </form>
                 </div>
             </div>
             <div class="f1"></div>

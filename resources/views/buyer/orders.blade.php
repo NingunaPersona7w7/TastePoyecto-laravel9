@@ -33,7 +33,7 @@
                     </style>
                 @endif
                 <h3>Estado: {{$order->status}}</h3>
-                <P>direccion</P>
+                <P>{{$order->buyer->adress}}</P>
               </div>
               <div class="col-2">
                 <img class="content-logo-invoice" src="{{ URL::asset('assets/img/icons/food.png') }}"/>

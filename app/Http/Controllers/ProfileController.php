@@ -34,7 +34,7 @@ class ProfileController extends Controller
         }
         if($role == 'Seller') {
             $role = 'Vendedor';
-            $qualification = 1;
+            $qualification = 0;
             $qualifications = Comment::where('user_id', $user->id)->get();
             if(count($qualifications)==0){
                 $qualification=0;
@@ -60,10 +60,10 @@ class ProfileController extends Controller
 
     public function show($id) {
         $user = User::find($id);
-        $qualification = 1;
+        $qualification = 0;
         $qualifications = Comment::where('user_id', $id)->get();
         if(count($qualifications)==0){
-            $qualification = 1;
+            $qualification = 0;
         }else{
             foreach ($qualifications as $qua) {
                 $qualification += $qua->calification;
