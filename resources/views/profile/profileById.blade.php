@@ -21,7 +21,7 @@
 
                <button class="button-login"> <a style="text-decoration:none; color: rgb(182, 194, 194);" href="mailto:{{$user->email}}">Mensajes</a></button>
 
-                <button class="button-login buttom-donate" onclick="donate()">Donar</button>
+                <button class="button-login buttom-donate" onclick="donate()">Propina</button>
                 <button class="button-login buttom-report"><a style="text-decoration:none; hover-color: rgb(195, 230, 230); color: rgb(151, 53, 53);" href="mailto:jamartnez36@misena.edu.co">Reportar</a></button>
             </div>
             <div class="profile-info">
