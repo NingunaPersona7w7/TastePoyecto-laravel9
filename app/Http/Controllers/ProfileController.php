@@ -34,10 +34,10 @@ class ProfileController extends Controller
         }
         if($role == 'Seller') {
             $role = 'Vendedor';
-            $qualification = 1;
+            $qualification = 0;
             $qualifications = Comment::where('user_id', $user->id)->get();
             if(count($qualifications)==0){
-                $qualification=0;
+                $qualification=1;
             }else{
                 foreach ($qualifications as $qua) {
                     $qualification += $qua->calification;
@@ -53,14 +53,15 @@ class ProfileController extends Controller
             return view('buyer/profile/profile', compact('user', 'role', 'orders'));
         }
         else {
-            $users = User::paginate(5);
-            return view('users.index', compact('users'));
+            $role = 'Comprador';
+            $orders = Order::where('buyer_id', $user->id)->get();
+            return view('buyer/profile/profile', compact('user', 'role', 'orders'));
         }
     }
 
     public function show($id) {
         $user = User::find($id);
-        $qualification = 1;
+        $qualification = 0;
         $qualifications = Comment::where('user_id', $id)->get();
         if(count($qualifications)==0){
             $qualification = 1;
