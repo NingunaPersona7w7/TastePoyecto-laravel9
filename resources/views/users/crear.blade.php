@@ -30,7 +30,7 @@
                             {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
                         </div>
                         <div class="form-group1">
-                            {!! Form::label('adress', 'Dirección Domicilio') !!} 
+                            {!! Form::label('adress', 'Dirección Domicilio') !!}
                             {!! Form::text('adress', null, ['class' => 'form-control1', 'placeholder' => 'Direccion']) !!}
                         </div>
                         <div class="form-group1">
